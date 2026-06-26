@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="736" viewBox="0 0 1520 736" font-family="Palatino, Georgia, serif">
+<rect width="1520" height="736" fill="#cfe1fb"/>
+<text x="760.0" y="34" text-anchor="middle" font-size="26" fill="#1a1a8c" font-weight="bold">Magical Frequency Composition Graph</text>
+<text x="130" y="718" text-anchor="middle" font-size="13" fill="#b8902a" font-style="italic">Fundamentals (D&D schools)</text>
+<text x="380" y="718" text-anchor="middle" font-size="13" fill="#b8902a" font-style="italic">Tier 1</text>
+<text x="630" y="718" text-anchor="middle" font-size="13" fill="#b8902a" font-style="italic">Tier 2</text>
+<text x="880" y="718" text-anchor="middle" font-size="13" fill="#b8902a" font-style="italic">Tier 3</text>
+<text x="1130" y="718" text-anchor="middle" font-size="13" fill="#b8902a" font-style="italic">Tier 4</text>
+<text x="1380" y="718" text-anchor="middle" font-size="13" fill="#b8902a" font-style="italic">Apex</text>
+<g stroke="#1a1a8c" stroke-opacity="0.28" fill="none">
+<path d="M176,368.0 C255.0,368.0 255.0,400.0 334,400.0"/>
+<path d="M176,368.0 C255.0,368.0 255.0,400.0 334,400.0"/>
+<path d="M176,304.0 C255.0,304.0 255.0,400.0 334,400.0"/>
+<path d="M176,176.0 C255.0,176.0 255.0,400.0 334,400.0"/>
+<path d="M176,240.0 C255.0,240.0 255.0,336.0 334,336.0"/>
+<path d="M176,240.0 C255.0,240.0 255.0,336.0 334,336.0"/>
+<path d="M176,112.0 C255.0,112.0 255.0,336.0 334,336.0"/>
+<path d="M176,176.0 C255.0,176.0 255.0,336.0 334,336.0"/>
+<path d="M176,432.0 C255.0,432.0 255.0,464.0 334,464.0"/>
+<path d="M176,496.0 C255.0,496.0 255.0,464.0 334,464.0"/>
+<path d="M176,496.0 C255.0,496.0 255.0,464.0 334,464.0"/>
+<path d="M176,560.0 C255.0,560.0 255.0,464.0 334,464.0"/>
+<path d="M176,112.0 C255.0,112.0 255.0,272.0 334,272.0"/>
+<path d="M176,112.0 C255.0,112.0 255.0,272.0 334,272.0"/>
+<path d="M176,240.0 C255.0,240.0 255.0,272.0 334,272.0"/>
+<path d="M176,560.0 C255.0,560.0 255.0,272.0 334,272.0"/>
+<path d="M426,464.0 C505.0,464.0 505.0,336.0 584,336.0"/>
+<path d="M426,400.0 C505.0,400.0 505.0,336.0 584,336.0"/>
+<path d="M176,176.0 C380.0,176.0 380.0,336.0 584,336.0"/>
+<path d="M176,176.0 C380.0,176.0 380.0,336.0 584,336.0"/>
+<path d="M426,336.0 C505.0,336.0 505.0,464.0 584,464.0"/>
+<path d="M426,336.0 C505.0,336.0 505.0,464.0 584,464.0"/>
+<path d="M426,336.0 C505.0,336.0 505.0,464.0 584,464.0"/>
+<path d="M176,432.0 C380.0,432.0 380.0,464.0 584,464.0"/>
+<path d="M426,400.0 C505.0,400.0 505.0,272.0 584,272.0"/>
+<path d="M176,304.0 C380.0,304.0 380.0,272.0 584,272.0"/>
+<path d="M426,400.0 C505.0,400.0 505.0,272.0 584,272.0"/>
+<path d="M426,336.0 C505.0,336.0 505.0,272.0 584,272.0"/>
+<path d="M176,560.0 C380.0,560.0 380.0,400.0 584,400.0"/>
+<path d="M426,272.0 C505.0,272.0 505.0,400.0 584,400.0"/>
+<path d="M426,272.0 C505.0,272.0 505.0,400.0 584,400.0"/>
+<path d="M426,464.0 C505.0,464.0 505.0,400.0 584,400.0"/>
+<path d="M676,336.0 C755.0,336.0 755.0,464.0 834,464.0"/>
+<path d="M426,272.0 C630.0,272.0 630.0,464.0 834,464.0"/>
+<path d="M426,272.0 C630.0,272.0 630.0,464.0 834,464.0"/>
+<path d="M676,400.0 C755.0,400.0 755.0,272.0 834,272.0"/>
+<path d="M676,400.0 C755.0,400.0 755.0,272.0 834,272.0"/>
+<path d="M176,560.0 C505.0,560.0 505.0,272.0 834,272.0"/>
+<path d="M676,272.0 C755.0,272.0 755.0,336.0 834,336.0"/>
+<path d="M426,400.0 C630.0,400.0 630.0,336.0 834,336.0"/>
+<path d="M426,336.0 C630.0,336.0 630.0,336.0 834,336.0"/>
+<path d="M676,464.0 C755.0,464.0 755.0,400.0 834,400.0"/>
+<path d="M426,464.0 C630.0,464.0 630.0,400.0 834,400.0"/>
+<path d="M176,496.0 C505.0,496.0 505.0,400.0 834,400.0"/>
+<path d="M926,272.0 C1005.0,272.0 1005.0,336.0 1084,336.0"/>
+<path d="M926,400.0 C1005.0,400.0 1005.0,336.0 1084,336.0"/>
+<path d="M926,464.0 C1005.0,464.0 1005.0,272.0 1084,272.0"/>
+<path d="M926,336.0 C1005.0,336.0 1005.0,272.0 1084,272.0"/>
+<path d="M426,464.0 C755.0,464.0 755.0,464.0 1084,464.0"/>
+<path d="M926,336.0 C1005.0,336.0 1005.0,464.0 1084,464.0"/>
+<path d="M926,272.0 C1005.0,272.0 1005.0,400.0 1084,400.0"/>
+<path d="M926,464.0 C1005.0,464.0 1005.0,400.0 1084,400.0"/>
+<path d="M1176,272.0 C1255.0,272.0 1255.0,368.0 1334,368.0"/>
+<path d="M1176,464.0 C1255.0,464.0 1255.0,368.0 1334,368.0"/>
+<path d="M1176,400.0 C1255.0,400.0 1255.0,368.0 1334,368.0"/>
+</g>
+<circle cx="130" cy="112.0" r="20" fill="#4F86C6" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="117.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">A</text>
+<text x="158" y="116.0" font-size="11" fill="#1a1a8c">Abjuration</text>
+<circle cx="130" cy="176.0" r="20" fill="#C9A227" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="181.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">C</text>
+<text x="158" y="180.0" font-size="11" fill="#1a1a8c">Conjuration</text>
+<circle cx="130" cy="240.0" r="20" fill="#7E5BB5" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="245.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">D</text>
+<text x="158" y="244.0" font-size="11" fill="#1a1a8c">Divination</text>
+<circle cx="130" cy="304.0" r="20" fill="#D26A9C" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="309.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">En</text>
+<text x="158" y="308.0" font-size="11" fill="#1a1a8c">Enchantment</text>
+<circle cx="130" cy="368.0" r="20" fill="#D1495B" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="373.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">Ev</text>
+<text x="158" y="372.0" font-size="11" fill="#1a1a8c">Evocation</text>
+<circle cx="130" cy="432.0" r="20" fill="#37A6B6" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="437.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">I</text>
+<text x="158" y="436.0" font-size="11" fill="#1a1a8c">Illusion</text>
+<circle cx="130" cy="496.0" r="20" fill="#3E7C4F" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="501.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">N</text>
+<text x="158" y="500.0" font-size="11" fill="#1a1a8c">Necromancy</text>
+<circle cx="130" cy="560.0" r="20" fill="#2A9D8F" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="565.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">T</text>
+<text x="158" y="564.0" font-size="11" fill="#1a1a8c">Transmutation</text>
+<circle cx="130" cy="624.0" r="20" fill="#8A8D91" stroke="#1a1a8c" stroke-width="2"/>
+<text x="130" y="629.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">E</text>
+<text x="158" y="628.0" font-size="11" fill="#1a1a8c">Essence</text>
+<rect x="334" y="383.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="380" y="405.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🔥 Ignetium</text>
+<rect x="334" y="319.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="380" y="341.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">✦ Crallax</text>
+<rect x="334" y="447.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="380" y="469.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🌙 Yonescope</text>
+<rect x="334" y="255.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="380" y="277.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">💎 Chrysipil</text>
+<rect x="584" y="319.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="630" y="341.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🐂 Letchettin</text>
+<rect x="584" y="447.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="630" y="469.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🔔 Silentix</text>
+<rect x="584" y="255.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="630" y="277.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🐉 Draconil</text>
+<rect x="584" y="383.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="630" y="405.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🦜 Myddenic</text>
+<rect x="834" y="447.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="880" y="469.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🪷 Persimmious</text>
+<rect x="834" y="255.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="880" y="277.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">⚗️ Albutian</text>
+<rect x="834" y="319.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="880" y="341.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">☄️ Korastic</text>
+<rect x="834" y="383.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="880" y="405.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🗡️ Lythillious</text>
+<rect x="1084" y="319.0" width="92" height="34" rx="17" fill="#efe6c8" stroke="#b8902a" stroke-width="2"/>
+<text x="1130" y="341.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🪞 Malvesian ✦</text>
+<rect x="1084" y="255.0" width="92" height="34" rx="17" fill="#efe6c8" stroke="#b8902a" stroke-width="2"/>
+<text x="1130" y="277.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🏮 Laternical ✦</text>
+<rect x="1084" y="447.0" width="92" height="34" rx="17" fill="#efe6c8" stroke="#b8902a" stroke-width="2"/>
+<text x="1130" y="469.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">⚡ Thurmistic ✦</text>
+<rect x="1084" y="383.0" width="92" height="34" rx="17" fill="#fff" stroke="#1a1a8c" stroke-width="2"/>
+<text x="1130" y="405.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">📜 Ontoligin</text>
+<rect x="1334" y="351.0" width="92" height="34" rx="17" fill="#efe6c8" stroke="#b8902a" stroke-width="2"/>
+<text x="1380" y="373.0" text-anchor="middle" font-size="12.5" fill="#1a1a8c">🪐 Saspacian ✦</text>
+<text x="60" y="734" font-size="11" fill="#b8902a">✦ = legendary / not emitted by any ingredient</text>
+</svg>

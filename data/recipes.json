@@ -1,0 +1,276 @@
+[
+  {
+    "name": "Healing Draught",
+    "lore": "Mends flesh and quiets pain \u2014 the apprentice's first brew.",
+    "target": {
+      "A": 2,
+      "Crallax": 1,
+      "En": 1
+    },
+    "example_combo": [
+      "Aphasia Flower",
+      "Noble Roses"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Emberheart Cologne",
+    "lore": "A warm, smoky musk that makes the wearer radiate confidence.",
+    "target": {
+      "C": 1,
+      "Ev": 2,
+      "Ignetium": 1
+    },
+    "example_combo": [
+      "Northman's Beard",
+      "Pepperpops"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Mourning Veil",
+    "lore": "Worn at wakes; lets the grieving glimpse the recently departed.",
+    "target": {
+      "En": 1,
+      "N": 2,
+      "Yonescope": 1
+    },
+    "example_combo": [
+      "Mandrake",
+      "Mourningweep"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Gravecaller's Attar",
+    "lore": "A necromancer's signature scent \u2014 the dead lean closer.",
+    "target": {
+      "Myddenic": 1,
+      "N": 3
+    },
+    "example_combo": [
+      "Pemneath Peat",
+      "Undead Heart"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Wyrmscale Perfume",
+    "lore": "Reeks of dragonfire; cowards flee, beasts kneel.",
+    "target": {
+      "Draconil": 1,
+      "Ignetium": 2,
+      "Korastic": 1
+    },
+    "example_combo": [
+      "Fjeldling Scale",
+      "Lady's Gold"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Witching Hour",
+    "lore": "Five frequencies braided into one midnight bloom.",
+    "target": {
+      "C": 1,
+      "Ignetium": 1,
+      "N": 1,
+      "Silentix": 1,
+      "Yonescope": 1
+    },
+    "example_combo": [
+      "Wraith Whisps",
+      "Razorclam Pearl",
+      "Silver"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 5
+  },
+  {
+    "name": "Silent Bell Eau",
+    "lore": "Muffles sound around the wearer; favored by thieves.",
+    "target": {
+      "C": 1,
+      "N": 1,
+      "Silentix": 2
+    },
+    "example_combo": [
+      "Razorclam Pearl",
+      "Owlbear Saliva"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Jeweler's Symphony",
+    "lore": "All four gemstones distilled \u2014 a courtier's flex.",
+    "target": {
+      "A": 2,
+      "C": 1,
+      "D": 1,
+      "En": 1,
+      "Ev": 2,
+      "T": 1
+    },
+    "example_combo": [
+      "Amethyst",
+      "Emerald",
+      "Sapphire",
+      "Ruby"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 8
+  },
+  {
+    "name": "Lotus Reverie",
+    "lore": "Dreamy lotus attar that slows time to a drowsy crawl.",
+    "target": {
+      "A": 2,
+      "E": 1,
+      "Persimmious": 1
+    },
+    "example_combo": [
+      "Sevan Lotus",
+      "Goat Fat"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Archivist's Cologne",
+    "lore": "Ink and old vellum; unlocks forgotten languages.",
+    "target": {
+      "C": 1,
+      "Ev": 2,
+      "Ontoligin": 1
+    },
+    "example_combo": [
+      "Sphynx Paw",
+      "Lake Gar Eye"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Falling Star",
+    "lore": "Streaked with comet-light; grants a single wish-bright moment.",
+    "target": {
+      "D": 1,
+      "E": 1,
+      "Ev": 1,
+      "Korastic": 2
+    },
+    "example_combo": [
+      "Symbiotic Barnacles",
+      "Penchant Jellies"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 5
+  },
+  {
+    "name": "Assassin's Veil",
+    "lore": "Twin daggers of scent \u2014 silent, illusory, lethal.",
+    "target": {
+      "Draconil": 1,
+      "I": 1,
+      "Lythillious": 2
+    },
+    "example_combo": [
+      "Sanguivore Organ",
+      "Green Dragon Venom"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Twin Philtre",
+    "lore": "Double-distilled apothecary's draught, doubly potent.",
+    "target": {
+      "Albutian": 2,
+      "T": 2
+    },
+    "example_combo": [
+      "Great Cold Shard",
+      "Stasis Muck"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 4
+  },
+  {
+    "name": "Crystalline Bloom",
+    "lore": "Frost-flowers crackle across the skin like quartz.",
+    "target": {
+      "Chrysipil": 2,
+      "Crallax": 2,
+      "D": 1
+    },
+    "example_combo": [
+      "Flumph Core",
+      "Quickfish"
+    ],
+    "uses_remove": 0,
+    "uses_add": 0,
+    "n_frequencies": 5
+  },
+  {
+    "name": "Purified Ember",
+    "lore": "Shadow-trimmed to a single clean flame. (uses a minus pill)",
+    "target": {
+      "Ignetium": 1
+    },
+    "example_combo": [
+      "Cave Spider Venom",
+      "Sheensacks"
+    ],
+    "uses_remove": 1,
+    "uses_add": 0,
+    "n_frequencies": 1
+  },
+  {
+    "name": "Hollowed Essence",
+    "lore": "Demon-liver strips a brew down to one crystalline tone. (two minus pills)",
+    "target": {
+      "Chrysipil": 1
+    },
+    "example_combo": [
+      "Amiglia Core",
+      "Shadow Demon Liver"
+    ],
+    "uses_remove": 2,
+    "uses_add": 0,
+    "n_frequencies": 1
+  },
+  {
+    "name": "Gilded Trinity",
+    "lore": "A tulip's wild spark conjures the missing note. (uses a plus pill)",
+    "target": {
+      "A": 2,
+      "C": 1
+    },
+    "example_combo": [
+      "Noble Roses",
+      "Southollow Royal Tulip"
+    ],
+    "uses_remove": 0,
+    "uses_add": 1,
+    "n_frequencies": 3
+  }
+]
