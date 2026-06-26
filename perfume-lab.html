@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Perfumer's Cabinet — Three Feifs</title>
+<style>
+/* ====================================================================
+   THEME — "Arcane Apothecary / Illuminated Grimoire"
+   Blends the Magical Frequency Guide (periwinkle + indigo ink, heraldic
+   shields) with the Ingredients Table (parchment, brass) into one
+   cohesive palette. System-font serif display stack — no network fonts.
+   ==================================================================== */
+:root{
+  --ink:#1a1a8c;                 /* deep indigo ink */
+  --ink-2:#272a6b;
+  --periwinkle:#cfe1fb;          /* pale guide background */
+  --periwinkle-d:#b6cdf0;
+  --parchment:#e7d4af;           /* warm ingredients-table tan */
+  --parchment-l:#f3e8cf;
+  --parchment-d:#d8c194;
+  --brass:#c9a227;               /* gold/brass accent */
+  --brass-d:#9c7c16;
+  --vellum:#fbf6ea;              /* card surface */
+  --maroon:#7a2b3a;
+  --shadow:rgba(26,26,92,.22);
+  --ok:#2f7d4f;
+  --near:#b07a18;
+  --serif-display:"Iris","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --serif-body:"Palatino Linotype",Palatino,"Book Antiqua",Georgia,Cambria,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--serif-body);
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 700px at 12% -8%, #e3edfd 0%, transparent 60%),
+    radial-gradient(1000px 800px at 105% 0%, #dfe9fb 0%, transparent 55%),
+    linear-gradient(170deg,var(--periwinkle) 0%, #c4d8f6 55%, #bcd0f1 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+/* faint engraved texture overlay */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(26,26,140,.5) 3px 4px);
+  mix-blend-mode:multiply;
+}
+.wrap{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:22px clamp(12px,3vw,30px) 70px;}
+
+/* ---------- Header ---------- */
+header.masthead{text-align:center;padding:18px 10px 8px;}
+.crest{font-size:34px;line-height:1;filter:drop-shadow(0 2px 2px var(--shadow));}
+h1.title{
+  font-family:var(--serif-display);
+  font-weight:700;letter-spacing:.5px;
+  font-size:clamp(28px,4.4vw,46px);
+  margin:.18em 0 .04em;color:var(--ink);
+  text-shadow:0 1px 0 #fff, 0 2px 6px var(--shadow);
+}
+.title .amp{color:var(--brass-d);font-style:italic;}
+.subtitle{font-style:italic;color:var(--ink-2);font-size:clamp(13px,1.6vw,17px);margin:.1em 0 .5em;opacity:.92;}
+.stats-line{
+  display:inline-flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;
+  font-variant:small-caps;letter-spacing:.5px;font-size:13.5px;color:var(--ink-2);
+  background:rgba(251,246,234,.6);border:1px solid var(--parchment-d);
+  border-radius:999px;padding:5px 18px;box-shadow:0 1px 4px var(--shadow);
+}
+.stats-line b{color:var(--maroon);font-variant:normal;}
+.rule{height:2px;max-width:560px;margin:14px auto 6px;
+  background:linear-gradient(90deg,transparent,var(--brass),transparent);}
+
+/* ---------- Tabs ---------- */
+nav.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 18px;}
+.tab-btn{
+  font-family:var(--serif-display);font-size:15px;letter-spacing:.4px;
+  color:var(--ink);background:var(--vellum);
+  border:1.5px solid var(--parchment-d);border-bottom-color:var(--brass-d);
+  border-radius:11px 11px 4px 4px;padding:8px 16px;cursor:pointer;
+  box-shadow:0 2px 5px var(--shadow);transition:transform .12s,background .15s,color .15s;
+}
+.tab-btn:hover{transform:translateY(-1px);background:var(--parchment-l);}
+.tab-btn[aria-selected="true"]{
+  background:var(--ink);color:var(--parchment-l);border-color:var(--ink-2);
+  box-shadow:0 3px 10px var(--shadow),inset 0 0 0 1px var(--brass);
+}
+.tab-btn:focus-visible{outline:3px solid var(--brass);outline-offset:2px;}
+.panel{display:none;animation:fade .25s ease;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ---------- Generic card / shield ---------- */
+.shield{
+  background:linear-gradient(180deg,var(--vellum),#f6efde);
+  border:1.5px solid var(--parchment-d);border-radius:14px;
+  box-shadow:0 3px 12px var(--shadow);
+}
+h2.section-h{
+  font-family:var(--serif-display);font-size:clamp(19px,2.5vw,25px);
+  margin:0 0 2px;color:var(--ink);display:flex;align-items:center;gap:9px;
+}
+h2.section-h .ico{font-size:.95em}
+.section-sub{font-style:italic;color:var(--ink-2);font-size:13px;margin:0 0 12px;opacity:.85}
+
+/* ---------- Frequency pills ---------- */
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:23px;height:23px;border-radius:50%;
+  color:#fff;font-weight:700;font-size:11.5px;font-family:var(--serif-body);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.3);
+  border:1px solid rgba(0,0,0,.18);letter-spacing:-.3px;flex:0 0 auto;
+  user-select:none;
+}
+.pill.sm{width:19px;height:19px;font-size:10px}
+.pill.lg{width:30px;height:30px;font-size:14px}
+.named-chip{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--ink);color:var(--parchment-l);
+  border-radius:999px;padding:1px 9px 1px 5px;font-size:12.5px;
+  border:1px solid var(--brass-d);box-shadow:0 1px 3px var(--shadow);
+  white-space:nowrap;font-family:var(--serif-body);
+}
+.named-chip .em{font-size:13px;line-height:1}
+.named-chip.legendary{background:linear-gradient(120deg,#3a2a5c,#5a3d7a);border-color:var(--brass);}
+.named-chip.sm{font-size:11px;padding:0 7px 0 4px}
+.xcount{font-size:11px;opacity:.85;margin-left:2px;font-variant:tabular-nums}
+.tok-wrap{display:inline-flex;align-items:center;gap:3px;margin:2px 4px 2px 0;vertical-align:middle}
+
+/* ====================  BREW LAYOUT  ==================== */
+.brew-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;align-items:start;}
+@media(max-width:980px){.brew-grid{grid-template-columns:1fr;}}
+
+/* Ingredient shelf */
+.shelf{padding:14px 14px 16px;}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px;align-items:center;}
+.search-box{
+  flex:1 1 180px;min-width:140px;font-family:var(--serif-body);font-size:14px;
+  padding:7px 12px;border-radius:9px;border:1.5px solid var(--parchment-d);
+  background:var(--vellum);color:var(--ink);
+}
+.search-box:focus-visible{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass-d);}
+select.filter{
+  font-family:var(--serif-body);font-size:13.5px;padding:7px 9px;border-radius:9px;
+  border:1.5px solid var(--parchment-d);background:var(--vellum);color:var(--ink);cursor:pointer;
+}
+.shelf-scroll{max-height:560px;overflow-y:auto;padding:3px 4px 3px 1px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:9px;}
+.shelf-scroll::-webkit-scrollbar{width:10px}
+.shelf-scroll::-webkit-scrollbar-thumb{background:var(--parchment-d);border-radius:6px}
+.ing-card{
+  text-align:left;cursor:pointer;background:linear-gradient(180deg,var(--vellum),#f4ecd8);
+  border:1.4px solid var(--parchment-d);border-radius:11px;padding:8px 9px;
+  box-shadow:0 1.5px 4px var(--shadow);transition:transform .1s,box-shadow .12s,border-color .12s;
+  display:flex;flex-direction:column;gap:5px;position:relative;font-family:var(--serif-body);color:var(--ink);
+}
+.ing-card:hover{transform:translateY(-2px);box-shadow:0 5px 13px var(--shadow);border-color:var(--brass-d);}
+.ing-card:focus-visible{outline:2.5px solid var(--brass);outline-offset:1px;}
+.ing-card.in-cart{border-color:var(--ink);box-shadow:0 0 0 1.5px var(--ink),0 3px 9px var(--shadow);}
+.ing-name{font-weight:600;font-size:13.5px;line-height:1.18;letter-spacing:.1px;}
+.ing-toks{display:flex;flex-wrap:wrap;align-items:center;gap:3px;min-height:23px;}
+.wild{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;
+  font-size:13px;font-weight:700;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.2);}
+.wild.rem{background:linear-gradient(160deg,#9c3b3b,#742a2a);}
+.wild.add{background:linear-gradient(160deg,#2f7d4f,#235e3b);}
+.pagedot{position:absolute;top:7px;right:8px;font-size:10px;color:var(--ink-2);opacity:.55;font-variant:small-caps;}
+.qty-pip{position:absolute;top:-7px;left:-7px;background:var(--maroon);color:#fff;border-radius:50%;
+  min-width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+  box-shadow:0 1px 3px rgba(0,0,0,.4);border:1.5px solid var(--parchment-l);}
+
+/* Cauldron column */
+.cauldron-col{display:flex;flex-direction:column;gap:16px;position:sticky;top:10px;}
+@media(max-width:980px){.cauldron-col{position:static;}}
+.cauldron-card{padding:14px 15px 16px;}
+.cauldron-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.btn{
+  font-family:var(--serif-display);font-size:13px;letter-spacing:.3px;cursor:pointer;
+  background:var(--vellum);color:var(--ink);border:1.4px solid var(--parchment-d);
+  border-radius:9px;padding:5px 12px;box-shadow:0 1.5px 4px var(--shadow);transition:background .12s,transform .1s;
+}
+.btn:hover{background:var(--parchment-l);transform:translateY(-1px);}
+.btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+.btn.ghost{background:transparent}
+.btn.dark{background:var(--ink);color:var(--parchment-l);border-color:var(--ink-2);}
+
+/* animated flask */
+.flask-stage{display:flex;justify-content:center;align-items:flex-end;margin:6px 0 10px;}
+.flask{position:relative;width:124px;height:128px;}
+.flask svg{display:block;overflow:visible}
+.bubble{animation:rise 3.4s ease-in infinite;transform-origin:center;}
+@keyframes rise{
+  0%{transform:translateY(0) scale(.5);opacity:0}
+  18%{opacity:.85}
+  100%{transform:translateY(-46px) scale(1.05);opacity:0}
+}
+@keyframes sway{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+.liquid-surface{animation:sway 4s ease-in-out infinite;}
+.flask.empty .bubble{animation-play-state:paused;opacity:0;}
+.glow{filter:drop-shadow(0 0 9px rgba(201,162,39,.0));transition:filter .5s;}
+.flask.matched .glow{filter:drop-shadow(0 0 14px rgba(201,162,39,.85));}
+
+/* cart list */
+.cart-list{list-style:none;margin:6px 0 4px;padding:0;display:flex;flex-direction:column;gap:6px;max-height:230px;overflow-y:auto;}
+.cart-row{display:flex;align-items:center;gap:8px;background:var(--parchment-l);border:1px solid var(--parchment-d);
+  border-radius:9px;padding:5px 8px;font-size:13.5px;}
+.cart-row .cname{flex:1;font-weight:600;}
+.qstep{display:inline-flex;align-items:center;gap:5px;}
+.qbtn{width:23px;height:23px;border-radius:7px;border:1.2px solid var(--parchment-d);background:var(--vellum);
+  color:var(--ink);font-weight:700;cursor:pointer;font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;}
+.qbtn:hover{background:var(--parchment);}
+.qbtn:focus-visible{outline:2px solid var(--brass);outline-offset:1px;}
+.qnum{min-width:18px;text-align:center;font-variant:tabular-nums;font-weight:700;}
+.del{color:var(--maroon);background:none;border:none;cursor:pointer;font-size:15px;padding:2px 4px;line-height:1;}
+.del:hover{color:#a8323f}
+.empty-note{font-style:italic;color:var(--ink-2);opacity:.7;font-size:13px;padding:8px 2px;}
+
+.brew-toks{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin:6px 0 2px;min-height:28px;}
+.subhead{font-family:var(--serif-display);font-size:14.5px;color:var(--ink-2);margin:12px 0 4px;
+  border-bottom:1px solid var(--parchment-d);padding-bottom:3px;display:flex;align-items:center;gap:6px;}
+
+/* wildcard controls */
+.wild-panel{background:rgba(231,212,175,.5);border:1px dashed var(--brass-d);border-radius:10px;padding:9px 10px;margin-top:8px;}
+.wild-panel h4{margin:0 0 5px;font-family:var(--serif-display);font-size:13.5px;color:var(--ink);}
+.wild-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.wild-cap{font-size:12px;color:var(--ink-2);font-variant:small-caps;letter-spacing:.4px;}
+.wtok{display:inline-flex;align-items:center;gap:4px;background:var(--vellum);border:1.2px solid var(--parchment-d);
+  border-radius:999px;padding:2px 7px;cursor:pointer;font-size:12px;}
+.wtok:hover{background:var(--parchment-l)}
+.wtok.active{background:var(--ink);color:var(--parchment-l);border-color:var(--ink-2);}
+.wtok.active .pill{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6),0 0 0 1.5px var(--brass);}
+.wtok:focus-visible{outline:2px solid var(--brass);outline-offset:1px;}
+.wsel{font-size:12px;color:var(--maroon);font-weight:600;}
+
+/* match banner */
+#matchBanner{margin-top:12px;}
+.match-card{
+  background:linear-gradient(160deg,#fff8e6,#f6e9c4);border:2px solid var(--brass);
+  border-radius:14px;padding:13px 15px;box-shadow:0 4px 16px rgba(201,162,39,.4);
+  position:relative;overflow:hidden;animation:pop .35s ease;
+}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.match-card::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120px 60px at 85% -10%,rgba(255,255,255,.7),transparent 70%);pointer-events:none;}
+.match-eyebrow{font-variant:small-caps;letter-spacing:1.5px;color:var(--brass-d);font-size:12px;font-weight:700;}
+.match-name{font-family:var(--serif-display);font-size:23px;color:var(--ink);margin:1px 0 3px;}
+.match-lore{font-style:italic;font-size:13.5px;color:var(--ink-2);}
+.near-card{background:rgba(231,212,175,.45);border:1px solid var(--parchment-d);border-radius:11px;padding:9px 12px;margin-top:8px;}
+.near-title{font-variant:small-caps;letter-spacing:.8px;font-size:12px;color:var(--near);font-weight:700;}
+.near-item{font-size:13px;margin-top:4px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+.near-item .nm{font-weight:600}
+.delta{display:inline-flex;align-items:center;gap:3px;font-size:12px;background:var(--vellum);
+  border:1px solid var(--parchment-d);border-radius:7px;padding:1px 6px;}
+.delta.add{color:var(--ok)} .delta.rem{color:var(--maroon)}
+
+/* spectrum chart */
+.spectrum{margin-top:4px;}
+.spec-row{display:grid;grid-template-columns:74px 1fr 30px;align-items:center;gap:8px;margin:3px 0;font-size:12.5px;}
+.spec-label{display:flex;align-items:center;gap:6px;justify-content:flex-end;color:var(--ink-2);}
+.spec-bar-track{background:rgba(26,26,140,.08);border-radius:6px;height:15px;overflow:hidden;border:1px solid var(--parchment-d);}
+.spec-bar{height:100%;border-radius:6px;transition:width .4s ease;box-shadow:inset 0 -2px 3px rgba(0,0,0,.15);min-width:2px;}
+.spec-count{font-variant:tabular-nums;font-weight:700;color:var(--ink);text-align:left;}
+.spec-empty{font-style:italic;color:var(--ink-2);opacity:.7;font-size:13px;}
+
+/* ====================  RECIPES  ==================== */
+.recipe-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.recipe-card{padding:13px 15px;display:flex;flex-direction:column;gap:7px;cursor:pointer;position:relative;
+  transition:transform .12s,box-shadow .12s,border-color .12s;}
+.recipe-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px var(--shadow);border-color:var(--brass-d);}
+.recipe-card:focus-visible{outline:2.5px solid var(--brass);outline-offset:2px;}
+.recipe-card.is-match{border-color:var(--brass);box-shadow:0 0 0 2px var(--brass),0 5px 16px rgba(201,162,39,.35);}
+.bottle-row{display:flex;align-items:center;gap:10px;}
+.bottle{font-size:26px;filter:drop-shadow(0 2px 2px var(--shadow));flex:0 0 auto;}
+.recipe-name{font-family:var(--serif-display);font-size:18px;color:var(--ink);line-height:1.1;}
+.recipe-lore{font-style:italic;font-size:13px;color:var(--ink-2);}
+.recipe-target{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;padding-top:2px;}
+.tgt-label{font-variant:small-caps;font-size:11px;letter-spacing:.6px;color:var(--ink-2);margin-right:2px;}
+.combo-line{font-size:11.5px;color:var(--ink-2);opacity:.85;border-top:1px dashed var(--parchment-d);padding-top:5px;margin-top:auto;}
+.combo-line b{color:var(--maroon);font-weight:600}
+.flag{font-size:10px;font-variant:small-caps;letter-spacing:.5px;background:var(--parchment);border:1px solid var(--parchment-d);
+  border-radius:6px;padding:0 5px;color:var(--ink-2);}
+
+/* ====================  CODEX  ==================== */
+.codex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:13px;}
+.codex-section-title{font-family:var(--serif-display);font-size:18px;color:var(--ink);margin:18px 0 8px;
+  border-bottom:1px solid var(--brass-d);padding-bottom:4px;}
+.codex-card{padding:11px 13px;display:flex;flex-direction:column;gap:6px;}
+.fund-card{display:flex;align-items:center;gap:10px;padding:10px 12px;}
+.fund-meta{display:flex;flex-direction:column;}
+.fund-name{font-family:var(--serif-display);font-size:16px;color:var(--ink);}
+.fund-school{font-size:11.5px;color:var(--ink-2);font-style:italic;}
+.codex-head{display:flex;align-items:center;gap:9px;}
+.codex-em{font-size:22px}
+.codex-title{font-family:var(--serif-display);font-size:17px;color:var(--ink);line-height:1.05;}
+.tier-badge{font-size:10.5px;font-variant:small-caps;letter-spacing:.5px;background:var(--ink);color:var(--parchment-l);
+  border-radius:6px;padding:1px 7px;}
+.legend-badge{font-size:10px;font-variant:small-caps;letter-spacing:.6px;background:linear-gradient(120deg,#3a2a5c,#5a3d7a);
+  color:var(--brass);border:1px solid var(--brass);border-radius:6px;padding:1px 7px;font-weight:700;}
+.codex-row{display:flex;flex-wrap:wrap;align-items:center;gap:4px;}
+.codex-mini-label{font-variant:small-caps;font-size:11px;letter-spacing:.5px;color:var(--ink-2);width:100%;margin-top:2px;}
+
+/* ====================  GRAPH  ==================== */
+.graph-toolbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:10px;padding:10px 12px;}
+.graph-toolbar label{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;cursor:pointer;color:var(--ink);}
+.graph-toolbar input[type=checkbox]{width:15px;height:15px;accent-color:var(--ink);cursor:pointer;}
+.graph-stage{background:radial-gradient(900px 500px at 50% 18%,#dde8fb,#cdddf6);
+  border:1.5px solid var(--parchment-d);border-radius:14px;overflow:hidden;box-shadow:inset 0 2px 12px var(--shadow);}
+#graphSvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab;}
+#graphSvg:active{cursor:grabbing;}
+.g-node{cursor:pointer;}
+.g-node circle,.g-node rect{transition:opacity .2s;}
+.g-label{font-family:var(--serif-body);font-size:9px;fill:var(--ink-2);pointer-events:none;}
+.g-edge{stroke-linecap:round;transition:opacity .2s;}
+.legend-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-2);}
+.legend-dot{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.2);}
+.legend-line{width:18px;height:0;border-top-width:2.5px;border-top-style:solid;}
+
+/* inspector popup (graph + shared) */
+.inspector{margin-top:10px;padding:12px 14px;min-height:20px;}
+.inspector .ins-title{font-family:var(--serif-display);font-size:17px;color:var(--ink);display:flex;align-items:center;gap:8px;}
+.inspector .ins-body{font-size:13px;color:var(--ink-2);margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.inspector .ins-empty{font-style:italic;opacity:.7;}
+
+.tier-col-label{font-family:var(--serif-display);font-size:11px;fill:var(--ink-2);text-anchor:middle;letter-spacing:.5px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+footer.foot{text-align:center;margin-top:34px;font-size:12px;color:var(--ink-2);font-style:italic;opacity:.8;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crest">⚗️</div>
+    <h1 class="title">The Perfumer's Cabinet <span class="amp">—</span> Three Feifs</h1>
+    <p class="subtitle">An illuminated grimoire of magical frequencies, distilled into wearable enchantment.</p>
+    <div class="stats-line" id="statsLine"></div>
+    <div class="rule"></div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab-btn" role="tab" id="tab-brew"   aria-controls="panel-brew"   aria-selected="true">⚗ The Brewing Bench</button>
+    <button class="tab-btn" role="tab" id="tab-recipe" aria-controls="panel-recipe" aria-selected="false">🏺 Perfume Index</button>
+    <button class="tab-btn" role="tab" id="tab-codex"  aria-controls="panel-codex"  aria-selected="false">📖 Frequency Codex</button>
+    <button class="tab-btn" role="tab" id="tab-graph"  aria-controls="panel-graph"  aria-selected="false">✦ Harmonic Atlas</button>
+  </nav>
+
+  <!-- ===================== BREW PANEL ===================== -->
+  <section class="panel" id="panel-brew" role="tabpanel" aria-labelledby="tab-brew">
+    <div class="brew-grid">
+
+      <!-- Ingredient shelf -->
+      <div class="shield shelf">
+        <h2 class="section-h"><span class="ico">🌿</span>The Apothecary's Shelf</h2>
+        <p class="section-sub">Ninety-six reagents, each humming with raw frequency. Tap a card to drop it in the cauldron.</p>
+        <div class="controls">
+          <input class="search-box" id="ingSearch" type="search" placeholder="Search reagents…" aria-label="Search ingredients">
+          <select class="filter" id="filterPage" aria-label="Filter by page"></select>
+          <select class="filter" id="filterFreq" aria-label="Filter by contained frequency"></select>
+          <select class="filter" id="filterKind" aria-label="Filter by type">
+            <option value="all">All reagents</option>
+            <option value="wild">Wildcard only (⊖/⊕)</option>
+            <option value="plain">No wildcards</option>
+          </select>
+        </div>
+        <div class="shelf-scroll" id="shelf" role="list"></div>
+      </div>
+
+      <!-- Cauldron -->
+      <div class="cauldron-col">
+        <div class="shield cauldron-card">
+          <div class="cauldron-head">
+            <h2 class="section-h"><span class="ico">🔮</span>The Cauldron</h2>
+            <button class="btn ghost" id="clearBtn" title="Empty the cauldron">✕ Clear</button>
+          </div>
+          <div class="flask-stage">
+            <div class="flask empty" id="flask" aria-hidden="true">
+              <svg viewBox="0 0 124 128" width="124" height="128">
+                <defs>
+                  <linearGradient id="liqGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#c9a227"/><stop offset="100%" stop-color="#7a2b3a"/>
+                  </linearGradient>
+                  <clipPath id="flaskClip">
+                    <path d="M50 8 h24 v34 l24 56 a14 14 0 0 1 -13 22 H39 a14 14 0 0 1 -13 -22 l24 -56 Z"/>
+                  </clipPath>
+                </defs>
+                <g class="glow">
+                  <path d="M50 8 h24 v34 l24 56 a14 14 0 0 1 -13 22 H39 a14 14 0 0 1 -13 -22 l24 -56 Z"
+                        fill="rgba(251,246,234,.55)" stroke="#1a1a8c" stroke-width="2.4"/>
+                  <g clip-path="url(#flaskClip)">
+                    <rect id="liquid" x="20" y="86" width="84" height="50" fill="url(#liqGrad)" opacity=".9"/>
+                    <path class="liquid-surface" id="liquidSurface" d="M20 86 q21 -8 42 0 t42 0 v40 h-84 Z" fill="#c9a227" opacity=".85"/>
+                    <circle class="bubble" cx="50" cy="118" r="4" fill="#fff4d0" style="animation-delay:0s"/>
+                    <circle class="bubble" cx="66" cy="118" r="3" fill="#fff4d0" style="animation-delay:1.1s"/>
+                    <circle class="bubble" cx="58" cy="118" r="2.5" fill="#fff4d0" style="animation-delay:2.1s"/>
+                    <circle class="bubble" cx="74" cy="118" r="3.5" fill="#fff4d0" style="animation-delay:1.6s"/>
+                  </g>
+                  <rect x="46" y="4" width="32" height="8" rx="3" fill="#1a1a8c"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <ul class="cart-list" id="cartList" aria-live="polite"></ul>
+
+          <div class="subhead">⟡ Brew frequencies</div>
+          <div class="brew-toks" id="brewToks"><span class="empty-note">The cauldron is empty.</span></div>
+
+          <div id="wildControls"></div>
+        </div>
+
+        <!-- match / near -->
+        <div id="matchBanner"></div>
+
+        <!-- spectrum -->
+        <div class="shield cauldron-card">
+          <h2 class="section-h"><span class="ico">📊</span>True Harmonic Signature</h2>
+          <p class="section-sub">Every named frequency expanded to its fundamentals — the brew's deep spectral fingerprint.</p>
+          <div class="spectrum" id="spectrum"><div class="spec-empty">Add reagents to reveal the signature.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RECIPE PANEL ===================== -->
+  <section class="panel" id="panel-recipe" role="tabpanel" aria-labelledby="tab-recipe">
+    <h2 class="section-h"><span class="ico">🏺</span>The Perfume Index</h2>
+    <p class="section-sub">Seventeen storied scents. Click any bottle to load its example combination into the cauldron and watch it match.</p>
+    <div class="recipe-wrap" id="recipeWrap"></div>
+  </section>
+
+  <!-- ===================== CODEX PANEL ===================== -->
+  <section class="panel" id="panel-codex" role="tabpanel" aria-labelledby="tab-codex">
+    <h2 class="section-h"><span class="ico">📖</span>The Frequency Codex</h2>
+    <p class="section-sub">The nine fundamental schools and the seventeen named frequencies woven from them.</p>
+    <div class="codex-section-title">The Nine Fundamentals</div>
+    <div class="codex-grid" id="fundGrid"></div>
+    <div class="codex-section-title">The Seventeen Named Frequencies</div>
+    <div class="codex-grid" id="namedGrid"></div>
+  </section>
+
+  <!-- ===================== GRAPH PANEL ===================== -->
+  <section class="panel" id="panel-graph" role="tabpanel" aria-labelledby="tab-graph">
+    <h2 class="section-h"><span class="ico">✦</span>The Harmonic Atlas</h2>
+    <p class="section-sub">A tiered map of how frequencies compose, left (fundamentals) to right (the apex Saspacian). Toggle overlays to trace ingredients and recipes.</p>
+    <div class="shield graph-toolbar">
+      <label><input type="checkbox" id="ovBrew"> Highlight current brew</label>
+      <label><input type="checkbox" id="ovIng"> Show ingredient → frequency</label>
+      <label><input type="checkbox" id="ovRec"> Show recipe → frequency</label>
+      <span style="flex:1"></span>
+      <span class="legend-chip"><span class="legend-line" style="border-top-color:#1a1a8c"></span>composes</span>
+      <span class="legend-chip"><span class="legend-line" style="border-top-color:#2f7d4f"></span>emits</span>
+      <span class="legend-chip"><span class="legend-line" style="border-top-color:#9c3b3b"></span>requires</span>
+    </div>
+    <div class="shield graph-stage">
+      <svg id="graphSvg" viewBox="0 0 1280 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Frequency directed-acyclic graph"></svg>
+    </div>
+    <div class="shield inspector" id="graphInspector"><span class="ins-empty">Click any node to inspect its harmonics.</span></div>
+  </section>
+
+  <footer class="foot">Distilled in the cabinet of the Three Feifs · pour gently, wear boldly.</footer>
+</div>
+
+<script id="dataset" type="application/json">{"meta":{"title":"Three Feifs — Magical Perfumery","source":["Magical Frequencies.pdf","TTF Ingredients.pdf"],"counts":{"fundamentals":9,"named":17,"ingredients":96,"recipes":17,"obtainable_named":13}},"schools":{"A":{"name":"Abjuration","color":"#4F86C6"},"C":{"name":"Conjuration","color":"#C9A227"},"D":{"name":"Divination","color":"#7E5BB5"},"En":{"name":"Enchantment","color":"#D26A9C"},"Ev":{"name":"Evocation","color":"#D1495B"},"I":{"name":"Illusion","color":"#37A6B6"},"N":{"name":"Necromancy","color":"#3E7C4F"},"T":{"name":"Transmutation","color":"#2A9D8F"},"E":{"name":"Essence","color":"#8A8D91"}},"named":{"Ignetium":{"symbol":"flame","emoji":"🔥","tier":1,"parts":["Ev","Ev","En","C"],"spectrum":{"Ev":2,"En":1,"C":1},"total_fundamentals":4,"obtainable":true},"Crallax":{"symbol":"sparkle","emoji":"✦","tier":1,"parts":["D","D","A","C"],"spectrum":{"D":2,"A":1,"C":1},"total_fundamentals":4,"obtainable":true},"Yonescope":{"symbol":"moon","emoji":"🌙","tier":1,"parts":["I","N","N","T"],"spectrum":{"I":1,"N":2,"T":1},"total_fundamentals":4,"obtainable":true},"Chrysipil":{"symbol":"crystal","emoji":"💎","tier":1,"parts":["A","A","D","T"],"spectrum":{"A":2,"D":1,"T":1},"total_fundamentals":4,"obtainable":true},"Letchettin":{"symbol":"bull","emoji":"🐂","tier":2,"parts":["Yonescope","Ignetium","C","C"],"spectrum":{"I":1,"N":2,"T":1,"Ev":2,"En":1,"C":3},"total_fundamentals":10,"obtainable":true},"Silentix":{"symbol":"bell","emoji":"🔔","tier":2,"parts":["Crallax","Crallax","Crallax","I"],"spectrum":{"D":6,"A":3,"C":3,"I":1},"total_fundamentals":13,"obtainable":true},"Draconil":{"symbol":"seahorse","emoji":"🐉","tier":2,"parts":["Ignetium","En","Ignetium","Crallax"],"spectrum":{"Ev":4,"En":3,"C":3,"D":2,"A":1},"total_fundamentals":13,"obtainable":true},"Myddenic":{"symbol":"birdcage","emoji":"🦜","tier":2,"parts":["T","Chrysipil","Chrysipil","Yonescope"],"spectrum":{"T":4,"A":4,"D":2,"I":1,"N":2},"total_fundamentals":13,"obtainable":true},"Persimmious":{"symbol":"lotus","emoji":"🪷","tier":3,"parts":["Letchettin","Chrysipil","Chrysipil"],"spectrum":{"I":1,"N":2,"T":3,"Ev":2,"En":1,"C":3,"A":4,"D":2},"total_fundamentals":18,"obtainable":true},"Albutian":{"symbol":"potion","emoji":"⚗️","tier":3,"parts":["Myddenic","Myddenic","T"],"spectrum":{"T":9,"A":8,"D":4,"I":2,"N":4},"total_fundamentals":27,"obtainable":true},"Korastic":{"symbol":"comet","emoji":"☄️","tier":3,"parts":["Draconil","Ignetium","Crallax"],"spectrum":{"Ev":6,"En":4,"C":5,"D":4,"A":2},"total_fundamentals":21,"obtainable":true},"Lythillious":{"symbol":"dagger","emoji":"🗡️","tier":3,"parts":["Silentix","Yonescope","N"],"spectrum":{"D":6,"A":3,"C":3,"I":2,"N":3,"T":1},"total_fundamentals":18,"obtainable":true},"Malvesian":{"symbol":"mirror","emoji":"🪞","tier":4,"parts":["Albutian","Lythillious"],"spectrum":{"T":10,"A":11,"D":10,"I":4,"N":7,"C":3},"total_fundamentals":45,"obtainable":false},"Laternical":{"symbol":"lantern","emoji":"🏮","tier":4,"parts":["Persimmious","Korastic"],"spectrum":{"I":1,"N":2,"T":3,"Ev":8,"En":5,"C":8,"A":6,"D":6},"total_fundamentals":39,"obtainable":false},"Thurmistic":{"symbol":"lightning","emoji":"⚡","tier":4,"parts":["Yonescope","Korastic"],"spectrum":{"I":1,"N":2,"T":1,"Ev":6,"En":4,"C":5,"D":4,"A":2},"total_fundamentals":25,"obtainable":false},"Ontoligin":{"symbol":"scroll","emoji":"📜","tier":4,"parts":["Albutian","Persimmious"],"spectrum":{"T":12,"A":12,"D":6,"I":3,"N":6,"Ev":2,"En":1,"C":3},"total_fundamentals":45,"obtainable":true},"Saspacian":{"symbol":"planet","emoji":"🪐","tier":5,"parts":["Laternical","Thurmistic","Ontoligin"],"spectrum":{"I":5,"N":10,"T":16,"Ev":16,"En":10,"C":16,"A":20,"D":16},"total_fundamentals":109,"obtainable":false}},"ingredients":{"Ichorberries":{"parts":["N","En"],"remove":0,"add":0,"page":1,"color":"black"},"Thistle Goblin Tooth":{"parts":["C","Yonescope"],"remove":0,"add":0,"page":1,"color":"green"},"Blistermoss":{"parts":["T","Ev"],"remove":0,"add":0,"page":1,"color":"olive"},"Aphasia Flower":{"parts":["Crallax","En"],"remove":0,"add":0,"page":1,"color":"magenta"},"Noble Roses":{"parts":["A","A"],"remove":0,"add":0,"page":1,"color":"gray"},"Wailing Thrush Egg":{"parts":["Myddenic","En"],"remove":0,"add":0,"page":1,"color":"purple"},"Mourningweep":{"parts":["En","N"],"remove":0,"add":0,"page":1,"color":"teal"},"Shadow Demon Liver":{"parts":[],"remove":2,"add":0,"page":1,"color":"black"},"Bitterhearts":{"parts":["N","D"],"remove":0,"add":0,"page":2,"color":"purple"},"Olgrumast Mushroom":{"parts":["I","A"],"remove":0,"add":0,"page":2,"color":"white"},"Fjeldling Scale":{"parts":["Draconil","Ignetium"],"remove":0,"add":0,"page":2,"color":"red"},"Northman's Beard":{"parts":["Ignetium","C"],"remove":0,"add":0,"page":2,"color":"orange"},"Pepperpops":{"parts":["Ev","Ev"],"remove":0,"add":0,"page":2,"color":"orange"},"Banshee's Hair":{"parts":["N","T"],"remove":0,"add":0,"page":2,"color":"black"},"Razorclam Pearl":{"parts":["Silentix","N"],"remove":0,"add":0,"page":2,"color":"blue"},"Bright":{"parts":["Ev","En"],"remove":0,"add":0,"page":2,"color":"yellow"},"Sheensacks":{"parts":[],"remove":1,"add":0,"page":3,"color":"black"},"Moonchalk":{"parts":["D","I"],"remove":0,"add":0,"page":3,"color":"white"},"Ferrenocht Crystals":{"parts":["N","A"],"remove":0,"add":0,"page":3,"color":"black"},"Redcaps":{"parts":["En","En"],"remove":0,"add":0,"page":3,"color":"red"},"Owlbear Saliva":{"parts":["C","Silentix"],"remove":0,"add":0,"page":3,"color":"teal"},"Elves Ear":{"parts":["D","A"],"remove":0,"add":0,"page":3,"color":"green"},"Bulezau Horn":{"parts":["Letchettin","D"],"remove":0,"add":0,"page":3,"color":"darkred"},"Bubble Blossoms":{"parts":["Chrysipil","En"],"remove":0,"add":0,"page":3,"color":"blue"},"Glitterflies":{"parts":["T","D"],"remove":0,"add":0,"page":4,"color":"cyan"},"Great Cold Shard":{"parts":["Albutian","T"],"remove":0,"add":0,"page":4,"color":"white"},"Pemneath Peat":{"parts":["N","N"],"remove":0,"add":0,"page":4,"color":"black"},"Blood Demon Eye":{"parts":["Letchettin","Ev"],"remove":0,"add":0,"page":4,"color":"red"},"Jotuun Heart":{"parts":["A","Silentix"],"remove":0,"add":0,"page":4,"color":"teal"},"Cloud Lavender":{"parts":["C","T"],"remove":0,"add":0,"page":4,"color":"purple"},"Undead Heart":{"parts":["Myddenic","N"],"remove":0,"add":0,"page":4,"color":"darkred"},"Melting Dewdrops":{"parts":["Chrysipil","N"],"remove":0,"add":0,"page":4,"color":"blue"},"Icecap Crabs":{"parts":["A","A"],"remove":0,"add":0,"page":5,"color":"cyan"},"Lady's Gold":{"parts":["Korastic","Ignetium"],"remove":0,"add":0,"page":5,"color":"orange"},"Weird Dog Foot":{"parts":["D","Ev"],"remove":0,"add":0,"page":5,"color":"blue"},"Sanguipoles":{"parts":["Ignetium","N"],"remove":0,"add":0,"page":5,"color":"red"},"Quickfish":{"parts":["D","Crallax"],"remove":0,"add":0,"page":5,"color":"teal"},"Green Dragon Venom":{"parts":["Lythillious","Draconil"],"remove":0,"add":0,"page":5,"color":"green"},"Mandrake":{"parts":["Yonescope","N"],"remove":0,"add":0,"page":5,"color":"purple"},"Ionillic Eggs":{"parts":["Yonescope","En"],"remove":0,"add":0,"page":5,"color":"blue"},"Oracite":{"parts":["D","D","D"],"remove":0,"add":0,"page":6,"color":"cyan"},"Lumpkins":{"parts":["C","I"],"remove":0,"add":0,"page":6,"color":"orange"},"Hyannis Syrup":{"parts":["D","Ev"],"remove":0,"add":0,"page":6,"color":"blue"},"Tekachapi Berries":{"parts":["Ignetium","N"],"remove":0,"add":0,"page":6,"color":"red"},"Amiglia Core":{"parts":["Chrysipil","Chrysipil","Ignetium"],"remove":0,"add":0,"page":6,"color":"magenta"},"Flumph Core":{"parts":["Chrysipil","Chrysipil","Crallax"],"remove":0,"add":0,"page":6,"color":"green"},"Ennerx Core":{"parts":[],"remove":3,"add":0,"page":6,"color":"black"},"Lemiwinkles":{"parts":["C","C"],"remove":0,"add":0,"page":6,"color":"blue"},"Klyst":{"parts":["A","T","Silentix"],"remove":0,"add":0,"page":7,"color":"white"},"Aurum":{"parts":["A","Draconil"],"remove":0,"add":0,"page":7,"color":"yellow"},"Deadly Moonbloom":{"parts":["Ev","I"],"remove":0,"add":0,"page":7,"color":"blue"},"Rindergrapes":{"parts":["Ignetium","I"],"remove":0,"add":0,"page":7,"color":"red"},"Mara Nur Cap":{"parts":["Chrysipil","E","C"],"remove":0,"add":0,"page":7,"color":"olive"},"Glass":{"parts":["Chrysipil","Letchettin"],"remove":0,"add":0,"page":7,"color":"green"},"Evengeist Ear":{"parts":["N","C"],"remove":0,"add":0,"page":7,"color":"black"},"Arcanavore Organ":{"parts":["Myddenic","Crallax"],"remove":0,"add":0,"page":7,"color":"blue"},"Ogre Hand":{"parts":["Letchettin"],"remove":0,"add":0,"page":8,"color":"orange"},"Katowician Honeyhive":{"parts":["T","T"],"remove":0,"add":0,"page":8,"color":"yellow"},"Sphynx Paw":{"parts":["Ev","Ontoligin"],"remove":0,"add":0,"page":8,"color":"blue"},"Wraith Whisps":{"parts":["Ignetium","Yonescope"],"remove":0,"add":0,"page":8,"color":"gray"},"Creeping Coriand":{"parts":["E","T"],"remove":0,"add":0,"page":8,"color":"olive"},"Seacursed Scale":{"parts":["C","T"],"remove":0,"add":0,"page":8,"color":"green"},"Lake Gar Eye":{"parts":["Ev","C"],"remove":0,"add":0,"page":8,"color":"black"},"Fulmiles":{"parts":["Ignetium","C"],"remove":0,"add":0,"page":8,"color":"blue"},"Goat Fat":{"parts":["A"],"remove":0,"add":0,"page":9,"color":"orange"},"Golden Trilobite":{"parts":["A","Yonescope"],"remove":0,"add":0,"page":9,"color":"yellow"},"Trihorn":{"parts":["Ev","I"],"remove":0,"add":0,"page":9,"color":"blue"},"Chromatic Corpustules":{"parts":["Ignetium","I"],"remove":0,"add":0,"page":9,"color":"red"},"Penchant Jellies":{"parts":["Korastic","E","D"],"remove":0,"add":0,"page":9,"color":"green"},"Bramblechoke":{"parts":["Letchettin","Letchettin"],"remove":0,"add":0,"page":9,"color":"darkred"},"Scourge of the Inlet":{"parts":["T","D"],"remove":0,"add":0,"page":9,"color":"black"},"Brain Lemming":{"parts":["Myddenic","E"],"remove":0,"add":0,"page":9,"color":"blue"},"Sevan Lotus":{"parts":["A","E","Persimmious"],"remove":0,"add":0,"page":10,"color":"pink"},"Southollow Royal Tulip":{"parts":[],"remove":0,"add":1,"page":10,"color":"red"},"Treakbug":{"parts":["Ev","I"],"remove":0,"add":0,"page":10,"color":"blue"},"Sanguivore Organ":{"parts":["Lythillious","I"],"remove":0,"add":0,"page":10,"color":"red"},"Baleful Rockfish":{"parts":["Persimmious","E","C"],"remove":0,"add":0,"page":10,"color":"olive"},"Verdaux":{"parts":["E","En"],"remove":0,"add":0,"page":10,"color":"green"},"Rotgulp Eggs":{"parts":["N","Silentix"],"remove":0,"add":0,"page":10,"color":"black"},"Spearfisher Horns":{"parts":["A","Yonescope"],"remove":0,"add":0,"page":10,"color":"blue"},"Great Owl Egg":{"parts":["C","I","Silentix"],"remove":0,"add":0,"page":11,"color":"white"},"Amber":{"parts":["T","Ignetium"],"remove":0,"add":0,"page":11,"color":"yellow"},"Dwarf Tubers":{"parts":["C","Chrysipil"],"remove":0,"add":0,"page":11,"color":"blue"},"Symbiotic Barnacles":{"parts":["Ev","Korastic"],"remove":0,"add":0,"page":11,"color":"red"},"Ooze Cube":{"parts":["T","E","N"],"remove":0,"add":0,"page":11,"color":"olive"},"Lornlarch":{"parts":["Ignetium","Letchettin"],"remove":0,"add":0,"page":11,"color":"green"},"Cave Spider Venom":{"parts":["N","Ignetium"],"remove":0,"add":0,"page":11,"color":"black"},"Stasis Muck":{"parts":["Albutian","T"],"remove":0,"add":0,"page":11,"color":"blue"},"Amethyst":{"parts":["A","T"],"remove":0,"add":0,"page":12,"color":"purple"},"Emerald":{"parts":["En","C"],"remove":0,"add":0,"page":12,"color":"green"},"Sapphire":{"parts":["D","Ev"],"remove":0,"add":0,"page":12,"color":"blue"},"Ruby":{"parts":["A","Ev"],"remove":0,"add":0,"page":12,"color":"red"},"Silver":{"parts":["C"],"remove":0,"add":0,"page":12,"color":"teal"},"Gold":{"parts":["T"],"remove":0,"add":0,"page":12,"color":"yellow"},"Chrythsmeum":{"parts":["D"],"remove":0,"add":0,"page":12,"color":"gray"},"Platinum":{"parts":["A"],"remove":0,"add":0,"page":12,"color":"white"}},"recipes":[{"name":"Healing Draught","lore":"Mends flesh and quiets pain — the apprentice's first brew.","target":{"A":2,"Crallax":1,"En":1},"example_combo":["Aphasia Flower","Noble Roses"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Emberheart Cologne","lore":"A warm, smoky musk that makes the wearer radiate confidence.","target":{"C":1,"Ev":2,"Ignetium":1},"example_combo":["Northman's Beard","Pepperpops"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Mourning Veil","lore":"Worn at wakes; lets the grieving glimpse the recently departed.","target":{"En":1,"N":2,"Yonescope":1},"example_combo":["Mandrake","Mourningweep"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Gravecaller's Attar","lore":"A necromancer's signature scent — the dead lean closer.","target":{"Myddenic":1,"N":3},"example_combo":["Pemneath Peat","Undead Heart"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Wyrmscale Perfume","lore":"Reeks of dragonfire; cowards flee, beasts kneel.","target":{"Draconil":1,"Ignetium":2,"Korastic":1},"example_combo":["Fjeldling Scale","Lady's Gold"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Witching Hour","lore":"Five frequencies braided into one midnight bloom.","target":{"C":1,"Ignetium":1,"N":1,"Silentix":1,"Yonescope":1},"example_combo":["Wraith Whisps","Razorclam Pearl","Silver"],"uses_remove":0,"uses_add":0,"n_frequencies":5},{"name":"Silent Bell Eau","lore":"Muffles sound around the wearer; favored by thieves.","target":{"C":1,"N":1,"Silentix":2},"example_combo":["Razorclam Pearl","Owlbear Saliva"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Jeweler's Symphony","lore":"All four gemstones distilled — a courtier's flex.","target":{"A":2,"C":1,"D":1,"En":1,"Ev":2,"T":1},"example_combo":["Amethyst","Emerald","Sapphire","Ruby"],"uses_remove":0,"uses_add":0,"n_frequencies":8},{"name":"Lotus Reverie","lore":"Dreamy lotus attar that slows time to a drowsy crawl.","target":{"A":2,"E":1,"Persimmious":1},"example_combo":["Sevan Lotus","Goat Fat"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Archivist's Cologne","lore":"Ink and old vellum; unlocks forgotten languages.","target":{"C":1,"Ev":2,"Ontoligin":1},"example_combo":["Sphynx Paw","Lake Gar Eye"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Falling Star","lore":"Streaked with comet-light; grants a single wish-bright moment.","target":{"D":1,"E":1,"Ev":1,"Korastic":2},"example_combo":["Symbiotic Barnacles","Penchant Jellies"],"uses_remove":0,"uses_add":0,"n_frequencies":5},{"name":"Assassin's Veil","lore":"Twin daggers of scent — silent, illusory, lethal.","target":{"Draconil":1,"I":1,"Lythillious":2},"example_combo":["Sanguivore Organ","Green Dragon Venom"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Twin Philtre","lore":"Double-distilled apothecary's draught, doubly potent.","target":{"Albutian":2,"T":2},"example_combo":["Great Cold Shard","Stasis Muck"],"uses_remove":0,"uses_add":0,"n_frequencies":4},{"name":"Crystalline Bloom","lore":"Frost-flowers crackle across the skin like quartz.","target":{"Chrysipil":2,"Crallax":2,"D":1},"example_combo":["Flumph Core","Quickfish"],"uses_remove":0,"uses_add":0,"n_frequencies":5},{"name":"Purified Ember","lore":"Shadow-trimmed to a single clean flame. (uses a minus pill)","target":{"Ignetium":1},"example_combo":["Cave Spider Venom","Sheensacks"],"uses_remove":1,"uses_add":0,"n_frequencies":1},{"name":"Hollowed Essence","lore":"Demon-liver strips a brew down to one crystalline tone. (two minus pills)","target":{"Chrysipil":1},"example_combo":["Amiglia Core","Shadow Demon Liver"],"uses_remove":2,"uses_add":0,"n_frequencies":1},{"name":"Gilded Trinity","lore":"A tulip's wild spark conjures the missing note. (uses a plus pill)","target":{"A":2,"C":1},"example_combo":["Noble Roses","Southollow Royal Tulip"],"uses_remove":0,"uses_add":1,"n_frequencies":3}],"graph":{"nodes":[{"id":"f:A","label":"A","type":"fundamental","name":"Abjuration","color":"#4F86C6"},{"id":"f:C","label":"C","type":"fundamental","name":"Conjuration","color":"#C9A227"},{"id":"f:D","label":"D","type":"fundamental","name":"Divination","color":"#7E5BB5"},{"id":"f:En","label":"En","type":"fundamental","name":"Enchantment","color":"#D26A9C"},{"id":"f:Ev","label":"Ev","type":"fundamental","name":"Evocation","color":"#D1495B"},{"id":"f:I","label":"I","type":"fundamental","name":"Illusion","color":"#37A6B6"},{"id":"f:N","label":"N","type":"fundamental","name":"Necromancy","color":"#3E7C4F"},{"id":"f:T","label":"T","type":"fundamental","name":"Transmutation","color":"#2A9D8F"},{"id":"f:E","label":"E","type":"fundamental","name":"Essence","color":"#8A8D91"},{"id":"n:Ignetium","label":"Ignetium","type":"named","tier":1,"emoji":"🔥","obtainable":true},{"id":"n:Crallax","label":"Crallax","type":"named","tier":1,"emoji":"✦","obtainable":true},{"id":"n:Yonescope","label":"Yonescope","type":"named","tier":1,"emoji":"🌙","obtainable":true},{"id":"n:Chrysipil","label":"Chrysipil","type":"named","tier":1,"emoji":"💎","obtainable":true},{"id":"n:Letchettin","label":"Letchettin","type":"named","tier":2,"emoji":"🐂","obtainable":true},{"id":"n:Silentix","label":"Silentix","type":"named","tier":2,"emoji":"🔔","obtainable":true},{"id":"n:Draconil","label":"Draconil","type":"named","tier":2,"emoji":"🐉","obtainable":true},{"id":"n:Myddenic","label":"Myddenic","type":"named","tier":2,"emoji":"🦜","obtainable":true},{"id":"n:Persimmious","label":"Persimmious","type":"named","tier":3,"emoji":"🪷","obtainable":true},{"id":"n:Albutian","label":"Albutian","type":"named","tier":3,"emoji":"⚗️","obtainable":true},{"id":"n:Korastic","label":"Korastic","type":"named","tier":3,"emoji":"☄️","obtainable":true},{"id":"n:Lythillious","label":"Lythillious","type":"named","tier":3,"emoji":"🗡️","obtainable":true},{"id":"n:Malvesian","label":"Malvesian","type":"named","tier":4,"emoji":"🪞","obtainable":false},{"id":"n:Laternical","label":"Laternical","type":"named","tier":4,"emoji":"🏮","obtainable":false},{"id":"n:Thurmistic","label":"Thurmistic","type":"named","tier":4,"emoji":"⚡","obtainable":false},{"id":"n:Ontoligin","label":"Ontoligin","type":"named","tier":4,"emoji":"📜","obtainable":true},{"id":"n:Saspacian","label":"Saspacian","type":"named","tier":5,"emoji":"🪐","obtainable":false},{"id":"i:Ichorberries","label":"Ichorberries","type":"ingredient","page":1,"color":"black","remove":0,"add":0},{"id":"i:Thistle Goblin Tooth","label":"Thistle Goblin Tooth","type":"ingredient","page":1,"color":"green","remove":0,"add":0},{"id":"i:Blistermoss","label":"Blistermoss","type":"ingredient","page":1,"color":"olive","remove":0,"add":0},{"id":"i:Aphasia Flower","label":"Aphasia Flower","type":"ingredient","page":1,"color":"magenta","remove":0,"add":0},{"id":"i:Noble Roses","label":"Noble Roses","type":"ingredient","page":1,"color":"gray","remove":0,"add":0},{"id":"i:Wailing Thrush Egg","label":"Wailing Thrush Egg","type":"ingredient","page":1,"color":"purple","remove":0,"add":0},{"id":"i:Mourningweep","label":"Mourningweep","type":"ingredient","page":1,"color":"teal","remove":0,"add":0},{"id":"i:Shadow Demon Liver","label":"Shadow Demon Liver","type":"ingredient","page":1,"color":"black","remove":2,"add":0},{"id":"i:Bitterhearts","label":"Bitterhearts","type":"ingredient","page":2,"color":"purple","remove":0,"add":0},{"id":"i:Olgrumast Mushroom","label":"Olgrumast Mushroom","type":"ingredient","page":2,"color":"white","remove":0,"add":0},{"id":"i:Fjeldling Scale","label":"Fjeldling Scale","type":"ingredient","page":2,"color":"red","remove":0,"add":0},{"id":"i:Northman's Beard","label":"Northman's Beard","type":"ingredient","page":2,"color":"orange","remove":0,"add":0},{"id":"i:Pepperpops","label":"Pepperpops","type":"ingredient","page":2,"color":"orange","remove":0,"add":0},{"id":"i:Banshee's Hair","label":"Banshee's Hair","type":"ingredient","page":2,"color":"black","remove":0,"add":0},{"id":"i:Razorclam Pearl","label":"Razorclam Pearl","type":"ingredient","page":2,"color":"blue","remove":0,"add":0},{"id":"i:Bright","label":"Bright","type":"ingredient","page":2,"color":"yellow","remove":0,"add":0},{"id":"i:Sheensacks","label":"Sheensacks","type":"ingredient","page":3,"color":"black","remove":1,"add":0},{"id":"i:Moonchalk","label":"Moonchalk","type":"ingredient","page":3,"color":"white","remove":0,"add":0},{"id":"i:Ferrenocht Crystals","label":"Ferrenocht Crystals","type":"ingredient","page":3,"color":"black","remove":0,"add":0},{"id":"i:Redcaps","label":"Redcaps","type":"ingredient","page":3,"color":"red","remove":0,"add":0},{"id":"i:Owlbear Saliva","label":"Owlbear Saliva","type":"ingredient","page":3,"color":"teal","remove":0,"add":0},{"id":"i:Elves Ear","label":"Elves Ear","type":"ingredient","page":3,"color":"green","remove":0,"add":0},{"id":"i:Bulezau Horn","label":"Bulezau Horn","type":"ingredient","page":3,"color":"darkred","remove":0,"add":0},{"id":"i:Bubble Blossoms","label":"Bubble Blossoms","type":"ingredient","page":3,"color":"blue","remove":0,"add":0},{"id":"i:Glitterflies","label":"Glitterflies","type":"ingredient","page":4,"color":"cyan","remove":0,"add":0},{"id":"i:Great Cold Shard","label":"Great Cold Shard","type":"ingredient","page":4,"color":"white","remove":0,"add":0},{"id":"i:Pemneath Peat","label":"Pemneath Peat","type":"ingredient","page":4,"color":"black","remove":0,"add":0},{"id":"i:Blood Demon Eye","label":"Blood Demon Eye","type":"ingredient","page":4,"color":"red","remove":0,"add":0},{"id":"i:Jotuun Heart","label":"Jotuun Heart","type":"ingredient","page":4,"color":"teal","remove":0,"add":0},{"id":"i:Cloud Lavender","label":"Cloud Lavender","type":"ingredient","page":4,"color":"purple","remove":0,"add":0},{"id":"i:Undead Heart","label":"Undead Heart","type":"ingredient","page":4,"color":"darkred","remove":0,"add":0},{"id":"i:Melting Dewdrops","label":"Melting Dewdrops","type":"ingredient","page":4,"color":"blue","remove":0,"add":0},{"id":"i:Icecap Crabs","label":"Icecap Crabs","type":"ingredient","page":5,"color":"cyan","remove":0,"add":0},{"id":"i:Lady's Gold","label":"Lady's Gold","type":"ingredient","page":5,"color":"orange","remove":0,"add":0},{"id":"i:Weird Dog Foot","label":"Weird Dog Foot","type":"ingredient","page":5,"color":"blue","remove":0,"add":0},{"id":"i:Sanguipoles","label":"Sanguipoles","type":"ingredient","page":5,"color":"red","remove":0,"add":0},{"id":"i:Quickfish","label":"Quickfish","type":"ingredient","page":5,"color":"teal","remove":0,"add":0},{"id":"i:Green Dragon Venom","label":"Green Dragon Venom","type":"ingredient","page":5,"color":"green","remove":0,"add":0},{"id":"i:Mandrake","label":"Mandrake","type":"ingredient","page":5,"color":"purple","remove":0,"add":0},{"id":"i:Ionillic Eggs","label":"Ionillic Eggs","type":"ingredient","page":5,"color":"blue","remove":0,"add":0},{"id":"i:Oracite","label":"Oracite","type":"ingredient","page":6,"color":"cyan","remove":0,"add":0},{"id":"i:Lumpkins","label":"Lumpkins","type":"ingredient","page":6,"color":"orange","remove":0,"add":0},{"id":"i:Hyannis Syrup","label":"Hyannis Syrup","type":"ingredient","page":6,"color":"blue","remove":0,"add":0},{"id":"i:Tekachapi Berries","label":"Tekachapi Berries","type":"ingredient","page":6,"color":"red","remove":0,"add":0},{"id":"i:Amiglia Core","label":"Amiglia Core","type":"ingredient","page":6,"color":"magenta","remove":0,"add":0},{"id":"i:Flumph Core","label":"Flumph Core","type":"ingredient","page":6,"color":"green","remove":0,"add":0},{"id":"i:Ennerx Core","label":"Ennerx Core","type":"ingredient","page":6,"color":"black","remove":3,"add":0},{"id":"i:Lemiwinkles","label":"Lemiwinkles","type":"ingredient","page":6,"color":"blue","remove":0,"add":0},{"id":"i:Klyst","label":"Klyst","type":"ingredient","page":7,"color":"white","remove":0,"add":0},{"id":"i:Aurum","label":"Aurum","type":"ingredient","page":7,"color":"yellow","remove":0,"add":0},{"id":"i:Deadly Moonbloom","label":"Deadly Moonbloom","type":"ingredient","page":7,"color":"blue","remove":0,"add":0},{"id":"i:Rindergrapes","label":"Rindergrapes","type":"ingredient","page":7,"color":"red","remove":0,"add":0},{"id":"i:Mara Nur Cap","label":"Mara Nur Cap","type":"ingredient","page":7,"color":"olive","remove":0,"add":0},{"id":"i:Glass","label":"Glass","type":"ingredient","page":7,"color":"green","remove":0,"add":0},{"id":"i:Evengeist Ear","label":"Evengeist Ear","type":"ingredient","page":7,"color":"black","remove":0,"add":0},{"id":"i:Arcanavore Organ","label":"Arcanavore Organ","type":"ingredient","page":7,"color":"blue","remove":0,"add":0},{"id":"i:Ogre Hand","label":"Ogre Hand","type":"ingredient","page":8,"color":"orange","remove":0,"add":0},{"id":"i:Katowician Honeyhive","label":"Katowician Honeyhive","type":"ingredient","page":8,"color":"yellow","remove":0,"add":0},{"id":"i:Sphynx Paw","label":"Sphynx Paw","type":"ingredient","page":8,"color":"blue","remove":0,"add":0},{"id":"i:Wraith Whisps","label":"Wraith Whisps","type":"ingredient","page":8,"color":"gray","remove":0,"add":0},{"id":"i:Creeping Coriand","label":"Creeping Coriand","type":"ingredient","page":8,"color":"olive","remove":0,"add":0},{"id":"i:Seacursed Scale","label":"Seacursed Scale","type":"ingredient","page":8,"color":"green","remove":0,"add":0},{"id":"i:Lake Gar Eye","label":"Lake Gar Eye","type":"ingredient","page":8,"color":"black","remove":0,"add":0},{"id":"i:Fulmiles","label":"Fulmiles","type":"ingredient","page":8,"color":"blue","remove":0,"add":0},{"id":"i:Goat Fat","label":"Goat Fat","type":"ingredient","page":9,"color":"orange","remove":0,"add":0},{"id":"i:Golden Trilobite","label":"Golden Trilobite","type":"ingredient","page":9,"color":"yellow","remove":0,"add":0},{"id":"i:Trihorn","label":"Trihorn","type":"ingredient","page":9,"color":"blue","remove":0,"add":0},{"id":"i:Chromatic Corpustules","label":"Chromatic Corpustules","type":"ingredient","page":9,"color":"red","remove":0,"add":0},{"id":"i:Penchant Jellies","label":"Penchant Jellies","type":"ingredient","page":9,"color":"green","remove":0,"add":0},{"id":"i:Bramblechoke","label":"Bramblechoke","type":"ingredient","page":9,"color":"darkred","remove":0,"add":0},{"id":"i:Scourge of the Inlet","label":"Scourge of the Inlet","type":"ingredient","page":9,"color":"black","remove":0,"add":0},{"id":"i:Brain Lemming","label":"Brain Lemming","type":"ingredient","page":9,"color":"blue","remove":0,"add":0},{"id":"i:Sevan Lotus","label":"Sevan Lotus","type":"ingredient","page":10,"color":"pink","remove":0,"add":0},{"id":"i:Southollow Royal Tulip","label":"Southollow Royal Tulip","type":"ingredient","page":10,"color":"red","remove":0,"add":1},{"id":"i:Treakbug","label":"Treakbug","type":"ingredient","page":10,"color":"blue","remove":0,"add":0},{"id":"i:Sanguivore Organ","label":"Sanguivore Organ","type":"ingredient","page":10,"color":"red","remove":0,"add":0},{"id":"i:Baleful Rockfish","label":"Baleful Rockfish","type":"ingredient","page":10,"color":"olive","remove":0,"add":0},{"id":"i:Verdaux","label":"Verdaux","type":"ingredient","page":10,"color":"green","remove":0,"add":0},{"id":"i:Rotgulp Eggs","label":"Rotgulp Eggs","type":"ingredient","page":10,"color":"black","remove":0,"add":0},{"id":"i:Spearfisher Horns","label":"Spearfisher Horns","type":"ingredient","page":10,"color":"blue","remove":0,"add":0},{"id":"i:Great Owl Egg","label":"Great Owl Egg","type":"ingredient","page":11,"color":"white","remove":0,"add":0},{"id":"i:Amber","label":"Amber","type":"ingredient","page":11,"color":"yellow","remove":0,"add":0},{"id":"i:Dwarf Tubers","label":"Dwarf Tubers","type":"ingredient","page":11,"color":"blue","remove":0,"add":0},{"id":"i:Symbiotic Barnacles","label":"Symbiotic Barnacles","type":"ingredient","page":11,"color":"red","remove":0,"add":0},{"id":"i:Ooze Cube","label":"Ooze Cube","type":"ingredient","page":11,"color":"olive","remove":0,"add":0},{"id":"i:Lornlarch","label":"Lornlarch","type":"ingredient","page":11,"color":"green","remove":0,"add":0},{"id":"i:Cave Spider Venom","label":"Cave Spider Venom","type":"ingredient","page":11,"color":"black","remove":0,"add":0},{"id":"i:Stasis Muck","label":"Stasis Muck","type":"ingredient","page":11,"color":"blue","remove":0,"add":0},{"id":"i:Amethyst","label":"Amethyst","type":"ingredient","page":12,"color":"purple","remove":0,"add":0},{"id":"i:Emerald","label":"Emerald","type":"ingredient","page":12,"color":"green","remove":0,"add":0},{"id":"i:Sapphire","label":"Sapphire","type":"ingredient","page":12,"color":"blue","remove":0,"add":0},{"id":"i:Ruby","label":"Ruby","type":"ingredient","page":12,"color":"red","remove":0,"add":0},{"id":"i:Silver","label":"Silver","type":"ingredient","page":12,"color":"teal","remove":0,"add":0},{"id":"i:Gold","label":"Gold","type":"ingredient","page":12,"color":"yellow","remove":0,"add":0},{"id":"i:Chrythsmeum","label":"Chrythsmeum","type":"ingredient","page":12,"color":"gray","remove":0,"add":0},{"id":"i:Platinum","label":"Platinum","type":"ingredient","page":12,"color":"white","remove":0,"add":0},{"id":"r:Healing Draught","label":"Healing Draught","type":"recipe"},{"id":"r:Emberheart Cologne","label":"Emberheart Cologne","type":"recipe"},{"id":"r:Mourning Veil","label":"Mourning Veil","type":"recipe"},{"id":"r:Gravecaller's Attar","label":"Gravecaller's Attar","type":"recipe"},{"id":"r:Wyrmscale Perfume","label":"Wyrmscale Perfume","type":"recipe"},{"id":"r:Witching Hour","label":"Witching Hour","type":"recipe"},{"id":"r:Silent Bell Eau","label":"Silent Bell Eau","type":"recipe"},{"id":"r:Jeweler's Symphony","label":"Jeweler's Symphony","type":"recipe"},{"id":"r:Lotus Reverie","label":"Lotus Reverie","type":"recipe"},{"id":"r:Archivist's Cologne","label":"Archivist's Cologne","type":"recipe"},{"id":"r:Falling Star","label":"Falling Star","type":"recipe"},{"id":"r:Assassin's Veil","label":"Assassin's Veil","type":"recipe"},{"id":"r:Twin Philtre","label":"Twin Philtre","type":"recipe"},{"id":"r:Crystalline Bloom","label":"Crystalline Bloom","type":"recipe"},{"id":"r:Purified Ember","label":"Purified Ember","type":"recipe"},{"id":"r:Hollowed Essence","label":"Hollowed Essence","type":"recipe"},{"id":"r:Gilded Trinity","label":"Gilded Trinity","type":"recipe"}],"edges":[{"from":"n:Ignetium","to":"f:Ev","kind":"composes"},{"from":"n:Ignetium","to":"f:Ev","kind":"composes"},{"from":"n:Ignetium","to":"f:En","kind":"composes"},{"from":"n:Ignetium","to":"f:C","kind":"composes"},{"from":"n:Crallax","to":"f:D","kind":"composes"},{"from":"n:Crallax","to":"f:D","kind":"composes"},{"from":"n:Crallax","to":"f:A","kind":"composes"},{"from":"n:Crallax","to":"f:C","kind":"composes"},{"from":"n:Yonescope","to":"f:I","kind":"composes"},{"from":"n:Yonescope","to":"f:N","kind":"composes"},{"from":"n:Yonescope","to":"f:N","kind":"composes"},{"from":"n:Yonescope","to":"f:T","kind":"composes"},{"from":"n:Chrysipil","to":"f:A","kind":"composes"},{"from":"n:Chrysipil","to":"f:A","kind":"composes"},{"from":"n:Chrysipil","to":"f:D","kind":"composes"},{"from":"n:Chrysipil","to":"f:T","kind":"composes"},{"from":"n:Letchettin","to":"n:Yonescope","kind":"composes"},{"from":"n:Letchettin","to":"n:Ignetium","kind":"composes"},{"from":"n:Letchettin","to":"f:C","kind":"composes"},{"from":"n:Letchettin","to":"f:C","kind":"composes"},{"from":"n:Silentix","to":"n:Crallax","kind":"composes"},{"from":"n:Silentix","to":"n:Crallax","kind":"composes"},{"from":"n:Silentix","to":"n:Crallax","kind":"composes"},{"from":"n:Silentix","to":"f:I","kind":"composes"},{"from":"n:Draconil","to":"n:Ignetium","kind":"composes"},{"from":"n:Draconil","to":"f:En","kind":"composes"},{"from":"n:Draconil","to":"n:Ignetium","kind":"composes"},{"from":"n:Draconil","to":"n:Crallax","kind":"composes"},{"from":"n:Myddenic","to":"f:T","kind":"composes"},{"from":"n:Myddenic","to":"n:Chrysipil","kind":"composes"},{"from":"n:Myddenic","to":"n:Chrysipil","kind":"composes"},{"from":"n:Myddenic","to":"n:Yonescope","kind":"composes"},{"from":"n:Persimmious","to":"n:Letchettin","kind":"composes"},{"from":"n:Persimmious","to":"n:Chrysipil","kind":"composes"},{"from":"n:Persimmious","to":"n:Chrysipil","kind":"composes"},{"from":"n:Albutian","to":"n:Myddenic","kind":"composes"},{"from":"n:Albutian","to":"n:Myddenic","kind":"composes"},{"from":"n:Albutian","to":"f:T","kind":"composes"},{"from":"n:Korastic","to":"n:Draconil","kind":"composes"},{"from":"n:Korastic","to":"n:Ignetium","kind":"composes"},{"from":"n:Korastic","to":"n:Crallax","kind":"composes"},{"from":"n:Lythillious","to":"n:Silentix","kind":"composes"},{"from":"n:Lythillious","to":"n:Yonescope","kind":"composes"},{"from":"n:Lythillious","to":"f:N","kind":"composes"},{"from":"n:Malvesian","to":"n:Albutian","kind":"composes"},{"from":"n:Malvesian","to":"n:Lythillious","kind":"composes"},{"from":"n:Laternical","to":"n:Persimmious","kind":"composes"},{"from":"n:Laternical","to":"n:Korastic","kind":"composes"},{"from":"n:Thurmistic","to":"n:Yonescope","kind":"composes"},{"from":"n:Thurmistic","to":"n:Korastic","kind":"composes"},{"from":"n:Ontoligin","to":"n:Albutian","kind":"composes"},{"from":"n:Ontoligin","to":"n:Persimmious","kind":"composes"},{"from":"n:Saspacian","to":"n:Laternical","kind":"composes"},{"from":"n:Saspacian","to":"n:Thurmistic","kind":"composes"},{"from":"n:Saspacian","to":"n:Ontoligin","kind":"composes"},{"from":"i:Ichorberries","to":"f:N","kind":"emits"},{"from":"i:Ichorberries","to":"f:En","kind":"emits"},{"from":"i:Thistle Goblin Tooth","to":"f:C","kind":"emits"},{"from":"i:Thistle Goblin Tooth","to":"n:Yonescope","kind":"emits"},{"from":"i:Blistermoss","to":"f:T","kind":"emits"},{"from":"i:Blistermoss","to":"f:Ev","kind":"emits"},{"from":"i:Aphasia Flower","to":"n:Crallax","kind":"emits"},{"from":"i:Aphasia Flower","to":"f:En","kind":"emits"},{"from":"i:Noble Roses","to":"f:A","kind":"emits"},{"from":"i:Noble Roses","to":"f:A","kind":"emits"},{"from":"i:Wailing Thrush Egg","to":"n:Myddenic","kind":"emits"},{"from":"i:Wailing Thrush Egg","to":"f:En","kind":"emits"},{"from":"i:Mourningweep","to":"f:En","kind":"emits"},{"from":"i:Mourningweep","to":"f:N","kind":"emits"},{"from":"i:Bitterhearts","to":"f:N","kind":"emits"},{"from":"i:Bitterhearts","to":"f:D","kind":"emits"},{"from":"i:Olgrumast Mushroom","to":"f:I","kind":"emits"},{"from":"i:Olgrumast Mushroom","to":"f:A","kind":"emits"},{"from":"i:Fjeldling Scale","to":"n:Draconil","kind":"emits"},{"from":"i:Fjeldling Scale","to":"n:Ignetium","kind":"emits"},{"from":"i:Northman's Beard","to":"n:Ignetium","kind":"emits"},{"from":"i:Northman's Beard","to":"f:C","kind":"emits"},{"from":"i:Pepperpops","to":"f:Ev","kind":"emits"},{"from":"i:Pepperpops","to":"f:Ev","kind":"emits"},{"from":"i:Banshee's Hair","to":"f:N","kind":"emits"},{"from":"i:Banshee's Hair","to":"f:T","kind":"emits"},{"from":"i:Razorclam Pearl","to":"n:Silentix","kind":"emits"},{"from":"i:Razorclam Pearl","to":"f:N","kind":"emits"},{"from":"i:Bright","to":"f:Ev","kind":"emits"},{"from":"i:Bright","to":"f:En","kind":"emits"},{"from":"i:Moonchalk","to":"f:D","kind":"emits"},{"from":"i:Moonchalk","to":"f:I","kind":"emits"},{"from":"i:Ferrenocht Crystals","to":"f:N","kind":"emits"},{"from":"i:Ferrenocht Crystals","to":"f:A","kind":"emits"},{"from":"i:Redcaps","to":"f:En","kind":"emits"},{"from":"i:Redcaps","to":"f:En","kind":"emits"},{"from":"i:Owlbear Saliva","to":"f:C","kind":"emits"},{"from":"i:Owlbear Saliva","to":"n:Silentix","kind":"emits"},{"from":"i:Elves Ear","to":"f:D","kind":"emits"},{"from":"i:Elves Ear","to":"f:A","kind":"emits"},{"from":"i:Bulezau Horn","to":"n:Letchettin","kind":"emits"},{"from":"i:Bulezau Horn","to":"f:D","kind":"emits"},{"from":"i:Bubble Blossoms","to":"n:Chrysipil","kind":"emits"},{"from":"i:Bubble Blossoms","to":"f:En","kind":"emits"},{"from":"i:Glitterflies","to":"f:T","kind":"emits"},{"from":"i:Glitterflies","to":"f:D","kind":"emits"},{"from":"i:Great Cold Shard","to":"n:Albutian","kind":"emits"},{"from":"i:Great Cold Shard","to":"f:T","kind":"emits"},{"from":"i:Pemneath Peat","to":"f:N","kind":"emits"},{"from":"i:Pemneath Peat","to":"f:N","kind":"emits"},{"from":"i:Blood Demon Eye","to":"n:Letchettin","kind":"emits"},{"from":"i:Blood Demon Eye","to":"f:Ev","kind":"emits"},{"from":"i:Jotuun Heart","to":"f:A","kind":"emits"},{"from":"i:Jotuun Heart","to":"n:Silentix","kind":"emits"},{"from":"i:Cloud Lavender","to":"f:C","kind":"emits"},{"from":"i:Cloud Lavender","to":"f:T","kind":"emits"},{"from":"i:Undead Heart","to":"n:Myddenic","kind":"emits"},{"from":"i:Undead Heart","to":"f:N","kind":"emits"},{"from":"i:Melting Dewdrops","to":"n:Chrysipil","kind":"emits"},{"from":"i:Melting Dewdrops","to":"f:N","kind":"emits"},{"from":"i:Icecap Crabs","to":"f:A","kind":"emits"},{"from":"i:Icecap Crabs","to":"f:A","kind":"emits"},{"from":"i:Lady's Gold","to":"n:Korastic","kind":"emits"},{"from":"i:Lady's Gold","to":"n:Ignetium","kind":"emits"},{"from":"i:Weird Dog Foot","to":"f:D","kind":"emits"},{"from":"i:Weird Dog Foot","to":"f:Ev","kind":"emits"},{"from":"i:Sanguipoles","to":"n:Ignetium","kind":"emits"},{"from":"i:Sanguipoles","to":"f:N","kind":"emits"},{"from":"i:Quickfish","to":"f:D","kind":"emits"},{"from":"i:Quickfish","to":"n:Crallax","kind":"emits"},{"from":"i:Green Dragon Venom","to":"n:Lythillious","kind":"emits"},{"from":"i:Green Dragon Venom","to":"n:Draconil","kind":"emits"},{"from":"i:Mandrake","to":"n:Yonescope","kind":"emits"},{"from":"i:Mandrake","to":"f:N","kind":"emits"},{"from":"i:Ionillic Eggs","to":"n:Yonescope","kind":"emits"},{"from":"i:Ionillic Eggs","to":"f:En","kind":"emits"},{"from":"i:Oracite","to":"f:D","kind":"emits"},{"from":"i:Oracite","to":"f:D","kind":"emits"},{"from":"i:Oracite","to":"f:D","kind":"emits"},{"from":"i:Lumpkins","to":"f:C","kind":"emits"},{"from":"i:Lumpkins","to":"f:I","kind":"emits"},{"from":"i:Hyannis Syrup","to":"f:D","kind":"emits"},{"from":"i:Hyannis Syrup","to":"f:Ev","kind":"emits"},{"from":"i:Tekachapi Berries","to":"n:Ignetium","kind":"emits"},{"from":"i:Tekachapi Berries","to":"f:N","kind":"emits"},{"from":"i:Amiglia Core","to":"n:Chrysipil","kind":"emits"},{"from":"i:Amiglia Core","to":"n:Chrysipil","kind":"emits"},{"from":"i:Amiglia Core","to":"n:Ignetium","kind":"emits"},{"from":"i:Flumph Core","to":"n:Chrysipil","kind":"emits"},{"from":"i:Flumph Core","to":"n:Chrysipil","kind":"emits"},{"from":"i:Flumph Core","to":"n:Crallax","kind":"emits"},{"from":"i:Lemiwinkles","to":"f:C","kind":"emits"},{"from":"i:Lemiwinkles","to":"f:C","kind":"emits"},{"from":"i:Klyst","to":"f:A","kind":"emits"},{"from":"i:Klyst","to":"f:T","kind":"emits"},{"from":"i:Klyst","to":"n:Silentix","kind":"emits"},{"from":"i:Aurum","to":"f:A","kind":"emits"},{"from":"i:Aurum","to":"n:Draconil","kind":"emits"},{"from":"i:Deadly Moonbloom","to":"f:Ev","kind":"emits"},{"from":"i:Deadly Moonbloom","to":"f:I","kind":"emits"},{"from":"i:Rindergrapes","to":"n:Ignetium","kind":"emits"},{"from":"i:Rindergrapes","to":"f:I","kind":"emits"},{"from":"i:Mara Nur Cap","to":"n:Chrysipil","kind":"emits"},{"from":"i:Mara Nur Cap","to":"f:E","kind":"emits"},{"from":"i:Mara Nur Cap","to":"f:C","kind":"emits"},{"from":"i:Glass","to":"n:Chrysipil","kind":"emits"},{"from":"i:Glass","to":"n:Letchettin","kind":"emits"},{"from":"i:Evengeist Ear","to":"f:N","kind":"emits"},{"from":"i:Evengeist Ear","to":"f:C","kind":"emits"},{"from":"i:Arcanavore Organ","to":"n:Myddenic","kind":"emits"},{"from":"i:Arcanavore Organ","to":"n:Crallax","kind":"emits"},{"from":"i:Ogre Hand","to":"n:Letchettin","kind":"emits"},{"from":"i:Katowician Honeyhive","to":"f:T","kind":"emits"},{"from":"i:Katowician Honeyhive","to":"f:T","kind":"emits"},{"from":"i:Sphynx Paw","to":"f:Ev","kind":"emits"},{"from":"i:Sphynx Paw","to":"n:Ontoligin","kind":"emits"},{"from":"i:Wraith Whisps","to":"n:Ignetium","kind":"emits"},{"from":"i:Wraith Whisps","to":"n:Yonescope","kind":"emits"},{"from":"i:Creeping Coriand","to":"f:E","kind":"emits"},{"from":"i:Creeping Coriand","to":"f:T","kind":"emits"},{"from":"i:Seacursed Scale","to":"f:C","kind":"emits"},{"from":"i:Seacursed Scale","to":"f:T","kind":"emits"},{"from":"i:Lake Gar Eye","to":"f:Ev","kind":"emits"},{"from":"i:Lake Gar Eye","to":"f:C","kind":"emits"},{"from":"i:Fulmiles","to":"n:Ignetium","kind":"emits"},{"from":"i:Fulmiles","to":"f:C","kind":"emits"},{"from":"i:Goat Fat","to":"f:A","kind":"emits"},{"from":"i:Golden Trilobite","to":"f:A","kind":"emits"},{"from":"i:Golden Trilobite","to":"n:Yonescope","kind":"emits"},{"from":"i:Trihorn","to":"f:Ev","kind":"emits"},{"from":"i:Trihorn","to":"f:I","kind":"emits"},{"from":"i:Chromatic Corpustules","to":"n:Ignetium","kind":"emits"},{"from":"i:Chromatic Corpustules","to":"f:I","kind":"emits"},{"from":"i:Penchant Jellies","to":"n:Korastic","kind":"emits"},{"from":"i:Penchant Jellies","to":"f:E","kind":"emits"},{"from":"i:Penchant Jellies","to":"f:D","kind":"emits"},{"from":"i:Bramblechoke","to":"n:Letchettin","kind":"emits"},{"from":"i:Bramblechoke","to":"n:Letchettin","kind":"emits"},{"from":"i:Scourge of the Inlet","to":"f:T","kind":"emits"},{"from":"i:Scourge of the Inlet","to":"f:D","kind":"emits"},{"from":"i:Brain Lemming","to":"n:Myddenic","kind":"emits"},{"from":"i:Brain Lemming","to":"f:E","kind":"emits"},{"from":"i:Sevan Lotus","to":"f:A","kind":"emits"},{"from":"i:Sevan Lotus","to":"f:E","kind":"emits"},{"from":"i:Sevan Lotus","to":"n:Persimmious","kind":"emits"},{"from":"i:Treakbug","to":"f:Ev","kind":"emits"},{"from":"i:Treakbug","to":"f:I","kind":"emits"},{"from":"i:Sanguivore Organ","to":"n:Lythillious","kind":"emits"},{"from":"i:Sanguivore Organ","to":"f:I","kind":"emits"},{"from":"i:Baleful Rockfish","to":"n:Persimmious","kind":"emits"},{"from":"i:Baleful Rockfish","to":"f:E","kind":"emits"},{"from":"i:Baleful Rockfish","to":"f:C","kind":"emits"},{"from":"i:Verdaux","to":"f:E","kind":"emits"},{"from":"i:Verdaux","to":"f:En","kind":"emits"},{"from":"i:Rotgulp Eggs","to":"f:N","kind":"emits"},{"from":"i:Rotgulp Eggs","to":"n:Silentix","kind":"emits"},{"from":"i:Spearfisher Horns","to":"f:A","kind":"emits"},{"from":"i:Spearfisher Horns","to":"n:Yonescope","kind":"emits"},{"from":"i:Great Owl Egg","to":"f:C","kind":"emits"},{"from":"i:Great Owl Egg","to":"f:I","kind":"emits"},{"from":"i:Great Owl Egg","to":"n:Silentix","kind":"emits"},{"from":"i:Amber","to":"f:T","kind":"emits"},{"from":"i:Amber","to":"n:Ignetium","kind":"emits"},{"from":"i:Dwarf Tubers","to":"f:C","kind":"emits"},{"from":"i:Dwarf Tubers","to":"n:Chrysipil","kind":"emits"},{"from":"i:Symbiotic Barnacles","to":"f:Ev","kind":"emits"},{"from":"i:Symbiotic Barnacles","to":"n:Korastic","kind":"emits"},{"from":"i:Ooze Cube","to":"f:T","kind":"emits"},{"from":"i:Ooze Cube","to":"f:E","kind":"emits"},{"from":"i:Ooze Cube","to":"f:N","kind":"emits"},{"from":"i:Lornlarch","to":"n:Ignetium","kind":"emits"},{"from":"i:Lornlarch","to":"n:Letchettin","kind":"emits"},{"from":"i:Cave Spider Venom","to":"f:N","kind":"emits"},{"from":"i:Cave Spider Venom","to":"n:Ignetium","kind":"emits"},{"from":"i:Stasis Muck","to":"n:Albutian","kind":"emits"},{"from":"i:Stasis Muck","to":"f:T","kind":"emits"},{"from":"i:Amethyst","to":"f:A","kind":"emits"},{"from":"i:Amethyst","to":"f:T","kind":"emits"},{"from":"i:Emerald","to":"f:En","kind":"emits"},{"from":"i:Emerald","to":"f:C","kind":"emits"},{"from":"i:Sapphire","to":"f:D","kind":"emits"},{"from":"i:Sapphire","to":"f:Ev","kind":"emits"},{"from":"i:Ruby","to":"f:A","kind":"emits"},{"from":"i:Ruby","to":"f:Ev","kind":"emits"},{"from":"i:Silver","to":"f:C","kind":"emits"},{"from":"i:Gold","to":"f:T","kind":"emits"},{"from":"i:Chrythsmeum","to":"f:D","kind":"emits"},{"from":"i:Platinum","to":"f:A","kind":"emits"},{"from":"r:Healing Draught","to":"f:A","kind":"requires","count":2},{"from":"r:Healing Draught","to":"n:Crallax","kind":"requires","count":1},{"from":"r:Healing Draught","to":"f:En","kind":"requires","count":1},{"from":"r:Emberheart Cologne","to":"f:C","kind":"requires","count":1},{"from":"r:Emberheart Cologne","to":"f:Ev","kind":"requires","count":2},{"from":"r:Emberheart Cologne","to":"n:Ignetium","kind":"requires","count":1},{"from":"r:Mourning Veil","to":"f:En","kind":"requires","count":1},{"from":"r:Mourning Veil","to":"f:N","kind":"requires","count":2},{"from":"r:Mourning Veil","to":"n:Yonescope","kind":"requires","count":1},{"from":"r:Gravecaller's Attar","to":"n:Myddenic","kind":"requires","count":1},{"from":"r:Gravecaller's Attar","to":"f:N","kind":"requires","count":3},{"from":"r:Wyrmscale Perfume","to":"n:Draconil","kind":"requires","count":1},{"from":"r:Wyrmscale Perfume","to":"n:Ignetium","kind":"requires","count":2},{"from":"r:Wyrmscale Perfume","to":"n:Korastic","kind":"requires","count":1},{"from":"r:Witching Hour","to":"f:C","kind":"requires","count":1},{"from":"r:Witching Hour","to":"n:Ignetium","kind":"requires","count":1},{"from":"r:Witching Hour","to":"f:N","kind":"requires","count":1},{"from":"r:Witching Hour","to":"n:Silentix","kind":"requires","count":1},{"from":"r:Witching Hour","to":"n:Yonescope","kind":"requires","count":1},{"from":"r:Silent Bell Eau","to":"f:C","kind":"requires","count":1},{"from":"r:Silent Bell Eau","to":"f:N","kind":"requires","count":1},{"from":"r:Silent Bell Eau","to":"n:Silentix","kind":"requires","count":2},{"from":"r:Jeweler's Symphony","to":"f:A","kind":"requires","count":2},{"from":"r:Jeweler's Symphony","to":"f:C","kind":"requires","count":1},{"from":"r:Jeweler's Symphony","to":"f:D","kind":"requires","count":1},{"from":"r:Jeweler's Symphony","to":"f:En","kind":"requires","count":1},{"from":"r:Jeweler's Symphony","to":"f:Ev","kind":"requires","count":2},{"from":"r:Jeweler's Symphony","to":"f:T","kind":"requires","count":1},{"from":"r:Lotus Reverie","to":"f:A","kind":"requires","count":2},{"from":"r:Lotus Reverie","to":"f:E","kind":"requires","count":1},{"from":"r:Lotus Reverie","to":"n:Persimmious","kind":"requires","count":1},{"from":"r:Archivist's Cologne","to":"f:C","kind":"requires","count":1},{"from":"r:Archivist's Cologne","to":"f:Ev","kind":"requires","count":2},{"from":"r:Archivist's Cologne","to":"n:Ontoligin","kind":"requires","count":1},{"from":"r:Falling Star","to":"f:D","kind":"requires","count":1},{"from":"r:Falling Star","to":"f:E","kind":"requires","count":1},{"from":"r:Falling Star","to":"f:Ev","kind":"requires","count":1},{"from":"r:Falling Star","to":"n:Korastic","kind":"requires","count":2},{"from":"r:Assassin's Veil","to":"n:Draconil","kind":"requires","count":1},{"from":"r:Assassin's Veil","to":"f:I","kind":"requires","count":1},{"from":"r:Assassin's Veil","to":"n:Lythillious","kind":"requires","count":2},{"from":"r:Twin Philtre","to":"n:Albutian","kind":"requires","count":2},{"from":"r:Twin Philtre","to":"f:T","kind":"requires","count":2},{"from":"r:Crystalline Bloom","to":"n:Chrysipil","kind":"requires","count":2},{"from":"r:Crystalline Bloom","to":"n:Crallax","kind":"requires","count":2},{"from":"r:Crystalline Bloom","to":"f:D","kind":"requires","count":1},{"from":"r:Purified Ember","to":"n:Ignetium","kind":"requires","count":1},{"from":"r:Hollowed Essence","to":"n:Chrysipil","kind":"requires","count":1},{"from":"r:Gilded Trinity","to":"f:A","kind":"requires","count":2},{"from":"r:Gilded Trinity","to":"f:C","kind":"requires","count":1}]}}</script>
+<script>
+"use strict";
+/* ============================================================
+   DATA + small helpers
+   ============================================================ */
+const DATA = JSON.parse(document.getElementById('dataset').textContent);
+const SCHOOLS = DATA.schools;
+const NAMED   = DATA.named;
+const INGS    = DATA.ingredients;
+const RECIPES = DATA.recipes;
+const GRAPH   = DATA.graph;
+
+// canonical fundamental order (matches school pill rows in the PDFs)
+const FUND_ORDER = ["A","C","D","En","Ev","I","N","T","E"];
+const NAMED_NAMES = Object.keys(NAMED);
+const LEGENDARY = NAMED_NAMES.filter(n => !NAMED[n].obtainable); // 4 apex
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+const el = (tag,cls,txt)=>{const e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e;};
+function isFund(tok){ return FUND_ORDER.includes(tok); }
+function isNamed(tok){ return NAMED.hasOwnProperty(tok); }
+
+/* ---- multiset helpers (plain objects {token:count}) ---- */
+function msAdd(ms,tok,n=1){ ms[tok]=(ms[tok]||0)+n; if(ms[tok]<=0) delete ms[tok]; return ms; }
+function msClone(ms){ return Object.assign({},ms); }
+function msEqual(a,b){
+  const ka=Object.keys(a), kb=Object.keys(b);
+  if(ka.length!==kb.length) return false;
+  return ka.every(k=>a[k]===b[k]);
+}
+function msTotal(ms){ return Object.values(ms).reduce((s,v)=>s+v,0); }
+// symmetric difference magnitude + per-token deltas (target - brew)
+function msDiff(brew,target){
+  const keys=new Set([...Object.keys(brew),...Object.keys(target)]);
+  let mag=0; const need=[], over=[];
+  keys.forEach(k=>{
+    const d=(target[k]||0)-(brew[k]||0);
+    if(d>0){ need.push([k,d]); mag+=d; }
+    else if(d<0){ over.push([k,-d]); mag+=-d; }
+  });
+  return {mag,need,over};
+}
+
+/* ============================================================
+   RENDER PRIMITIVES — pills & chips (shared everywhere)
+   ============================================================ */
+function pill(letter,size){
+  const sch=SCHOOLS[letter];
+  const p=el('span','pill'+(size?' '+size:''), sch?sch.label||letter:letter);
+  p.textContent=letter;
+  if(sch){ p.style.background=sch.color; p.title=sch.name+' ('+letter+')'; }
+  return p;
+}
+function namedChip(name,size){
+  const nd=NAMED[name];
+  const c=el('span','named-chip'+(nd&&!nd.obtainable?' legendary':'')+(size?' '+size:''));
+  const em=el('span','em',nd?nd.emoji:'✦');
+  c.appendChild(em); c.appendChild(document.createTextNode(name));
+  c.title=name+(nd?(' · tier '+nd.tier+(nd.obtainable?'':' · legendary')):'');
+  return c;
+}
+// render a single token (fund letter OR named) optionally with ×count
+function tokenEl(tok,count){
+  const wrap=el('span','tok-wrap');
+  if(isNamed(tok)) wrap.appendChild(namedChip(tok,'sm'));
+  else wrap.appendChild(pill(tok));
+  if(count&&count>1){ const x=el('span','xcount','×'+count); wrap.appendChild(x); }
+  return wrap;
+}
+// render a {token:count} multiset, fundamentals first then named, into a container
+function renderMultiset(container,ms,{showOnes=true}={}){
+  container.innerHTML='';
+  const funds=FUND_ORDER.filter(f=>ms[f]);
+  const nameds=NAMED_NAMES.filter(n=>ms[n]);
+  if(!funds.length&&!nameds.length){ container.appendChild(el('span','empty-note','—')); return; }
+  funds.forEach(f=>container.appendChild(tokenEl(f, showOnes?ms[f]:(ms[f]>1?ms[f]:1))));
+  nameds.forEach(n=>container.appendChild(tokenEl(n, ms[n])));
+}
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const cart = {};          // ingredientName -> qty
+let removals = {};        // token -> count chosen to remove (<= removeCap)
+let additions = {};       // token -> count chosen to add     (<= addCap)
+
+/* ============================================================
+   CORE BREW LOGIC
+   ============================================================ */
+function computeBaseBrew(){
+  const base={};
+  for(const [name,qty] of Object.entries(cart)){
+    const ing=INGS[name]; if(!ing) continue;
+    for(let q=0;q<qty;q++) ing.parts.forEach(t=>msAdd(base,t,1));
+  }
+  return base;
+}
+function capsFor(){
+  let rem=0,add=0;
+  for(const [name,qty] of Object.entries(cart)){
+    const ing=INGS[name]; if(!ing) continue;
+    rem+=ing.remove*qty; add+=ing.add*qty;
+  }
+  return {removeCap:rem, addCap:add};
+}
+// effectiveBrew = base − removals + additions  (removals only from present tokens)
+function computeEffective(){
+  const base=computeBaseBrew();
+  const eff=msClone(base);
+  for(const [t,n] of Object.entries(removals)) msAdd(eff,t,-n);
+  for(const [t,n] of Object.entries(additions)) msAdd(eff,t,n);
+  return {base, eff};
+}
+// expand any named freqs to fundamentals, sum with raw funds => {school:count}
+function fundamentalSpectrum(ms){
+  const spec={};
+  for(const [tok,n] of Object.entries(ms)){
+    if(isFund(tok)){ msAdd(spec,tok,n); }
+    else if(isNamed(tok)){
+      const s=NAMED[tok].spectrum;
+      for(const [f,c] of Object.entries(s)) msAdd(spec,f,c*n);
+    }
+  }
+  return spec;
+}
+function findMatches(eff){
+  return RECIPES.filter(r=>msEqual(eff,r.target));
+}
+function findNear(eff,maxMag=3){
+  if(msTotal(eff)===0) return [];
+  return RECIPES.map(r=>({r, ...msDiff(eff,r.target)}))
+    .filter(x=>x.mag>0 && x.mag<=maxMag)
+    .sort((a,b)=>a.mag-b.mag)
+    .slice(0,3);
+}
+
+/* ============================================================
+   WILDCARD vocabulary (for the + control)
+   9 fundamentals + 13 obtainable named (legendary shown but labeled)
+   ============================================================ */
+const ADD_VOCAB_FUND = FUND_ORDER.slice();
+const ADD_VOCAB_NAMED = NAMED_NAMES; // include all 17; legendary visually flagged
+
+/* ============================================================
+   RENDER: shelf
+   ============================================================ */
+function ingMatchesFilters(name){
+  const ing=INGS[name];
+  const q=$('#ingSearch').value.trim().toLowerCase();
+  if(q && !name.toLowerCase().includes(q)) return false;
+  const pg=$('#filterPage').value;
+  if(pg!=='all' && String(ing.page)!==pg) return false;
+  const fq=$('#filterFreq').value;
+  if(fq!=='all' && !ing.parts.includes(fq)) return false;
+  const kind=$('#filterKind').value;
+  const wild=ing.remove>0||ing.add>0;
+  if(kind==='wild' && !wild) return false;
+  if(kind==='plain' && wild) return false;
+  return true;
+}
+function renderShelf(){
+  const shelf=$('#shelf'); shelf.innerHTML='';
+  const names=Object.keys(INGS).filter(ingMatchesFilters);
+  if(!names.length){ shelf.appendChild(el('div','empty-note','No reagents match your search.')); return; }
+  names.forEach(name=>{
+    const ing=INGS[name];
+    const card=el('button','ing-card'); card.type='button'; card.setAttribute('role','listitem');
+    card.setAttribute('aria-label','Add '+name+' to cauldron');
+    if(cart[name]) card.classList.add('in-cart');
+    if(cart[name]){ const pip=el('span','qty-pip','×'+cart[name]); card.appendChild(pip); }
+    card.appendChild(el('span','pagedot','p'+ing.page));
+    card.appendChild(el('div','ing-name',name));
+    const toks=el('div','ing-toks');
+    // collapse identical parts to token×count
+    const counts={}; ing.parts.forEach(t=>counts[t]=(counts[t]||0)+1);
+    FUND_ORDER.filter(f=>counts[f]).forEach(f=>toks.appendChild(tokenEl(f,counts[f])));
+    NAMED_NAMES.filter(n=>counts[n]).forEach(n=>toks.appendChild(tokenEl(n,counts[n])));
+    if(ing.remove>0){ const w=el('span','wild rem','⊖'); w.title=ing.remove+'× remove-any wildcard'; toks.appendChild(w);
+      if(ing.remove>1) toks.appendChild(el('span','xcount','×'+ing.remove)); }
+    if(ing.add>0){ const w=el('span','wild add','⊕'); w.title=ing.add+'× add-any wildcard'; toks.appendChild(w);
+      if(ing.add>1) toks.appendChild(el('span','xcount','×'+ing.add)); }
+    if(!ing.parts.length && !ing.remove && !ing.add) toks.appendChild(el('span','empty-note','inert'));
+    card.appendChild(toks);
+    card.addEventListener('click',()=>addToCart(name));
+    shelf.appendChild(card);
+  });
+}
+
+/* ============================================================
+   CART mutation
+   ============================================================ */
+function addToCart(name){ cart[name]=(cart[name]||0)+1; reconcileWildcards(); update(); }
+function setQty(name,q){ if(q<=0) delete cart[name]; else cart[name]=q; reconcileWildcards(); update(); }
+function clearCart(){ for(const k in cart) delete cart[k]; removals={}; additions={}; update(); }
+
+// keep chosen removals/additions within caps and valid against the current brew
+function reconcileWildcards(){
+  const base=computeBaseBrew();
+  const {removeCap,addCap}=capsFor();
+  // removals: can't exceed what's present, and total <= removeCap
+  let rUsed=0; const newRem={};
+  for(const [t,n] of Object.entries(removals)){
+    const avail=base[t]||0;
+    const keep=Math.min(n,avail,Math.max(0,removeCap-rUsed));
+    if(keep>0){ newRem[t]=keep; rUsed+=keep; }
+  }
+  removals=newRem;
+  // additions: total <= addCap
+  let aUsed=0; const newAdd={};
+  for(const [t,n] of Object.entries(additions)){
+    const keep=Math.min(n,Math.max(0,addCap-aUsed));
+    if(keep>0){ newAdd[t]=keep; aUsed+=keep; }
+  }
+  additions=newAdd;
+}
+
+function renderCart(){
+  const list=$('#cartList'); list.innerHTML='';
+  const names=Object.keys(cart);
+  if(!names.length){ list.appendChild(el('li','empty-note','Drop reagents from the shelf to begin your brew.')); return; }
+  names.forEach(name=>{
+    const li=el('li','cart-row');
+    li.appendChild(el('span','cname',name));
+    const step=el('span','qstep');
+    const minus=el('button','qbtn','−'); minus.title='Fewer'; minus.setAttribute('aria-label','Decrease '+name);
+    minus.addEventListener('click',()=>setQty(name,cart[name]-1));
+    const num=el('span','qnum',cart[name]);
+    const plus=el('button','qbtn','+'); plus.title='More'; plus.setAttribute('aria-label','Increase '+name);
+    plus.addEventListener('click',()=>setQty(name,cart[name]+1));
+    step.appendChild(minus); step.appendChild(num); step.appendChild(plus);
+    const del=el('button','del','🗑'); del.title='Remove'; del.setAttribute('aria-label','Remove '+name);
+    del.addEventListener('click',()=>setQty(name,0));
+    li.appendChild(step); li.appendChild(del);
+    list.appendChild(li);
+  });
+}
+
+/* ============================================================
+   RENDER: wildcard controls
+   ============================================================ */
+function renderWildControls(base){
+  const host=$('#wildControls'); host.innerHTML='';
+  const {removeCap,addCap}=capsFor();
+  if(removeCap===0 && addCap===0) return;
+
+  if(removeCap>0){
+    const used=msTotal(removals);
+    const panel=el('div','wild-panel');
+    const h=el('h4'); h.appendChild(document.createTextNode('⊖ Remove frequencies '));
+    h.appendChild(el('span','wild-cap','('+used+' / '+removeCap+' used)'));
+    panel.appendChild(h);
+    const row=el('div','wild-row');
+    const present=[...FUND_ORDER.filter(f=>base[f]),...NAMED_NAMES.filter(n=>base[n])];
+    if(!present.length) row.appendChild(el('span','empty-note','Nothing present to remove.'));
+    present.forEach(tok=>{
+      const avail=base[tok]||0; const chosen=removals[tok]||0;
+      const t=el('button','wtok'+(chosen>0?' active':'')); t.type='button';
+      t.appendChild(isNamed(tok)?namedChip(tok,'sm'):pill(tok,'sm'));
+      if(chosen>0) t.appendChild(el('span','wsel','−'+chosen));
+      t.title='Remove one '+tok+' (have '+avail+')';
+      t.addEventListener('click',()=>{
+        const totalUsed=msTotal(removals);
+        if(chosen<avail && totalUsed<removeCap){ msAdd(removals,tok,1); }
+        else { msAdd(removals,tok,-(chosen)); } // cycle back to zero
+        update();
+      });
+      row.appendChild(t);
+    });
+    panel.appendChild(row);
+    host.appendChild(panel);
+  }
+
+  if(addCap>0){
+    const used=msTotal(additions);
+    const panel=el('div','wild-panel');
+    const h=el('h4'); h.appendChild(document.createTextNode('⊕ Add frequencies '));
+    h.appendChild(el('span','wild-cap','('+used+' / '+addCap+' used)'));
+    panel.appendChild(h);
+    const row=el('div','wild-row');
+    const make=(tok)=>{
+      const chosen=additions[tok]||0;
+      const t=el('button','wtok'+(chosen>0?' active':'')); t.type='button';
+      t.appendChild(isNamed(tok)?namedChip(tok,'sm'):pill(tok,'sm'));
+      if(chosen>0) t.appendChild(el('span','wsel','+'+chosen));
+      t.addEventListener('click',()=>{
+        const totalUsed=msTotal(additions);
+        if(totalUsed<addCap){ msAdd(additions,tok,1); } else { msAdd(additions,tok,-(chosen)); }
+        update();
+      });
+      return t;
+    };
+    ADD_VOCAB_FUND.forEach(f=>row.appendChild(make(f)));
+    ADD_VOCAB_NAMED.forEach(n=>row.appendChild(make(n)));
+    panel.appendChild(row);
+    host.appendChild(panel);
+  }
+}
+
+/* ============================================================
+   RENDER: brew tokens, match banner, spectrum, flask
+   ============================================================ */
+function renderBrewToks(eff){
+  const host=$('#brewToks');
+  if(msTotal(eff)===0){ host.innerHTML='<span class="empty-note">The cauldron is empty.</span>'; return; }
+  renderMultiset(host,eff);
+}
+function renderMatch(eff){
+  const banner=$('#matchBanner'); banner.innerHTML='';
+  const matches=findMatches(eff);
+  const flask=$('#flask');
+  flask.classList.toggle('matched',matches.length>0);
+
+  matches.forEach(r=>{
+    const card=el('div','match-card');
+    card.appendChild(el('div','match-eyebrow','✦ You have brewed'));
+    card.appendChild(el('div','match-name',r.name));
+    card.appendChild(el('div','match-lore',r.lore));
+    banner.appendChild(card);
+    markRecipeMatch(r.name);
+  });
+  if(!matches.length) markRecipeMatch(null);
+
+  // near-matches as hints
+  if(!matches.length){
+    const near=findNear(eff,3);
+    if(near.length){
+      const nc=el('div','near-card');
+      nc.appendChild(el('div','near-title','⟿ Close harmonics'));
+      near.forEach(({r,mag,need,over})=>{
+        const item=el('div','near-item');
+        item.appendChild(el('span','nm',mag+' away from '+r.name+':'));
+        need.forEach(([t,n])=>{
+          const d=el('span','delta add'); d.appendChild(document.createTextNode('add '+(n>1?n+'× ':'')));
+          d.appendChild(isNamed(t)?namedChip(t,'sm'):pill(t,'sm')); item.appendChild(d);
+        });
+        over.forEach(([t,n])=>{
+          const d=el('span','delta rem'); d.appendChild(document.createTextNode('remove '+(n>1?n+'× ':'')));
+          d.appendChild(isNamed(t)?namedChip(t,'sm'):pill(t,'sm')); item.appendChild(d);
+        });
+        nc.appendChild(item);
+      });
+      banner.appendChild(nc);
+    }
+  }
+}
+function renderSpectrum(eff){
+  const host=$('#spectrum'); host.innerHTML='';
+  const spec=fundamentalSpectrum(eff);
+  const total=msTotal(spec);
+  if(total===0){ host.appendChild(el('div','spec-empty','Add reagents to reveal the signature.')); return; }
+  const max=Math.max(...Object.values(spec));
+  FUND_ORDER.filter(f=>spec[f]).forEach(f=>{
+    const sch=SCHOOLS[f];
+    const row=el('div','spec-row');
+    const label=el('div','spec-label');
+    label.appendChild(pill(f,'sm'));
+    label.appendChild(document.createTextNode(sch.name));
+    const track=el('div','spec-bar-track');
+    const bar=el('div','spec-bar'); bar.style.width=(spec[f]/max*100)+'%'; bar.style.background=sch.color;
+    track.appendChild(bar);
+    const cnt=el('div','spec-count',spec[f]);
+    row.appendChild(label); row.appendChild(track); row.appendChild(cnt);
+    host.appendChild(row);
+  });
+  const note=el('div','section-sub'); note.style.marginTop='8px';
+  note.textContent=total+' fundamental notes across '+Object.keys(spec).length+' schools.';
+  host.appendChild(note);
+}
+function renderFlask(eff){
+  const flask=$('#flask');
+  const total=msTotal(eff);
+  flask.classList.toggle('empty',total===0);
+  // liquid level reacts to brew size; tint toward the dominant school colour
+  const liquid=$('#liquid'), surf=$('#liquidSurface');
+  const level=Math.min(54, 6+total*4);
+  liquid.setAttribute('y', String(136-level));
+  liquid.setAttribute('height', String(level));
+  surf.setAttribute('transform','translate(0,'+(136-level-86)+')');
+  const spec=fundamentalSpectrum(eff);
+  let dom=null,best=-1;
+  for(const [f,c] of Object.entries(spec)) if(c>best){best=c;dom=f;}
+  surf.setAttribute('fill', dom?SCHOOLS[dom].color:'#c9a227');
+}
+
+/* ============================================================
+   RECIPES panel
+   ============================================================ */
+let recipeCards={};
+function buildRecipes(){
+  const wrap=$('#recipeWrap'); wrap.innerHTML=''; recipeCards={};
+  RECIPES.forEach(r=>{
+    const card=el('button','shield recipe-card'); card.type='button';
+    card.setAttribute('aria-label','Load example combo for '+r.name);
+    card.dataset.recipe=r.name;
+    const bottleRow=el('div','bottle-row');
+    bottleRow.appendChild(el('span','bottle','🏺'));
+    const titleBox=el('div'); titleBox.style.flex='1';
+    titleBox.appendChild(el('div','recipe-name',r.name));
+    bottleRow.appendChild(titleBox);
+    if(r.uses_remove) { const f=el('span','flag','⊖×'+r.uses_remove); bottleRow.appendChild(f); }
+    if(r.uses_add) { const f=el('span','flag','⊕×'+r.uses_add); bottleRow.appendChild(f); }
+    card.appendChild(bottleRow);
+    card.appendChild(el('div','recipe-lore',r.lore));
+    const tgt=el('div','recipe-target');
+    tgt.appendChild(el('span','tgt-label','Target'));
+    renderTargetInto(tgt,r.target);
+    card.appendChild(tgt);
+    const combo=el('div','combo-line');
+    combo.innerHTML='<b>Example:</b> '+r.example_combo.join(' + ');
+    card.appendChild(combo);
+    card.addEventListener('click',()=>loadCombo(r));
+    wrap.appendChild(card);
+    recipeCards[r.name]=card;
+  });
+}
+function renderTargetInto(container,target){
+  FUND_ORDER.filter(f=>target[f]).forEach(f=>container.appendChild(tokenEl(f,target[f])));
+  NAMED_NAMES.filter(n=>target[n]).forEach(n=>container.appendChild(tokenEl(n,target[n])));
+}
+function markRecipeMatch(name){
+  for(const [n,c] of Object.entries(recipeCards)) c.classList.toggle('is-match', n===name);
+}
+function loadCombo(r){
+  for(const k in cart) delete cart[k];
+  removals={}; additions={};
+  r.example_combo.forEach(n=>{ cart[n]=(cart[n]||0)+1; });
+  reconcileWildcards();
+  // auto-solve wildcard recipes so the example actually matches the target
+  autoSolveWildcards(r);
+  switchTab('brew');
+  update();
+}
+// For recipes that use wildcards, pick removals/additions that achieve the target.
+function autoSolveWildcards(r){
+  const base=computeBaseBrew();
+  const {removeCap,addCap}=capsFor();
+  removals={}; additions={};
+  const diff=msDiff(base,r.target); // need = target-base>0 ; over = base-target>0
+  // additions cover what's missing (named or fund), up to cap
+  let aLeft=addCap;
+  for(const [t,n] of diff.need){ const take=Math.min(n,aLeft); if(take>0){ additions[t]=take; aLeft-=take; } }
+  // removals cover what's extra, up to cap, only from present
+  let rLeft=removeCap;
+  for(const [t,n] of diff.over){ const avail=base[t]||0; const take=Math.min(n,avail,rLeft); if(take>0){ removals[t]=take; rLeft-=take; } }
+}
+
+/* ============================================================
+   CODEX panel
+   ============================================================ */
+function buildCodex(){
+  const fg=$('#fundGrid'); fg.innerHTML='';
+  FUND_ORDER.forEach(f=>{
+    const sch=SCHOOLS[f];
+    const card=el('div','shield fund-card');
+    card.appendChild(pill(f,'lg'));
+    const meta=el('div','fund-meta');
+    meta.appendChild(el('div','fund-name',sch.name));
+    meta.appendChild(el('div','fund-school','Key “'+f+'” · fundamental frequency'));
+    card.appendChild(meta);
+    fg.appendChild(card);
+  });
+  const ng=$('#namedGrid'); ng.innerHTML='';
+  NAMED_NAMES.forEach(name=>{
+    const nd=NAMED[name];
+    const card=el('div','shield codex-card');
+    const head=el('div','codex-head');
+    head.appendChild(el('span','codex-em',nd.emoji));
+    const tbox=el('div'); tbox.style.flex='1';
+    tbox.appendChild(el('div','codex-title',name));
+    head.appendChild(tbox);
+    head.appendChild(el('span','tier-badge','Tier '+nd.tier));
+    if(!nd.obtainable) head.appendChild(el('span','legend-badge','Legendary'));
+    card.appendChild(head);
+    card.appendChild(el('div','fund-school','Symbol: '+nd.symbol+(nd.obtainable?'':' · apex / unobtainable')));
+    // direct parts
+    const partsRow=el('div','codex-row');
+    partsRow.appendChild(el('span','codex-mini-label','Direct parts'));
+    const pc={}; nd.parts.forEach(p=>pc[p]=(pc[p]||0)+1);
+    FUND_ORDER.filter(f=>pc[f]).forEach(f=>partsRow.appendChild(tokenEl(f,pc[f])));
+    NAMED_NAMES.filter(n=>pc[n]).forEach(n=>partsRow.appendChild(tokenEl(n,pc[n])));
+    card.appendChild(partsRow);
+    // full spectrum
+    const specRow=el('div','codex-row');
+    specRow.appendChild(el('span','codex-mini-label','Full spectrum ('+nd.total_fundamentals+' notes)'));
+    FUND_ORDER.filter(f=>nd.spectrum[f]).forEach(f=>specRow.appendChild(tokenEl(f,nd.spectrum[f])));
+    card.appendChild(specRow);
+    ng.appendChild(card);
+  });
+}
+
+/* ============================================================
+   GRAPH — tiered layered layout (fundamentals→named→apex) + overlays
+   ============================================================ */
+const SVGNS='http://www.w3.org/2000/svg';
+const G_W=1280, G_H=560;
+let gPositions={};        // nodeId -> {x,y}
+let gFreqNodes=[];        // fundamental + named node ids
+function buildGraph(){
+  // assign columns by tier: fundamentals = col 0, named tier t => col t
+  const cols={0:[],1:[],2:[],3:[],4:[],5:[]};
+  FUND_ORDER.forEach(f=>cols[0].push('f:'+f));
+  NAMED_NAMES.forEach(n=>cols[NAMED[n].tier].push('n:'+n));
+  gFreqNodes=[...cols[0],...cols[1],...cols[2],...cols[3],...cols[4],...cols[5]];
+  const nCols=6, padX=70, padY=46;
+  const colW=(G_W-padX*2)/(nCols-1);
+  gPositions={};
+  for(let c=0;c<=5;c++){
+    const arr=cols[c]; const n=arr.length;
+    const usableH=G_H-padY*2;
+    arr.forEach((id,i)=>{
+      const y= n===1 ? G_H/2 : padY + usableH*(i/(n-1));
+      gPositions[id]={x:padX+colW*c, y};
+    });
+  }
+  drawGraph();
+}
+function nodeMeta(id){
+  if(id.startsWith('f:')){ const k=id.slice(2); return {kind:'fund',key:k,color:SCHOOLS[k].color,label:k,name:SCHOOLS[k].name}; }
+  if(id.startsWith('n:')){ const k=id.slice(2); const nd=NAMED[k]; return {kind:'named',key:k,emoji:nd.emoji,tier:nd.tier,obtainable:nd.obtainable,name:k}; }
+  if(id.startsWith('i:')) return {kind:'ing',key:id.slice(2),name:id.slice(2)};
+  if(id.startsWith('r:')) return {kind:'rec',key:id.slice(2),name:id.slice(2)};
+  return {kind:'?',name:id};
+}
+const EDGE_COLOR={composes:'#1a1a8c',emits:'#2f7d4f',requires:'#9c3b3b'};
+
+function curve(x1,y1,x2,y2){
+  const mx=(x1+x2)/2;
+  return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`;
+}
+function drawGraph(){
+  const svg=$('#graphSvg'); svg.innerHTML='';
+  const showIng=$('#ovIng').checked, showRec=$('#ovRec').checked, showBrew=$('#ovBrew').checked;
+
+  // satellite positions for ingredient/recipe overlays (placed near their freq targets)
+  const satEdges=[]; const satNodes=new Map();
+  function placeSat(id, anchorIds, side){
+    // average anchor y, push to far left (ingredients) / far right (recipes)
+    const ys=anchorIds.map(a=>gPositions[a]?gPositions[a].y:G_H/2);
+    const y=ys.reduce((s,v)=>s+v,0)/ys.length;
+    const x= side==='left' ? 18 : G_W-18;
+    satNodes.set(id,{x,y});
+  }
+
+  // collect which freq nodes are touched by the brew
+  const touched=new Set();
+  if(showBrew){
+    const {eff}=computeEffective();
+    Object.keys(eff).forEach(tok=>{
+      if(isFund(tok)) touched.add('f:'+tok);
+      else if(isNamed(tok)) touched.add('n:'+tok);
+    });
+  }
+
+  // ---- EDGE LAYER ----
+  const gEdges=document.createElementNS(SVGNS,'g');
+  // composes edges (dedupe; the data lists multiplicity, we draw one per pair)
+  const seen=new Set();
+  GRAPH.edges.forEach(e=>{
+    if(e.kind!=='composes') return;
+    const key=e.from+'|'+e.to; if(seen.has(key)) return; seen.add(key);
+    const a=gPositions[e.from], b=gPositions[e.to]; if(!a||!b) return;
+    const p=document.createElementNS(SVGNS,'path');
+    p.setAttribute('d',curve(b.x,b.y,a.x,a.y)); // draw lower→higher tier
+    p.setAttribute('fill','none'); p.setAttribute('stroke',EDGE_COLOR.composes);
+    const hot = showBrew && touched.has(e.from) && touched.has(e.to);
+    p.setAttribute('stroke-width',hot?2.4:1);
+    p.setAttribute('class','g-edge');
+    p.setAttribute('opacity', showBrew ? (hot?0.95:0.12) : 0.32);
+    gEdges.appendChild(p);
+  });
+  // ingredient overlay
+  if(showIng){
+    const ingSeen=new Set();
+    GRAPH.edges.forEach(e=>{
+      if(e.kind!=='emits') return;
+      if(!gPositions[e.to]) return;
+      if(!satNodes.has(e.from)){
+        const anchors=GRAPH.edges.filter(x=>x.from===e.from&&x.kind==='emits'&&gPositions[x.to]).map(x=>x.to);
+        placeSat(e.from,anchors,'left');
+      }
+      const a=satNodes.get(e.from), b=gPositions[e.to];
+      const p=document.createElementNS(SVGNS,'path');
+      p.setAttribute('d',curve(a.x,a.y,b.x,b.y));
+      p.setAttribute('fill','none'); p.setAttribute('stroke',EDGE_COLOR.emits);
+      p.setAttribute('stroke-width',0.8); p.setAttribute('opacity',0.25); p.setAttribute('class','g-edge');
+      gEdges.appendChild(p);
+      satEdges.push(e.from);
+    });
+  }
+  // recipe overlay
+  if(showRec){
+    GRAPH.edges.forEach(e=>{
+      if(e.kind!=='requires') return;
+      if(!gPositions[e.to]) return;
+      if(!satNodes.has(e.from)){
+        const anchors=GRAPH.edges.filter(x=>x.from===e.from&&x.kind==='requires'&&gPositions[x.to]).map(x=>x.to);
+        placeSat(e.from,anchors,'right');
+      }
+      const a=satNodes.get(e.from), b=gPositions[e.to];
+      const p=document.createElementNS(SVGNS,'path');
+      p.setAttribute('d',curve(b.x,b.y,a.x,a.y));
+      p.setAttribute('fill','none'); p.setAttribute('stroke',EDGE_COLOR.requires);
+      p.setAttribute('stroke-width',0.9); p.setAttribute('opacity',0.3); p.setAttribute('class','g-edge');
+      gEdges.appendChild(p);
+    });
+  }
+  svg.appendChild(gEdges);
+
+  // tier column labels
+  const tierNames=['Fundamentals','Tier I','Tier II','Tier III','Tier IV','Apex'];
+  for(let c=0;c<=5;c++){
+    const t=document.createElementNS(SVGNS,'text');
+    t.setAttribute('x', 70 + ((G_W-140)/5)*c); t.setAttribute('y', 22);
+    t.setAttribute('class','tier-col-label'); t.textContent=tierNames[c];
+    svg.appendChild(t);
+  }
+
+  // ---- SATELLITE NODES (small dots for ingredients/recipes) ----
+  satNodes.forEach((pos,id)=>{
+    const m=nodeMeta(id);
+    const g=document.createElementNS(SVGNS,'g'); g.setAttribute('class','g-node');
+    const c=document.createElementNS(SVGNS,'circle');
+    c.setAttribute('cx',pos.x); c.setAttribute('cy',pos.y); c.setAttribute('r',3.4);
+    c.setAttribute('fill', m.kind==='ing'?'#2f7d4f':'#9c3b3b'); c.setAttribute('opacity',0.7);
+    g.appendChild(c);
+    g.addEventListener('click',()=>inspectNode(id));
+    svg.appendChild(g);
+  });
+
+  // ---- FREQUENCY NODES ----
+  gFreqNodes.forEach(id=>{
+    const pos=gPositions[id]; const m=nodeMeta(id);
+    const g=document.createElementNS(SVGNS,'g'); g.setAttribute('class','g-node'); g.setAttribute('tabindex','0');
+    g.setAttribute('role','button'); g.setAttribute('aria-label',m.name);
+    const dim = showBrew && !touched.has(id);
+    if(m.kind==='fund'){
+      const c=document.createElementNS(SVGNS,'circle');
+      c.setAttribute('cx',pos.x); c.setAttribute('cy',pos.y); c.setAttribute('r',13);
+      c.setAttribute('fill',m.color); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width',1.5);
+      c.setAttribute('opacity',dim?0.3:1);
+      g.appendChild(c);
+      const t=document.createElementNS(SVGNS,'text');
+      t.setAttribute('x',pos.x); t.setAttribute('y',pos.y+3.5); t.setAttribute('text-anchor','middle');
+      t.setAttribute('font-size','10'); t.setAttribute('font-weight','700'); t.setAttribute('fill','#fff');
+      t.setAttribute('pointer-events','none'); t.setAttribute('opacity',dim?0.3:1);
+      t.textContent=m.label; g.appendChild(t);
+    } else {
+      const r=document.createElementNS(SVGNS,'rect');
+      const w=18,h=18;
+      r.setAttribute('x',pos.x-w/2); r.setAttribute('y',pos.y-h/2); r.setAttribute('width',w); r.setAttribute('height',h);
+      r.setAttribute('rx',5); r.setAttribute('fill', m.obtainable?'#1a1a8c':'#5a3d7a');
+      r.setAttribute('stroke', m.obtainable?'#c9a227':'#e7c64a'); r.setAttribute('stroke-width',m.obtainable?1.2:1.8);
+      r.setAttribute('opacity',dim?0.28:1);
+      g.appendChild(r);
+      const t=document.createElementNS(SVGNS,'text');
+      t.setAttribute('x',pos.x); t.setAttribute('y',pos.y+4); t.setAttribute('text-anchor','middle');
+      t.setAttribute('font-size','11'); t.setAttribute('pointer-events','none'); t.setAttribute('opacity',dim?0.3:1);
+      t.textContent=m.emoji; g.appendChild(t);
+      const lbl=document.createElementNS(SVGNS,'text');
+      lbl.setAttribute('x',pos.x); lbl.setAttribute('y',pos.y+20); lbl.setAttribute('text-anchor','middle');
+      lbl.setAttribute('class','g-label'); lbl.setAttribute('opacity',dim?0.35:1);
+      lbl.textContent=m.key; g.appendChild(lbl);
+    }
+    const act=()=>inspectNode(id);
+    g.addEventListener('click',act);
+    g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();act();} });
+    svg.appendChild(g);
+  });
+}
+function inspectNode(id){
+  const m=nodeMeta(id);
+  const host=$('#graphInspector'); host.innerHTML='';
+  const title=el('div','ins-title');
+  const body=el('div','ins-body');
+  if(m.kind==='fund'){
+    title.appendChild(pill(m.key)); title.appendChild(document.createTextNode(m.name+' — fundamental'));
+    const emitters=Object.keys(INGS).filter(n=>INGS[n].parts.includes(m.key));
+    body.appendChild(rowText('Reagents that emit it: '+(emitters.length||'—')));
+    if(emitters.length) body.appendChild(rowText(emitters.slice(0,14).join(', ')+(emitters.length>14?'…':'')));
+  } else if(m.kind==='named'){
+    const nd=NAMED[m.key];
+    title.appendChild(namedChip(m.key)); title.appendChild(document.createTextNode(' tier '+nd.tier+(nd.obtainable?'':' · legendary')));
+    const pr=el('div','codex-row'); pr.appendChild(el('span','codex-mini-label','Direct parts'));
+    const pc={}; nd.parts.forEach(p=>pc[p]=(pc[p]||0)+1);
+    FUND_ORDER.filter(f=>pc[f]).forEach(f=>pr.appendChild(tokenEl(f,pc[f])));
+    NAMED_NAMES.filter(n=>pc[n]).forEach(n=>pr.appendChild(tokenEl(n,pc[n])));
+    body.appendChild(pr);
+    const sr=el('div','codex-row'); sr.appendChild(el('span','codex-mini-label','Spectrum ('+nd.total_fundamentals+')'));
+    FUND_ORDER.filter(f=>nd.spectrum[f]).forEach(f=>sr.appendChild(tokenEl(f,nd.spectrum[f])));
+    body.appendChild(sr);
+  } else if(m.kind==='ing'){
+    title.appendChild(document.createTextNode('🌿 '+m.name));
+    const ing=INGS[m.name]; const er=el('div','codex-row'); er.appendChild(el('span','codex-mini-label','Emits'));
+    const pc={}; ing.parts.forEach(p=>pc[p]=(pc[p]||0)+1);
+    FUND_ORDER.filter(f=>pc[f]).forEach(f=>er.appendChild(tokenEl(f,pc[f])));
+    NAMED_NAMES.filter(n=>pc[n]).forEach(n=>er.appendChild(tokenEl(n,pc[n])));
+    if(ing.remove) er.appendChild(el('span','flag','⊖×'+ing.remove));
+    if(ing.add) er.appendChild(el('span','flag','⊕×'+ing.add));
+    body.appendChild(er);
+  } else if(m.kind==='rec'){
+    const r=RECIPES.find(x=>x.name===m.name);
+    title.appendChild(document.createTextNode('🏺 '+m.name));
+    body.appendChild(rowText(r.lore));
+    const tr=el('div','codex-row'); tr.appendChild(el('span','codex-mini-label','Target'));
+    renderTargetInto(tr,r.target); body.appendChild(tr);
+  }
+  host.appendChild(title); host.appendChild(body);
+}
+function rowText(t){ const d=el('div'); d.textContent=t; return d; }
+
+/* simple pan/zoom for the graph svg via viewBox */
+(function enablePanZoom(){
+  const svg=$('#graphSvg');
+  let vb={x:0,y:0,w:G_W,h:G_H};
+  function apply(){ svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`); }
+  let drag=null;
+  svg.addEventListener('pointerdown',e=>{ drag={x:e.clientX,y:e.clientY,vbx:vb.x,vby:vb.y}; svg.setPointerCapture(e.pointerId); });
+  svg.addEventListener('pointermove',e=>{ if(!drag)return; const r=svg.getBoundingClientRect();
+    const sx=vb.w/r.width, sy=vb.h/r.height; vb.x=drag.vbx-(e.clientX-drag.x)*sx; vb.y=drag.vby-(e.clientY-drag.y)*sy; apply(); });
+  svg.addEventListener('pointerup',e=>{ drag=null; });
+  svg.addEventListener('pointercancel',()=>{ drag=null; });
+  svg.addEventListener('wheel',e=>{ e.preventDefault(); const r=svg.getBoundingClientRect();
+    const mx=vb.x+(e.clientX-r.left)/r.width*vb.w, my=vb.y+(e.clientY-r.top)/r.height*vb.h;
+    const f=e.deltaY>0?1.12:0.89; const nw=Math.min(G_W*2,Math.max(G_W*0.4,vb.w*f)); const k=nw/vb.w;
+    vb.w=nw; vb.h=vb.h*k; vb.x=mx-(mx-vb.x)*k; vb.y=my-(my-vb.y)*k; apply();
+  },{passive:false});
+})();
+
+/* ============================================================
+   TABS
+   ============================================================ */
+function switchTab(which){
+  const map={brew:'tab-brew',recipe:'tab-recipe',codex:'tab-codex',graph:'tab-graph'};
+  $$('.tab-btn').forEach(b=>{
+    const sel=b.id===map[which]; b.setAttribute('aria-selected', sel?'true':'false');
+  });
+  $$('.panel').forEach(p=>p.classList.remove('active'));
+  $('#panel-'+which).classList.add('active');
+  if(which==='graph') drawGraph();
+}
+$$('.tab-btn').forEach(b=>{
+  b.addEventListener('click',()=>switchTab(b.id.replace('tab-','')));
+});
+
+/* ============================================================
+   MAIN UPDATE
+   ============================================================ */
+function update(){
+  reconcileWildcards();
+  const {base, eff}=computeEffective();
+  renderShelf();        // reflects in-cart highlight / qty pips
+  renderCart();
+  renderWildControls(base);
+  renderBrewToks(eff);
+  renderMatch(eff);
+  renderSpectrum(eff);
+  renderFlask(eff);
+  if($('#panel-graph').classList.contains('active') && $('#ovBrew').checked) drawGraph();
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  // stats line
+  const c=DATA.meta.counts;
+  $('#statsLine').innerHTML =
+    '<span><b>'+c.ingredients+'</b> ingredients</span>·'+
+    '<span><b>'+(c.fundamentals)+'</b> fundamentals + <b>'+c.named+'</b> frequencies</span>·'+
+    '<span><b>'+c.recipes+'</b> perfumes</span>·'+
+    '<span><b>'+c.obtainable_named+'</b> obtainable</span>';
+  // page filter
+  const pages=[...new Set(Object.values(INGS).map(i=>i.page))].sort((a,b)=>a-b);
+  const fp=$('#filterPage'); fp.appendChild(new Option('All pages','all'));
+  pages.forEach(p=>fp.appendChild(new Option('Page '+p,String(p))));
+  // freq filter (funds + named)
+  const ff=$('#filterFreq'); ff.appendChild(new Option('Any frequency','all'));
+  FUND_ORDER.forEach(f=>ff.appendChild(new Option('Contains '+f+' ('+SCHOOLS[f].name+')',f)));
+  NAMED_NAMES.forEach(n=>ff.appendChild(new Option('Contains '+n,n)));
+
+  ['ingSearch','filterPage','filterFreq','filterKind'].forEach(id=>{
+    $('#'+id).addEventListener('input',renderShelf);
+    $('#'+id).addEventListener('change',renderShelf);
+  });
+  $('#clearBtn').addEventListener('click',clearCart);
+  ['ovBrew','ovIng','ovRec'].forEach(id=>$('#'+id).addEventListener('change',drawGraph));
+
+  buildRecipes();
+  buildCodex();
+  buildGraph();
+  switchTab('brew');
+  update();
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
