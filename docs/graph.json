@@ -1,0 +1,2545 @@
+{
+ "nodes": [
+  {
+   "id": "A",
+   "type": "fundamental",
+   "label": "A",
+   "school": "Abjuration",
+   "color": "#4F8DD6"
+  },
+  {
+   "id": "C",
+   "type": "fundamental",
+   "label": "C",
+   "school": "Conjuration",
+   "color": "#E0A23B"
+  },
+  {
+   "id": "D",
+   "type": "fundamental",
+   "label": "D",
+   "school": "Divination",
+   "color": "#5BC0EB"
+  },
+  {
+   "id": "E",
+   "type": "fundamental",
+   "label": "E",
+   "school": "Evocation*",
+   "color": "#7E57C2"
+  },
+  {
+   "id": "En",
+   "type": "fundamental",
+   "label": "En",
+   "school": "Enchantment",
+   "color": "#C0392B"
+  },
+  {
+   "id": "Ev",
+   "type": "fundamental",
+   "label": "Ev",
+   "school": "Evocation",
+   "color": "#E8542E"
+  },
+  {
+   "id": "I",
+   "type": "fundamental",
+   "label": "I",
+   "school": "Illusion",
+   "color": "#ECEFF1"
+  },
+  {
+   "id": "N",
+   "type": "fundamental",
+   "label": "N",
+   "school": "Necromancy",
+   "color": "#2C2C34"
+  },
+  {
+   "id": "T",
+   "type": "fundamental",
+   "label": "T",
+   "school": "Transmutation",
+   "color": "#27AE60"
+  },
+  {
+   "id": "Ignetium",
+   "type": "named",
+   "label": "Ignetium",
+   "icon": "flame",
+   "weight": 4
+  },
+  {
+   "id": "Crallax",
+   "type": "named",
+   "label": "Crallax",
+   "icon": "sparkle",
+   "weight": 4
+  },
+  {
+   "id": "Yonescope",
+   "type": "named",
+   "label": "Yonescope",
+   "icon": "moon",
+   "weight": 4
+  },
+  {
+   "id": "Chrysipil",
+   "type": "named",
+   "label": "Chrysipil",
+   "icon": "crystal",
+   "weight": 4
+  },
+  {
+   "id": "Letchettin",
+   "type": "named",
+   "label": "Letchettin",
+   "icon": "skull",
+   "weight": 10
+  },
+  {
+   "id": "Silentix",
+   "type": "named",
+   "label": "Silentix",
+   "icon": "bell",
+   "weight": 13
+  },
+  {
+   "id": "Draconil",
+   "type": "named",
+   "label": "Draconil",
+   "icon": "lizard",
+   "weight": 13
+  },
+  {
+   "id": "Myddenic",
+   "type": "named",
+   "label": "Myddenic",
+   "icon": "cage",
+   "weight": 13
+  },
+  {
+   "id": "Persimmious",
+   "type": "named",
+   "label": "Persimmious",
+   "icon": "lotus",
+   "weight": 18
+  },
+  {
+   "id": "Albutian",
+   "type": "named",
+   "label": "Albutian",
+   "icon": "potion",
+   "weight": 27
+  },
+  {
+   "id": "Korastic",
+   "type": "named",
+   "label": "Korastic",
+   "icon": "meteor",
+   "weight": 21
+  },
+  {
+   "id": "Lythillious",
+   "type": "named",
+   "label": "Lythillious",
+   "icon": "dagger",
+   "weight": 18
+  },
+  {
+   "id": "Malvesian",
+   "type": "named",
+   "label": "Malvesian",
+   "icon": "mirror",
+   "weight": 45
+  },
+  {
+   "id": "Laternical",
+   "type": "named",
+   "label": "Laternical",
+   "icon": "lantern",
+   "weight": 39
+  },
+  {
+   "id": "Thurmistic",
+   "type": "named",
+   "label": "Thurmistic",
+   "icon": "bolt",
+   "weight": 25
+  },
+  {
+   "id": "Ontoligin",
+   "type": "named",
+   "label": "Ontoligin",
+   "icon": "scroll",
+   "weight": 31
+  },
+  {
+   "id": "Saspacian",
+   "type": "named",
+   "label": "Saspacian",
+   "icon": "planet",
+   "weight": 95
+  },
+  {
+   "id": "ing:Ichorberries",
+   "type": "ingredient",
+   "label": "Ichorberries",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Thistle Goblin Tooth",
+   "type": "ingredient",
+   "label": "Thistle Goblin Tooth",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Blistermoss",
+   "type": "ingredient",
+   "label": "Blistermoss",
+   "color": "#919D00",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Aphasia Flower",
+   "type": "ingredient",
+   "label": "Aphasia Flower",
+   "color": "#9B2376",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Noble Roses",
+   "type": "ingredient",
+   "label": "Noble Roses",
+   "color": "#737373",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Wailing Thrush Egg",
+   "type": "ingredient",
+   "label": "Wailing Thrush Egg",
+   "color": "#3A0159",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Mourningweep",
+   "type": "ingredient",
+   "label": "Mourningweep",
+   "color": "#476768",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Shadow Demon Liver",
+   "type": "ingredient",
+   "label": "Shadow Demon Liver",
+   "color": "#000000",
+   "minus": 2,
+   "plus": 0
+  },
+  {
+   "id": "ing:Bitterhearts",
+   "type": "ingredient",
+   "label": "Bitterhearts",
+   "color": "#3A0159",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Olgrumast Mushroom",
+   "type": "ingredient",
+   "label": "Olgrumast Mushroom",
+   "color": "#FFFFFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Fjeldling Scale",
+   "type": "ingredient",
+   "label": "Fjeldling Scale",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Northman's Beard",
+   "type": "ingredient",
+   "label": "Northman's Beard",
+   "color": "#F17400",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Pepperpops",
+   "type": "ingredient",
+   "label": "Pepperpops",
+   "color": "#FF4D00",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Banshee's Hair",
+   "type": "ingredient",
+   "label": "Banshee's Hair",
+   "color": "#030100",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Razorclam Pearl",
+   "type": "ingredient",
+   "label": "Razorclam Pearl",
+   "color": "#0060DF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Bright",
+   "type": "ingredient",
+   "label": "Bright",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Sheensacks",
+   "type": "ingredient",
+   "label": "Sheensacks",
+   "color": "#030100",
+   "minus": 1,
+   "plus": 0
+  },
+  {
+   "id": "ing:Moonchalk",
+   "type": "ingredient",
+   "label": "Moonchalk",
+   "color": "#FFFFFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Ferrenocht Crystals",
+   "type": "ingredient",
+   "label": "Ferrenocht Crystals",
+   "color": "#030100",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Redcaps",
+   "type": "ingredient",
+   "label": "Redcaps",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Owlbear Saliva",
+   "type": "ingredient",
+   "label": "Owlbear Saliva",
+   "color": "#476768",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Elves Ear",
+   "type": "ingredient",
+   "label": "Elves Ear",
+   "color": "#023901",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Bulezau Horn",
+   "type": "ingredient",
+   "label": "Bulezau Horn",
+   "color": "#8D0202",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Bubble Blossoms",
+   "type": "ingredient",
+   "label": "Bubble Blossoms",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Glitterflies",
+   "type": "ingredient",
+   "label": "Glitterflies",
+   "color": "#00BAFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Great Cold Shard",
+   "type": "ingredient",
+   "label": "Great Cold Shard",
+   "color": "#FFFFFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Pemneath Peat",
+   "type": "ingredient",
+   "label": "Pemneath Peat",
+   "color": "#030100",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Blood Demon Eye",
+   "type": "ingredient",
+   "label": "Blood Demon Eye",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Jotuun Heart",
+   "type": "ingredient",
+   "label": "Jotuun Heart",
+   "color": "#476768",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Cloud Lavender",
+   "type": "ingredient",
+   "label": "Cloud Lavender",
+   "color": "#3A0159",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Undead Heart",
+   "type": "ingredient",
+   "label": "Undead Heart",
+   "color": "#8D0202",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Melting Dewdrops",
+   "type": "ingredient",
+   "label": "Melting Dewdrops",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Icecap Crabs",
+   "type": "ingredient",
+   "label": "Icecap Crabs",
+   "color": "#00BAFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Lady's Gold",
+   "type": "ingredient",
+   "label": "Lady's Gold",
+   "color": "#F17400",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Weird Dog Foot",
+   "type": "ingredient",
+   "label": "Weird Dog Foot",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Sanguipoles",
+   "type": "ingredient",
+   "label": "Sanguipoles",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Quickfish",
+   "type": "ingredient",
+   "label": "Quickfish",
+   "color": "#476768",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Green Dragon Venom",
+   "type": "ingredient",
+   "label": "Green Dragon Venom",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Mandrake",
+   "type": "ingredient",
+   "label": "Mandrake",
+   "color": "#3A0159",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Ionillic Eggs",
+   "type": "ingredient",
+   "label": "Ionillic Eggs",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Oracite",
+   "type": "ingredient",
+   "label": "Oracite",
+   "color": "#00BAFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Lumpkins",
+   "type": "ingredient",
+   "label": "Lumpkins",
+   "color": "#F17400",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Hyannis Syrup",
+   "type": "ingredient",
+   "label": "Hyannis Syrup",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Tekachapi Berries",
+   "type": "ingredient",
+   "label": "Tekachapi Berries",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Amiglia Core",
+   "type": "ingredient",
+   "label": "Amiglia Core",
+   "color": "#9B2376",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Flumph Core",
+   "type": "ingredient",
+   "label": "Flumph Core",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Ennerx Core",
+   "type": "ingredient",
+   "label": "Ennerx Core",
+   "color": "#000000",
+   "minus": 3,
+   "plus": 0
+  },
+  {
+   "id": "ing:Lemiwinkles",
+   "type": "ingredient",
+   "label": "Lemiwinkles",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Klyst",
+   "type": "ingredient",
+   "label": "Klyst",
+   "color": "#FFFFFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Aurum",
+   "type": "ingredient",
+   "label": "Aurum",
+   "color": "#FFF500",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Deadly Moonbloom",
+   "type": "ingredient",
+   "label": "Deadly Moonbloom",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Rindergrapes",
+   "type": "ingredient",
+   "label": "Rindergrapes",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Mara Nur Cap",
+   "type": "ingredient",
+   "label": "Mara Nur Cap",
+   "color": "#919D00",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Glass",
+   "type": "ingredient",
+   "label": "Glass",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Evengeist Ear",
+   "type": "ingredient",
+   "label": "Evengeist Ear",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Arcanavore Organ",
+   "type": "ingredient",
+   "label": "Arcanavore Organ",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Ogre Hand",
+   "type": "ingredient",
+   "label": "Ogre Hand",
+   "color": "#F17400",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Katowician Honeyhive",
+   "type": "ingredient",
+   "label": "Katowician Honeyhive",
+   "color": "#FEC107",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Sphynx Paw",
+   "type": "ingredient",
+   "label": "Sphynx Paw",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Wraith Whisps",
+   "type": "ingredient",
+   "label": "Wraith Whisps",
+   "color": "#737373",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Creeping Coriand",
+   "type": "ingredient",
+   "label": "Creeping Coriand",
+   "color": "#919D00",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Seacursed Scale",
+   "type": "ingredient",
+   "label": "Seacursed Scale",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Lake Gar Eye",
+   "type": "ingredient",
+   "label": "Lake Gar Eye",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Fulmiles",
+   "type": "ingredient",
+   "label": "Fulmiles",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Goat Fat",
+   "type": "ingredient",
+   "label": "Goat Fat",
+   "color": "#F17400",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Golden Trilobite",
+   "type": "ingredient",
+   "label": "Golden Trilobite",
+   "color": "#FFF500",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Trihorn",
+   "type": "ingredient",
+   "label": "Trihorn",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Chromatic Corpustules",
+   "type": "ingredient",
+   "label": "Chromatic Corpustules",
+   "color": "#FEC107",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Penchant Jellies",
+   "type": "ingredient",
+   "label": "Penchant Jellies",
+   "color": "#009D56",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Bramblechoke",
+   "type": "ingredient",
+   "label": "Bramblechoke",
+   "color": "#8D0202",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Scourge of the Inlet",
+   "type": "ingredient",
+   "label": "Scourge of the Inlet",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Brain Lemming",
+   "type": "ingredient",
+   "label": "Brain Lemming",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Sevan Lotus",
+   "type": "ingredient",
+   "label": "Sevan Lotus",
+   "color": "#DD74B6",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Southollow Royal Tulip",
+   "type": "ingredient",
+   "label": "Southollow Royal Tulip",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 1
+  },
+  {
+   "id": "ing:Treakbug",
+   "type": "ingredient",
+   "label": "Treakbug",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Sanguivore Organ",
+   "type": "ingredient",
+   "label": "Sanguivore Organ",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Baleful Rockfish",
+   "type": "ingredient",
+   "label": "Baleful Rockfish",
+   "color": "#919D00",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Verdaux",
+   "type": "ingredient",
+   "label": "Verdaux",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Rotgulp Eggs",
+   "type": "ingredient",
+   "label": "Rotgulp Eggs",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Spearfisher Horns",
+   "type": "ingredient",
+   "label": "Spearfisher Horns",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Great Owl Egg",
+   "type": "ingredient",
+   "label": "Great Owl Egg",
+   "color": "#FFFFFF",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Amber",
+   "type": "ingredient",
+   "label": "Amber",
+   "color": "#FEC107",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Dwarf Tubers",
+   "type": "ingredient",
+   "label": "Dwarf Tubers",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Symbiotic Barnacles",
+   "type": "ingredient",
+   "label": "Symbiotic Barnacles",
+   "color": "#FEC107",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Ooze Cube",
+   "type": "ingredient",
+   "label": "Ooze Cube",
+   "color": "#919D00",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Lornlarch",
+   "type": "ingredient",
+   "label": "Lornlarch",
+   "color": "#266603",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Cave Spider Venom",
+   "type": "ingredient",
+   "label": "Cave Spider Venom",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Stasis Muck",
+   "type": "ingredient",
+   "label": "Stasis Muck",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Amethyst",
+   "type": "ingredient",
+   "label": "Amethyst",
+   "color": "#3A0159",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Emerald",
+   "type": "ingredient",
+   "label": "Emerald",
+   "color": "#023901",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Sapphire",
+   "type": "ingredient",
+   "label": "Sapphire",
+   "color": "#080599",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Ruby",
+   "type": "ingredient",
+   "label": "Ruby",
+   "color": "#D30606",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Silver",
+   "type": "ingredient",
+   "label": "Silver",
+   "color": "#476768",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Gold",
+   "type": "ingredient",
+   "label": "Gold",
+   "color": "#FFF500",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Chrythsmeum",
+   "type": "ingredient",
+   "label": "Chrythsmeum",
+   "color": "#737373",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "ing:Platinum",
+   "type": "ingredient",
+   "label": "Platinum",
+   "color": "#000000",
+   "minus": 0,
+   "plus": 0
+  },
+  {
+   "id": "rec:healing",
+   "type": "recipe",
+   "label": "Potion of Healing",
+   "tier": "simple"
+  },
+  {
+   "id": "rec:invis",
+   "type": "recipe",
+   "label": "Draught of Invisibility",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:firebreath",
+   "type": "recipe",
+   "label": "Elixir of Fire Breath",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:featherfall",
+   "type": "recipe",
+   "label": "Oil of Feather Fall",
+   "tier": "simple"
+  },
+  {
+   "id": "rec:truesight",
+   "type": "recipe",
+   "label": "Tincture of True Sight",
+   "tier": "simple"
+  },
+  {
+   "id": "rec:silence",
+   "type": "recipe",
+   "label": "Veil of Silence",
+   "tier": "simple"
+  },
+  {
+   "id": "rec:dragonhide",
+   "type": "recipe",
+   "label": "Balm of Dragonhide",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:spectral",
+   "type": "recipe",
+   "label": "Spectral Lantern Perfume",
+   "tier": "legendary"
+  },
+  {
+   "id": "rec:mindward",
+   "type": "recipe",
+   "label": "Mindward Mist",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:stormcall",
+   "type": "recipe",
+   "label": "Stormcaller's Cologne",
+   "tier": "legendary"
+  },
+  {
+   "id": "rec:moonlit",
+   "type": "recipe",
+   "label": "Moonlit Reverie",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:bloomheart",
+   "type": "recipe",
+   "label": "Bloomheart Attar",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:mirrorself",
+   "type": "recipe",
+   "label": "Mirror-Self Essence",
+   "tier": "legendary"
+  },
+  {
+   "id": "rec:cosmic",
+   "type": "recipe",
+   "label": "Cosmic Saspacian No. 5",
+   "tier": "legendary"
+  },
+  {
+   "id": "rec:emberward",
+   "type": "recipe",
+   "label": "Emberward Eau",
+   "tier": "simple"
+  },
+  {
+   "id": "rec:gravebind",
+   "type": "recipe",
+   "label": "Gravebind Anointment",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:prism",
+   "type": "recipe",
+   "label": "Prismatic Chrysipil Spritz",
+   "tier": "advanced"
+  },
+  {
+   "id": "rec:echo",
+   "type": "recipe",
+   "label": "Echo of the Deep",
+   "tier": "simple"
+  },
+  {
+   "id": "rec:verdigris",
+   "type": "recipe",
+   "label": "Verdigris Veil",
+   "tier": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "src": "Ignetium",
+   "dst": "Ev",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Ignetium",
+   "dst": "Ev",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Ignetium",
+   "dst": "En",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Ignetium",
+   "dst": "C",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Crallax",
+   "dst": "D",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Crallax",
+   "dst": "D",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Crallax",
+   "dst": "A",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Crallax",
+   "dst": "C",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Yonescope",
+   "dst": "I",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Yonescope",
+   "dst": "N",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Yonescope",
+   "dst": "N",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Yonescope",
+   "dst": "T",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Chrysipil",
+   "dst": "A",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Chrysipil",
+   "dst": "A",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Chrysipil",
+   "dst": "D",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Chrysipil",
+   "dst": "T",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Letchettin",
+   "dst": "Yonescope",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Letchettin",
+   "dst": "Ignetium",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Letchettin",
+   "dst": "C",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Letchettin",
+   "dst": "C",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Silentix",
+   "dst": "Crallax",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Silentix",
+   "dst": "Crallax",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Silentix",
+   "dst": "Crallax",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Silentix",
+   "dst": "I",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Draconil",
+   "dst": "Ignetium",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Draconil",
+   "dst": "En",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Draconil",
+   "dst": "Ignetium",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Draconil",
+   "dst": "Crallax",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Myddenic",
+   "dst": "T",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Myddenic",
+   "dst": "Chrysipil",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Myddenic",
+   "dst": "Chrysipil",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Myddenic",
+   "dst": "Yonescope",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Persimmious",
+   "dst": "Letchettin",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Persimmious",
+   "dst": "Chrysipil",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Persimmious",
+   "dst": "Chrysipil",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Albutian",
+   "dst": "Myddenic",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Albutian",
+   "dst": "Myddenic",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Albutian",
+   "dst": "T",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Korastic",
+   "dst": "Draconil",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Korastic",
+   "dst": "Ignetium",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Korastic",
+   "dst": "Crallax",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Lythillious",
+   "dst": "Silentix",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Lythillious",
+   "dst": "Yonescope",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Lythillious",
+   "dst": "N",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Malvesian",
+   "dst": "Albutian",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Malvesian",
+   "dst": "Lythillious",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Laternical",
+   "dst": "Persimmious",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Laternical",
+   "dst": "Korastic",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Thurmistic",
+   "dst": "Yonescope",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Thurmistic",
+   "dst": "Korastic",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Ontoligin",
+   "dst": "Albutian",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Ontoligin",
+   "dst": "Chrysipil",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Saspacian",
+   "dst": "Laternical",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Saspacian",
+   "dst": "Thurmistic",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "Saspacian",
+   "dst": "Ontoligin",
+   "rel": "decomposes_to"
+  },
+  {
+   "src": "ing:Ichorberries",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ichorberries",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Thistle Goblin Tooth",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Thistle Goblin Tooth",
+   "dst": "Yonescope",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Blistermoss",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Blistermoss",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Aphasia Flower",
+   "dst": "Crallax",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Aphasia Flower",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Noble Roses",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Noble Roses",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Wailing Thrush Egg",
+   "dst": "Myddenic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Wailing Thrush Egg",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mourningweep",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mourningweep",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bitterhearts",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bitterhearts",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Olgrumast Mushroom",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Olgrumast Mushroom",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Fjeldling Scale",
+   "dst": "Draconil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Fjeldling Scale",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Northman's Beard",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Northman's Beard",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Pepperpops",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Pepperpops",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Banshee's Hair",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Banshee's Hair",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Razorclam Pearl",
+   "dst": "Silentix",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Razorclam Pearl",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bright",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bright",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Moonchalk",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Moonchalk",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ferrenocht Crystals",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ferrenocht Crystals",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Redcaps",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Redcaps",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Owlbear Saliva",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Owlbear Saliva",
+   "dst": "Silentix",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Elves Ear",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Elves Ear",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bulezau Horn",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bulezau Horn",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bubble Blossoms",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bubble Blossoms",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Glitterflies",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Glitterflies",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Great Cold Shard",
+   "dst": "Albutian",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Great Cold Shard",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Pemneath Peat",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Pemneath Peat",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Blood Demon Eye",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Blood Demon Eye",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Jotuun Heart",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Jotuun Heart",
+   "dst": "Silentix",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Cloud Lavender",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Cloud Lavender",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Undead Heart",
+   "dst": "Myddenic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Undead Heart",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Melting Dewdrops",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Melting Dewdrops",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Icecap Crabs",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Icecap Crabs",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lady's Gold",
+   "dst": "Korastic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lady's Gold",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Weird Dog Foot",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Weird Dog Foot",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sanguipoles",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sanguipoles",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Quickfish",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Quickfish",
+   "dst": "Crallax",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Green Dragon Venom",
+   "dst": "Lythillious",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Green Dragon Venom",
+   "dst": "Draconil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mandrake",
+   "dst": "Yonescope",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mandrake",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ionillic Eggs",
+   "dst": "Yonescope",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ionillic Eggs",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Oracite",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Oracite",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Oracite",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lumpkins",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lumpkins",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Hyannis Syrup",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Hyannis Syrup",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Tekachapi Berries",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Tekachapi Berries",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amiglia Core",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amiglia Core",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amiglia Core",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Flumph Core",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Flumph Core",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Flumph Core",
+   "dst": "Crallax",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lemiwinkles",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lemiwinkles",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Klyst",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Klyst",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Klyst",
+   "dst": "Silentix",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Aurum",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Aurum",
+   "dst": "Draconil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Deadly Moonbloom",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Deadly Moonbloom",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Rindergrapes",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Rindergrapes",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mara Nur Cap",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mara Nur Cap",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Mara Nur Cap",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Glass",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Glass",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Evengeist Ear",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Evengeist Ear",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Arcanavore Organ",
+   "dst": "Myddenic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Arcanavore Organ",
+   "dst": "Crallax",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ogre Hand",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Katowician Honeyhive",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Katowician Honeyhive",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sphynx Paw",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sphynx Paw",
+   "dst": "Ontoligin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Wraith Whisps",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Wraith Whisps",
+   "dst": "Yonescope",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Creeping Coriand",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Creeping Coriand",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Seacursed Scale",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Seacursed Scale",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lake Gar Eye",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lake Gar Eye",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Fulmiles",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Fulmiles",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Goat Fat",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Golden Trilobite",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Golden Trilobite",
+   "dst": "Yonescope",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Trihorn",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Trihorn",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Chromatic Corpustules",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Chromatic Corpustules",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Penchant Jellies",
+   "dst": "Korastic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Penchant Jellies",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Penchant Jellies",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bramblechoke",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Bramblechoke",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Scourge of the Inlet",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Scourge of the Inlet",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Brain Lemming",
+   "dst": "Myddenic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Brain Lemming",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sevan Lotus",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sevan Lotus",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sevan Lotus",
+   "dst": "Persimmious",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Treakbug",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Treakbug",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sanguivore Organ",
+   "dst": "Lythillious",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sanguivore Organ",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Baleful Rockfish",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Baleful Rockfish",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Baleful Rockfish",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Verdaux",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Verdaux",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Rotgulp Eggs",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Rotgulp Eggs",
+   "dst": "Silentix",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Spearfisher Horns",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Spearfisher Horns",
+   "dst": "Yonescope",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Great Owl Egg",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Great Owl Egg",
+   "dst": "I",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Great Owl Egg",
+   "dst": "Silentix",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amber",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amber",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Dwarf Tubers",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Dwarf Tubers",
+   "dst": "Chrysipil",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Symbiotic Barnacles",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Symbiotic Barnacles",
+   "dst": "Korastic",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ooze Cube",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ooze Cube",
+   "dst": "E",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ooze Cube",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lornlarch",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Lornlarch",
+   "dst": "Letchettin",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Cave Spider Venom",
+   "dst": "N",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Cave Spider Venom",
+   "dst": "Ignetium",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Stasis Muck",
+   "dst": "Albutian",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Stasis Muck",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amethyst",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Amethyst",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Emerald",
+   "dst": "En",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Emerald",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sapphire",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Sapphire",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ruby",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Ruby",
+   "dst": "Ev",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Silver",
+   "dst": "C",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Gold",
+   "dst": "T",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Chrythsmeum",
+   "dst": "D",
+   "rel": "emits"
+  },
+  {
+   "src": "ing:Platinum",
+   "dst": "A",
+   "rel": "emits"
+  },
+  {
+   "src": "rec:healing",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:healing",
+   "dst": "Crallax",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:healing",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:healing",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invis",
+   "dst": "I",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invis",
+   "dst": "I",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invis",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:firebreath",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:firebreath",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:firebreath",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:featherfall",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:featherfall",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:featherfall",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:truesight",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:truesight",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:truesight",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:silence",
+   "dst": "Silentix",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:silence",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:dragonhide",
+   "dst": "Draconil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:dragonhide",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:dragonhide",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:spectral",
+   "dst": "Laternical",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindward",
+   "dst": "Myddenic",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindward",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindward",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:stormcall",
+   "dst": "Thurmistic",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:stormcall",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:stormcall",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:moonlit",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:moonlit",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:moonlit",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bloomheart",
+   "dst": "Persimmious",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bloomheart",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bloomheart",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mirrorself",
+   "dst": "Malvesian",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mirrorself",
+   "dst": "I",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:cosmic",
+   "dst": "Saspacian",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:emberward",
+   "dst": "Korastic",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:emberward",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:emberward",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:gravebind",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:gravebind",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:gravebind",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:gravebind",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:prism",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:prism",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:prism",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:echo",
+   "dst": "Ontoligin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:echo",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:verdigris",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:verdigris",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:verdigris",
+   "dst": "C",
+   "rel": "requires"
+  }
+ ]
+}
