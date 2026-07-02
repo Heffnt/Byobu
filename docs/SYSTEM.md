@@ -32,7 +32,8 @@ with no circle are *not* real frequencies). The decode workflow was therefore:
    *"a Potion of Healing is made with En, Crallax and two A — an Aphasia Flower and
    a Noble Roses."* The decoded data reproduces this exactly
    (`Aphasia Flower → {Crallax, En}` + `Noble Roses → {A, A}` = `{En, Crallax, A, A}`),
-   which confirms the **atomic-token** reading of the mechanic below.
+   which confirms the **atomic-token** reading of the mechanic below. (In the real
+   recipe table this frequency profile is **Swana's Serum**, d40 roll 2.)
 5. **Validate** the whole export programmatically: every reference resolves, the
    decomposition graph is acyclic, and every perfume recipe is craftable.
 
@@ -48,8 +49,12 @@ is structural lore, captured as the graph in §4).
 - An **ingredient** contributes a fixed multiset of tokens (its `emits`), and may
   carry **wildcard markers**.
 - The **brew** = the multiset sum of the `emits` of every ingredient added.
-- A **recipe** (perfume) is a target multiset of tokens. A brew **satisfies** a
-  recipe when it can be made *exactly equal* to the target.
+- A **recipe** (perfume) is defined by one or more target multisets of tokens —
+  its **tunings**. Where the source table lists slashed ingredient alternatives
+  that emit *different* frequencies, each resulting profile is a valid tuning of
+  the same perfume. A brew **satisfies** a recipe when it can be made *exactly
+  equal* to any one tuning. The listed ingredients are only the *common* recipe;
+  any ingredients producing the same frequencies work.
 
 ### Wildcard markers
 
@@ -155,7 +160,7 @@ gems vary from one to three; four ingredients carry only wildcard markers.
 | 13 | Pepperpops | Ev×2 | — |
 | 14 | Banshee's Hair | N, T | — |
 | 15 | Razorclam Pearl | Silentix, N | — |
-| 16 | Bright | Ev, En | — |
+| 16 | Brightflower (printed "Bright") | Ev, En | — |
 | 17 | Sheensacks | — | ⊖×1 |
 | 18 | Moonchalk | D, I | — |
 | 19 | Ferrenocht Crystals | N, A | — |
@@ -239,53 +244,89 @@ gems vary from one to three; four ingredients carry only wildcard markers.
 
 ---
 
-## 6. The perfume recipe book (19)
+## 6. The perfume recipe book (41)
 
-A theoretical but **fully craftable** set, designed to exercise as many different
-frequencies and ingredients as possible. Tiers:
+The real **d40 common-recipes table** from the source lore. Each roll names a
+perfume and the *common* pair of ingredients used to brew it — but the recipe
+itself is **defined by the frequencies** those ingredients emit, so any other
+combination that reaches the same profile also works. Notes:
 
-- **simple** — one or two ingredients, exact match, no wildcards.
-- **advanced** — needs ⊖ trimming (Shadow Demon Liver / Ennerx Core / Sheensacks).
-- **legendary** — calls for a frequency no ingredient emits; needs the ⊕ of a
-  Southollow Royal Tulip to manifest it.
+- A slash in the source (`A / B`) means either ingredient may be used. Where the
+  alternatives emit **different** frequencies, each profile is a separate valid
+  **tuning** of the same perfume.
+- **Roll 16 is two recipes**: a Brightflower alone gives **Bright**; adding a
+  Northman's Beard tips it into **Frenzy**.
+- **Black Gas** is the one wildcard recipe: Shadow Demon Liver emits nothing but
+  carries ⊖×2, which strips the off-tone from either berry — both listed combos
+  land on the single Necromancy note that *is* Black Gas.
+- *Were-Elk Antler* (Hag's Tincture) appears in the lore table but not in the
+  Ingredients Table; the math uses the Bulezau Horn alternative (marked \*).
+- Tiers are by the heaviest tuning's fundamental weight: **simple** ≤ 8,
+  **advanced** ≤ 20, **legendary** > 20.
 
-### Perfume recipe book (19)
+### Perfume recipe book (41)
 
-| Perfume | School | Tier | Requires | Example craft |
+| d40 | Perfume | Tier | Frequencies required (any tuning) | Common recipe |
 |---|---|---|---|---|
-| **Potion of Healing** | Restoration | simple | En, Crallax, A×2 | Aphasia Flower, Noble Roses |
-| **Draught of Invisibility** | Illusion | advanced | I×2, Yonescope | Thistle Goblin Tooth, Olgrumast Mushroom, Moonchalk, Ennerx Core |
-| **Elixir of Fire Breath** | Evocation | advanced | Ignetium, Ev×2 | Shadow Demon Liver, Fjeldling Scale, Pepperpops |
-| **Oil of Feather Fall** | Abjuration | simple | A×3 | Noble Roses, Goat Fat |
-| **Tincture of True Sight** | Divination | simple | D×3 | Oracite |
-| **Veil of Silence** | Enchantment | simple | Silentix, N | Razorclam Pearl |
-| **Balm of Dragonhide** | Transmutation | advanced | Draconil, T, Ev | Blistermoss, Shadow Demon Liver, Fjeldling Scale |
-| **Spectral Lantern Perfume** | Conjuration | legendary | Laternical | Southollow Royal Tulip |
-| **Mindward Mist** | Abjuration | advanced | Myddenic, C, A | Wailing Thrush Egg, Shadow Demon Liver, Goat Fat, Silver |
-| **Stormcaller's Cologne** | Evocation | legendary | Thurmistic, N×2 | Pemneath Peat, Southollow Royal Tulip |
-| **Moonlit Reverie** | Divination | advanced | Yonescope×2, C | Thistle Goblin Tooth, Shadow Demon Liver, Mandrake |
-| **Bloomheart Attar** | Restoration | advanced | Persimmious, En×2 | Shadow Demon Liver, Redcaps, Sevan Lotus |
-| **Mirror-Self Essence** | Illusion | legendary | Malvesian, I | Shadow Demon Liver, Olgrumast Mushroom, Southollow Royal Tulip |
-| **Cosmic Saspacian No. 5** | Universal | legendary | Saspacian | Southollow Royal Tulip |
-| **Emberward Eau** | Evocation | simple | Korastic, Ev, C | Symbiotic Barnacles, Silver |
-| **Gravebind Anointment** | Necromancy | advanced | N×4 | Ichorberries, Mourningweep, Shadow Demon Liver, Pemneath Peat |
-| **Prismatic Chrysipil Spritz** | Transmutation | advanced | Chrysipil×2, T | Shadow Demon Liver, Amiglia Core, Gold |
-| **Echo of the Deep** | Conjuration | simple | Ontoligin, Ev | Sphynx Paw |
-| **Verdigris Veil** | Evocation | simple | Chrysipil, E, C | Mara Nur Cap |
+| 1 | **Corpse Gas** | simple | C, Yonescope, T, Ev | Thistle Goblin Tooth + Blistermoss |
+| 2 | **Swana's Serum** | simple | Crallax, En, A×2 | Aphasia Flower + Noble Roses |
+| 3 | **Mourningweep Oil** | advanced | Myddenic, En×2, N | Wailing Thrush Egg + Mourningweep |
+| 4 | **Black Gas** | simple | N | Shadow Demon Liver + Ichorberries / Bitterhearts |
+| 5 | **Pepperpop Mixture** | advanced | Draconil, Ignetium, Ev×2 *or* Ignetium, C, Ev×2 | Fjeldling Scale / Northman's Beard + Pepperpops |
+| 6 | **Saltpearl Spray** | advanced | N×2, T, Silentix | Banshee's Hair + Razorclam Pearl |
+| 7 | **Auroniel's Aroma** | simple | D, I, Ev, En | Moonchalk + Brightflower |
+| 8 | **Mindlock Mixture** | simple | N, A, En×2 | Ferrenocht Crystals + Redcaps |
+| 9 | **Owlbear Pheromones** | advanced | C, Silentix, D, A | Owlbear Saliva + Elves Ear |
+| 10 | **Hag's Tincture** | advanced | Letchettin, D, Chrysipil, En | Were-Elk Antler\* / Bulezau Horn + Bubble Blossoms |
+| 11 | **Calming Cologne** | simple | Crallax, En, T, D | Aphasia Flower + Glitterflies |
+| 12 | **Pensive Perfume** | legendary | Albutian, T, Chrysipil, N | Great Cold Shard + Melting Dewdrops |
+| 13 | **Slippery Serum** | advanced | A×2, D, Crallax *or* A×2, D, I *or* A, Silentix, D, Crallax *or* A, Silentix, D, I | Icecap Crabs / Jotuun Heart + Quickfish / Moonchalk |
+| 14 | **Solemn Stink** | advanced | Letchettin, D, N×2 *or* Myddenic, N×3 | Bulezau Horn / Undead Heart + Pemneath Peat |
+| 15 | **Ghostwalk Grog** | simple | A×2, C, T *or* Yonescope, En, C, T | Icecap Crabs / Ionillic Eggs + Cloud Lavender |
+| 16 | **Bright** | simple | Ev, En | Brightflower |
+| 16 | **Frenzy** | simple | Ignetium, C, Ev, En | Northman's Beard + Brightflower |
+| 17 | **Second Spark** | legendary | Letchettin, Ev, Korastic, Ignetium | Blood Demon Eye + Lady's Gold |
+| 18 | **Potion of Peril** | legendary | Lythillious, Draconil, T, Ev | Green Dragon Venom + Blistermoss |
+| 19 | **Magnis Mixture** | simple | Yonescope, En, A | Ionillic Eggs + Platinum |
+| 20 | **Ox Odor** | advanced | C, Chrysipil, Letchettin | Dwarf Tubers + Ogre Hand |
+| 21 | **Frenetic Fragrance** | advanced | En×2, Ignetium, Letchettin | Redcaps + Lornlarch |
+| 22 | **Dribbleblight Draught** | advanced | Ignetium, I, Myddenic, N *or* Ignetium, I, Yonescope, N | Rindergrapes + Undead Heart / Mandrake |
+| 23 | **Griminal Gas** | simple | Yonescope, N×2, T | Mandrake + Banshee's Hair |
+| 24 | **Regenerative Reek** | simple | Chrysipil, E, C, T, Ev | Mara Nur Cap + Blistermoss |
+| 25 | **Bombastic Brew** | simple | C×2, T, D | Lemiwinkles + Glitterflies |
+| 26 | **Redroot Derivative** | legendary | E, T, Lythillious, I *or* E, T, Ignetium, N *or* T×2, Lythillious, I *or* T×2, Ignetium, N | Creeping Coriand / Katowician Honeyhive + Sanguivore Organ / Sanguipoles |
+| 27 | **Shimmerskin Succulence** | advanced | Ev, I, D×3 *or* Ev, I, A, T, Silentix | Trihorn + Oracite / Klyst |
+| 28 | **Parasitic Perfume** | legendary | N, Silentix, Ev, I *or* N, Silentix, Ev, Korastic | Rotgulp Eggs + Treakbug / Symbiotic Barnacles |
+| 29 | **Awakening Auroma** | simple | D×2, Ev, T | Weird Dog Foot + Scourge of the Inlet |
+| 30 | **Liquidation Liquer** | legendary | T×2, E, N, Albutian | Ooze Cube + Stasis Muck |
+| 31 | **Antimagic Auroma** | legendary | Myddenic, Crallax, C, T *or* Myddenic×2, Crallax×2 *or* D×4, C, T *or* D×4, Myddenic, Crallax | Arcanavore Organ / Chrythsmeum ×4 + Seacursed Scale / Arcanavore Organ |
+| 32 | **Energestic Emulsion** | advanced | Ignetium, C, A, Draconil | Fulmiles + Aurum |
+| 33 | **Puppetry Perfumette** | legendary | Letchettin×2, Myddenic, E | Bramblechoke + Brain Lemming |
+| 34 | **Invulnerability Ichor** | legendary | Korastic, E, D, A, Yonescope | Penchant Jellies + Golden Trilobite |
+| 35 | **Nocturnal Nectar** | legendary | Ev, I, Albutian, T *or* Ev, I, N, C *or* Ev, I, C, T | Deadly Moonbloom + Great Cold Shard / Evengeist Ear / Cloud Lavender |
+| 36 | **Histological Hairoil** | legendary | Ev, Ontoligin, Ignetium, Yonescope | Sphynx Paw + Wraith Whisps |
+| 37 | **Redroot Deconcoctual Derivative** | legendary | A, E, Persimmious, Ignetium, N | Sevan Lotus + Tekachapi Berries |
+| 38 | **Valuers Vapor** | advanced | A, Yonescope, T, Ignetium *or* A, Yonescope, T | Spearfisher Horns + Amber / Gold |
+| 39 | **Greenery Gas** | advanced | E, En, Chrysipil, Letchettin | Verdaux + Glass |
+| 40 | **Swimmer's Serum** | simple | Ev, C×2, Chrysipil, E | Lake Gar Eye + Baleful Rockfish |
+
+The four **legendary frequencies** (Laternical, Malvesian, Thurmistic, Saspacian)
+appear in *no* recipe — brewing one remains a ⊕-wildcard stunt rather than a
+formula in the book.
 
 ---
 
 ## 7. The graph export
 
 [`docs/graph.json`](graph.json) is a single typed graph over the **entire space** —
-**141 nodes** (9 fundamentals, 17 named frequencies, 96 ingredients, 19 recipes) and
-**295 edges**:
+**163 nodes** (9 fundamentals, 17 named frequencies, 96 ingredients, 41 recipes) and
+**482 edges**:
 
 | Edge `rel` | From → To | Meaning |
 |---|---|---|
 | `decomposes_to` | named → frequency | the Guide's definition of a named frequency |
 | `emits` | ingredient → frequency | an ingredient contributes this token |
-| `requires` | recipe → frequency | a perfume calls for this token |
+| `requires` | recipe → frequency | a perfume calls for this token; recipes with several tunings carry a `tuning` index on each edge |
 
 Node types: `fundamental`, `named`, `ingredient`, `recipe`. This is the
 machine-readable form of everything in this document, suitable for loading into any
@@ -297,5 +338,5 @@ graph tool.
 
 [`app/index.html`](../app/index.html) is a standalone page (no server needed — open
 it directly) where you can combine ingredients, watch the frequency tally of your
-brew assemble in real time, spend ⊖/⊕ wildcards, and see which of the 19 perfumes
+brew assemble in real time, spend ⊖/⊕ wildcards, and see which of the 41 perfumes
 your brew satisfies. See [`app/SPEC.md`](../app/SPEC.md) for the build brief.

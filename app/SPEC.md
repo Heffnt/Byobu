@@ -1,5 +1,12 @@
 # Build spec — "Three Feifs" Perfume Brewing Bench
 
+> **Addendum (2026-07):** the 19 invented recipes this brief describes have been
+> replaced by the real **d40 common-recipes table** (41 perfumes; roll 16 is both
+> Bright and Frenzy). Recipes are now frequency-defined and may carry several
+> valid **tunings** (`reqs[]`) with the common ingredient combos in `combos[]`
+> and `slots[]` — see `build_data.py` and `docs/SYSTEM.md` §6. The matching rule
+> below still applies, evaluated against each tuning.
+
 You are designing and building a single-page web app: an interactive **perfume
 brewing bench** for a fantasy magic system. Treat this as a real design
 engagement. **Read and follow `/mnt/skills/public/frontend-design/SKILL.md`

@@ -303,9 +303,9 @@
    "plus": 0
   },
   {
-   "id": "ing:Bright",
+   "id": "ing:Brightflower",
    "type": "ingredient",
-   "label": "Bright",
+   "label": "Brightflower",
    "color": "#000000",
    "minus": 0,
    "plus": 0
@@ -951,118 +951,291 @@
    "plus": 0
   },
   {
-   "id": "rec:healing",
+   "id": "rec:corpse-gas",
    "type": "recipe",
-   "label": "Potion of Healing",
-   "tier": "simple"
+   "label": "Corpse Gas",
+   "tier": "simple",
+   "roll": 1
   },
   {
-   "id": "rec:invis",
+   "id": "rec:swanas-serum",
    "type": "recipe",
-   "label": "Draught of Invisibility",
-   "tier": "advanced"
+   "label": "Swana's Serum",
+   "tier": "simple",
+   "roll": 2
   },
   {
-   "id": "rec:firebreath",
+   "id": "rec:mourningweep-oil",
    "type": "recipe",
-   "label": "Elixir of Fire Breath",
-   "tier": "advanced"
+   "label": "Mourningweep Oil",
+   "tier": "advanced",
+   "roll": 3
   },
   {
-   "id": "rec:featherfall",
+   "id": "rec:black-gas",
    "type": "recipe",
-   "label": "Oil of Feather Fall",
-   "tier": "simple"
+   "label": "Black Gas",
+   "tier": "simple",
+   "roll": 4
   },
   {
-   "id": "rec:truesight",
+   "id": "rec:pepperpop-mixture",
    "type": "recipe",
-   "label": "Tincture of True Sight",
-   "tier": "simple"
+   "label": "Pepperpop Mixture",
+   "tier": "advanced",
+   "roll": 5
   },
   {
-   "id": "rec:silence",
+   "id": "rec:saltpearl-spray",
    "type": "recipe",
-   "label": "Veil of Silence",
-   "tier": "simple"
+   "label": "Saltpearl Spray",
+   "tier": "advanced",
+   "roll": 6
   },
   {
-   "id": "rec:dragonhide",
+   "id": "rec:auroniels-aroma",
    "type": "recipe",
-   "label": "Balm of Dragonhide",
-   "tier": "advanced"
+   "label": "Auroniel's Aroma",
+   "tier": "simple",
+   "roll": 7
   },
   {
-   "id": "rec:spectral",
+   "id": "rec:mindlock-mixture",
    "type": "recipe",
-   "label": "Spectral Lantern Perfume",
-   "tier": "legendary"
+   "label": "Mindlock Mixture",
+   "tier": "simple",
+   "roll": 8
   },
   {
-   "id": "rec:mindward",
+   "id": "rec:owlbear-pheromones",
    "type": "recipe",
-   "label": "Mindward Mist",
-   "tier": "advanced"
+   "label": "Owlbear Pheromones",
+   "tier": "advanced",
+   "roll": 9
   },
   {
-   "id": "rec:stormcall",
+   "id": "rec:hags-tincture",
    "type": "recipe",
-   "label": "Stormcaller's Cologne",
-   "tier": "legendary"
+   "label": "Hag's Tincture",
+   "tier": "advanced",
+   "roll": 10
   },
   {
-   "id": "rec:moonlit",
+   "id": "rec:calming-cologne",
    "type": "recipe",
-   "label": "Moonlit Reverie",
-   "tier": "advanced"
+   "label": "Calming Cologne",
+   "tier": "simple",
+   "roll": 11
   },
   {
-   "id": "rec:bloomheart",
+   "id": "rec:pensive-perfume",
    "type": "recipe",
-   "label": "Bloomheart Attar",
-   "tier": "advanced"
+   "label": "Pensive Perfume",
+   "tier": "legendary",
+   "roll": 12
   },
   {
-   "id": "rec:mirrorself",
+   "id": "rec:slippery-serum",
    "type": "recipe",
-   "label": "Mirror-Self Essence",
-   "tier": "legendary"
+   "label": "Slippery Serum",
+   "tier": "advanced",
+   "roll": 13
   },
   {
-   "id": "rec:cosmic",
+   "id": "rec:solemn-stink",
    "type": "recipe",
-   "label": "Cosmic Saspacian No. 5",
-   "tier": "legendary"
+   "label": "Solemn Stink",
+   "tier": "advanced",
+   "roll": 14
   },
   {
-   "id": "rec:emberward",
+   "id": "rec:ghostwalk-grog",
    "type": "recipe",
-   "label": "Emberward Eau",
-   "tier": "simple"
+   "label": "Ghostwalk Grog",
+   "tier": "simple",
+   "roll": 15
   },
   {
-   "id": "rec:gravebind",
+   "id": "rec:bright",
    "type": "recipe",
-   "label": "Gravebind Anointment",
-   "tier": "advanced"
+   "label": "Bright",
+   "tier": "simple",
+   "roll": 16
   },
   {
-   "id": "rec:prism",
+   "id": "rec:frenzy",
    "type": "recipe",
-   "label": "Prismatic Chrysipil Spritz",
-   "tier": "advanced"
+   "label": "Frenzy",
+   "tier": "simple",
+   "roll": 16
   },
   {
-   "id": "rec:echo",
+   "id": "rec:second-spark",
    "type": "recipe",
-   "label": "Echo of the Deep",
-   "tier": "simple"
+   "label": "Second Spark",
+   "tier": "legendary",
+   "roll": 17
   },
   {
-   "id": "rec:verdigris",
+   "id": "rec:potion-of-peril",
    "type": "recipe",
-   "label": "Verdigris Veil",
-   "tier": "simple"
+   "label": "Potion of Peril",
+   "tier": "legendary",
+   "roll": 18
+  },
+  {
+   "id": "rec:magnis-mixture",
+   "type": "recipe",
+   "label": "Magnis Mixture",
+   "tier": "simple",
+   "roll": 19
+  },
+  {
+   "id": "rec:ox-odor",
+   "type": "recipe",
+   "label": "Ox Odor",
+   "tier": "advanced",
+   "roll": 20
+  },
+  {
+   "id": "rec:frenetic-fragrance",
+   "type": "recipe",
+   "label": "Frenetic Fragrance",
+   "tier": "advanced",
+   "roll": 21
+  },
+  {
+   "id": "rec:dribbleblight-draught",
+   "type": "recipe",
+   "label": "Dribbleblight Draught",
+   "tier": "advanced",
+   "roll": 22
+  },
+  {
+   "id": "rec:griminal-gas",
+   "type": "recipe",
+   "label": "Griminal Gas",
+   "tier": "simple",
+   "roll": 23
+  },
+  {
+   "id": "rec:regenerative-reek",
+   "type": "recipe",
+   "label": "Regenerative Reek",
+   "tier": "simple",
+   "roll": 24
+  },
+  {
+   "id": "rec:bombastic-brew",
+   "type": "recipe",
+   "label": "Bombastic Brew",
+   "tier": "simple",
+   "roll": 25
+  },
+  {
+   "id": "rec:redroot-derivative",
+   "type": "recipe",
+   "label": "Redroot Derivative",
+   "tier": "legendary",
+   "roll": 26
+  },
+  {
+   "id": "rec:shimmerskin-succulence",
+   "type": "recipe",
+   "label": "Shimmerskin Succulence",
+   "tier": "advanced",
+   "roll": 27
+  },
+  {
+   "id": "rec:parasitic-perfume",
+   "type": "recipe",
+   "label": "Parasitic Perfume",
+   "tier": "legendary",
+   "roll": 28
+  },
+  {
+   "id": "rec:awakening-auroma",
+   "type": "recipe",
+   "label": "Awakening Auroma",
+   "tier": "simple",
+   "roll": 29
+  },
+  {
+   "id": "rec:liquidation-liquer",
+   "type": "recipe",
+   "label": "Liquidation Liquer",
+   "tier": "legendary",
+   "roll": 30
+  },
+  {
+   "id": "rec:antimagic-auroma",
+   "type": "recipe",
+   "label": "Antimagic Auroma",
+   "tier": "legendary",
+   "roll": 31
+  },
+  {
+   "id": "rec:energestic-emulsion",
+   "type": "recipe",
+   "label": "Energestic Emulsion",
+   "tier": "advanced",
+   "roll": 32
+  },
+  {
+   "id": "rec:puppetry-perfumette",
+   "type": "recipe",
+   "label": "Puppetry Perfumette",
+   "tier": "legendary",
+   "roll": 33
+  },
+  {
+   "id": "rec:invulnerability-ichor",
+   "type": "recipe",
+   "label": "Invulnerability Ichor",
+   "tier": "legendary",
+   "roll": 34
+  },
+  {
+   "id": "rec:nocturnal-nectar",
+   "type": "recipe",
+   "label": "Nocturnal Nectar",
+   "tier": "legendary",
+   "roll": 35
+  },
+  {
+   "id": "rec:histological-hairoil",
+   "type": "recipe",
+   "label": "Histological Hairoil",
+   "tier": "legendary",
+   "roll": 36
+  },
+  {
+   "id": "rec:redroot-deconcoctual",
+   "type": "recipe",
+   "label": "Redroot Deconcoctual Derivative",
+   "tier": "legendary",
+   "roll": 37
+  },
+  {
+   "id": "rec:valuers-vapor",
+   "type": "recipe",
+   "label": "Valuers Vapor",
+   "tier": "advanced",
+   "roll": 38
+  },
+  {
+   "id": "rec:greenery-gas",
+   "type": "recipe",
+   "label": "Greenery Gas",
+   "tier": "advanced",
+   "roll": 39
+  },
+  {
+   "id": "rec:swimmers-serum",
+   "type": "recipe",
+   "label": "Swimmer's Serum",
+   "tier": "simple",
+   "roll": 40
   }
  ],
  "edges": [
@@ -1482,12 +1655,12 @@
    "rel": "emits"
   },
   {
-   "src": "ing:Bright",
+   "src": "ing:Brightflower",
    "dst": "Ev",
    "rel": "emits"
   },
   {
-   "src": "ing:Bright",
+   "src": "ing:Brightflower",
    "dst": "En",
    "rel": "emits"
   },
@@ -2282,263 +2455,1319 @@
    "rel": "emits"
   },
   {
-   "src": "rec:healing",
-   "dst": "En",
+   "src": "rec:corpse-gas",
+   "dst": "C",
    "rel": "requires"
   },
   {
-   "src": "rec:healing",
+   "src": "rec:corpse-gas",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:corpse-gas",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:corpse-gas",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swanas-serum",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swanas-serum",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swanas-serum",
    "dst": "Crallax",
    "rel": "requires"
   },
   {
-   "src": "rec:healing",
-   "dst": "A",
+   "src": "rec:swanas-serum",
+   "dst": "En",
    "rel": "requires"
   },
   {
-   "src": "rec:healing",
-   "dst": "A",
+   "src": "rec:mourningweep-oil",
+   "dst": "En",
    "rel": "requires"
   },
   {
-   "src": "rec:invis",
-   "dst": "I",
+   "src": "rec:mourningweep-oil",
+   "dst": "En",
    "rel": "requires"
   },
   {
-   "src": "rec:invis",
-   "dst": "I",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:invis",
-   "dst": "Yonescope",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:firebreath",
-   "dst": "Ignetium",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:firebreath",
-   "dst": "Ev",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:firebreath",
-   "dst": "Ev",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:featherfall",
-   "dst": "A",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:featherfall",
-   "dst": "A",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:featherfall",
-   "dst": "A",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:truesight",
-   "dst": "D",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:truesight",
-   "dst": "D",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:truesight",
-   "dst": "D",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:silence",
-   "dst": "Silentix",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:silence",
-   "dst": "N",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:dragonhide",
-   "dst": "Draconil",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:dragonhide",
-   "dst": "T",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:dragonhide",
-   "dst": "Ev",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:spectral",
-   "dst": "Laternical",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:mindward",
+   "src": "rec:mourningweep-oil",
    "dst": "Myddenic",
    "rel": "requires"
   },
   {
-   "src": "rec:mindward",
-   "dst": "C",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:mindward",
-   "dst": "A",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:stormcall",
-   "dst": "Thurmistic",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:stormcall",
+   "src": "rec:mourningweep-oil",
    "dst": "N",
    "rel": "requires"
   },
   {
-   "src": "rec:stormcall",
+   "src": "rec:black-gas",
    "dst": "N",
    "rel": "requires"
   },
   {
-   "src": "rec:moonlit",
-   "dst": "Yonescope",
-   "rel": "requires"
+   "src": "rec:pepperpop-mixture",
+   "dst": "Draconil",
+   "rel": "requires",
+   "tuning": 0
   },
   {
-   "src": "rec:moonlit",
-   "dst": "Yonescope",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:moonlit",
-   "dst": "C",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:bloomheart",
-   "dst": "Persimmious",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:bloomheart",
-   "dst": "En",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:bloomheart",
-   "dst": "En",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:mirrorself",
-   "dst": "Malvesian",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:mirrorself",
-   "dst": "I",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:cosmic",
-   "dst": "Saspacian",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:emberward",
-   "dst": "Korastic",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:emberward",
+   "src": "rec:pepperpop-mixture",
    "dst": "Ev",
-   "rel": "requires"
+   "rel": "requires",
+   "tuning": 0
   },
   {
-   "src": "rec:emberward",
+   "src": "rec:pepperpop-mixture",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:pepperpop-mixture",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:pepperpop-mixture",
    "dst": "C",
-   "rel": "requires"
+   "rel": "requires",
+   "tuning": 1
   },
   {
-   "src": "rec:gravebind",
+   "src": "rec:pepperpop-mixture",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:pepperpop-mixture",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:pepperpop-mixture",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:saltpearl-spray",
    "dst": "N",
    "rel": "requires"
   },
   {
-   "src": "rec:gravebind",
+   "src": "rec:saltpearl-spray",
    "dst": "N",
    "rel": "requires"
   },
   {
-   "src": "rec:gravebind",
-   "dst": "N",
+   "src": "rec:saltpearl-spray",
+   "dst": "Silentix",
    "rel": "requires"
   },
   {
-   "src": "rec:gravebind",
-   "dst": "N",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:prism",
-   "dst": "Chrysipil",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:prism",
-   "dst": "Chrysipil",
-   "rel": "requires"
-  },
-  {
-   "src": "rec:prism",
+   "src": "rec:saltpearl-spray",
    "dst": "T",
    "rel": "requires"
   },
   {
-   "src": "rec:echo",
-   "dst": "Ontoligin",
+   "src": "rec:auroniels-aroma",
+   "dst": "D",
    "rel": "requires"
   },
   {
-   "src": "rec:echo",
+   "src": "rec:auroniels-aroma",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:auroniels-aroma",
    "dst": "Ev",
    "rel": "requires"
   },
   {
-   "src": "rec:verdigris",
+   "src": "rec:auroniels-aroma",
+   "dst": "I",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindlock-mixture",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindlock-mixture",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindlock-mixture",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:mindlock-mixture",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:owlbear-pheromones",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:owlbear-pheromones",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:owlbear-pheromones",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:owlbear-pheromones",
+   "dst": "Silentix",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:hags-tincture",
    "dst": "Chrysipil",
    "rel": "requires"
   },
   {
-   "src": "rec:verdigris",
+   "src": "rec:hags-tincture",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:hags-tincture",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:hags-tincture",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:calming-cologne",
+   "dst": "Crallax",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:calming-cologne",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:calming-cologne",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:calming-cologne",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:pensive-perfume",
+   "dst": "Albutian",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:pensive-perfume",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:pensive-perfume",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:pensive-perfume",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "Crallax",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "Crallax",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "Silentix",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:slippery-serum",
+   "dst": "Silentix",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "Letchettin",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "Myddenic",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:solemn-stink",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "C",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "C",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "En",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:ghostwalk-grog",
+   "dst": "Yonescope",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:bright",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bright",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenzy",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenzy",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenzy",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenzy",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:second-spark",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:second-spark",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:second-spark",
+   "dst": "Korastic",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:second-spark",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:potion-of-peril",
+   "dst": "Draconil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:potion-of-peril",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:potion-of-peril",
+   "dst": "Lythillious",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:potion-of-peril",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:magnis-mixture",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:magnis-mixture",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:magnis-mixture",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:ox-odor",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:ox-odor",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:ox-odor",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenetic-fragrance",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenetic-fragrance",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenetic-fragrance",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:frenetic-fragrance",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "Myddenic",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:dribbleblight-draught",
+   "dst": "Yonescope",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:griminal-gas",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:griminal-gas",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:griminal-gas",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:griminal-gas",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:regenerative-reek",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:regenerative-reek",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:regenerative-reek",
    "dst": "E",
    "rel": "requires"
   },
   {
-   "src": "rec:verdigris",
+   "src": "rec:regenerative-reek",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:regenerative-reek",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bombastic-brew",
    "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bombastic-brew",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bombastic-brew",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:bombastic-brew",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "E",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "Lythillious",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "E",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "Lythillious",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:redroot-derivative",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "Silentix",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:shimmerskin-succulence",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "Silentix",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "Korastic",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:parasitic-perfume",
+   "dst": "Silentix",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:awakening-auroma",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:awakening-auroma",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:awakening-auroma",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:awakening-auroma",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:liquidation-liquer",
+   "dst": "Albutian",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:liquidation-liquer",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:liquidation-liquer",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:liquidation-liquer",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:liquidation-liquer",
+   "dst": "T",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "C",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Crallax",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Myddenic",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Crallax",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Crallax",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Myddenic",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Myddenic",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "C",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Crallax",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "D",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:antimagic-auroma",
+   "dst": "Myddenic",
+   "rel": "requires",
+   "tuning": 3
+  },
+  {
+   "src": "rec:energestic-emulsion",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:energestic-emulsion",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:energestic-emulsion",
+   "dst": "Draconil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:energestic-emulsion",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:puppetry-perfumette",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:puppetry-perfumette",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:puppetry-perfumette",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:puppetry-perfumette",
+   "dst": "Myddenic",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invulnerability-ichor",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invulnerability-ichor",
+   "dst": "D",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invulnerability-ichor",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invulnerability-ichor",
+   "dst": "Korastic",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:invulnerability-ichor",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "Albutian",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "C",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "N",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "C",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "Ev",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "I",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:nocturnal-nectar",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 2
+  },
+  {
+   "src": "rec:histological-hairoil",
+   "dst": "Ev",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:histological-hairoil",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:histological-hairoil",
+   "dst": "Ontoligin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:histological-hairoil",
+   "dst": "Yonescope",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:redroot-deconcoctual",
+   "dst": "A",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:redroot-deconcoctual",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:redroot-deconcoctual",
+   "dst": "Ignetium",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:redroot-deconcoctual",
+   "dst": "N",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:redroot-deconcoctual",
+   "dst": "Persimmious",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "Ignetium",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "Yonescope",
+   "rel": "requires",
+   "tuning": 0
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "A",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "T",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:valuers-vapor",
+   "dst": "Yonescope",
+   "rel": "requires",
+   "tuning": 1
+  },
+  {
+   "src": "rec:greenery-gas",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:greenery-gas",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:greenery-gas",
+   "dst": "En",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:greenery-gas",
+   "dst": "Letchettin",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swimmers-serum",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swimmers-serum",
+   "dst": "C",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swimmers-serum",
+   "dst": "Chrysipil",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swimmers-serum",
+   "dst": "E",
+   "rel": "requires"
+  },
+  {
+   "src": "rec:swimmers-serum",
+   "dst": "Ev",
    "rel": "requires"
   }
  ]

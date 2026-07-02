@@ -58,7 +58,7 @@ ING = {
  "Bitterhearts":["N","D"], "Olgrumast Mushroom":["I","A"],
  "Fjeldling Scale":["Draconil","Ignetium"], "Northman's Beard":["Ignetium","C"],
  "Pepperpops":["Ev","Ev"], "Banshee's Hair":["N","T"],
- "Razorclam Pearl":["Silentix","N"], "Bright":["Ev","En"],
+ "Razorclam Pearl":["Silentix","N"], "Brightflower":["Ev","En"],  # drawn as "Bright" in the PDF
  # page 2
  "Sheensacks":{"minus":1}, "Moonchalk":["D","I"],
  "Ferrenocht Crystals":["N","A"], "Redcaps":["En","En"],
@@ -117,7 +117,7 @@ for i,name in enumerate(order):
 
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
-COLORS = json.loads(open(os.path.join(HERE, "ing_colors.json")).read())
+COLORS = json.loads(open(os.path.join(HERE, "ing_colors.json"), encoding="utf-8-sig").read())
 
 # ------------------------------------------------------------------- validation
 ALL_FREQ = FUND_IDS | set(NAMED)
@@ -158,119 +158,219 @@ for n in NAMED:
     NAMED[n]["weight"]=sum(expand(n).values())
 
 # --------------------------------------------------------------------- recipes
-# A recipe is a target multiset of frequency tokens (named or fundamental).
+# Ground truth: the d40 "common recipes" table. A recipe is DEFINED by frequency
+# multisets; the listed ingredients are just the common way to reach them.
+# Slot syntax: each recipe has ingredient slots; a slot lists alternatives
+# ("either combo of frequencies can be used"). Entries:
+#   "Name"          -> 1x that ingredient
+#   ("Name", k)     -> k x that ingredient (e.g. Chrythsmeum x4)
+#   "?Name"         -> named in the lore table but absent from the Ingredients
+#                      Table; shown in the UI, excluded from the math.
+# Every distinct frequency profile a combo produces becomes a valid requirement
+# ("tuning") of the recipe. reqOverride pins the requirement instead (Black Gas:
+# the Shadow Demon Liver's two removals strip the off-tone from either berry,
+# so the perfume itself is the lone Necromancy note -- the only reading where
+# both listed combos yield the same perfume and the liver isn't dead weight).
 RECIPES = [
- dict(id="healing", name="Potion of Healing", school="Restoration",
-      desc="The canonical brew. Soft enchantment bound to a glittering Crallax core.",
-      req=["En","Crallax","A","A"]),
- dict(id="invis", name="Draught of Invisibility", school="Illusion",
-      desc="Bends light around the wearer with a doubled Illusion resonance.",
-      req=["I","I","Yonescope"]),
- dict(id="firebreath", name="Elixir of Fire Breath", school="Evocation",
-      desc="A roaring Ignetium flame fed by raw Evocation.",
-      req=["Ignetium","Ev","Ev"]),
- dict(id="featherfall", name="Oil of Feather Fall", school="Abjuration",
-      desc="Three steady Abjuration tones lighten any fall.",
-      req=["A","A","A"]),
- dict(id="truesight", name="Tincture of True Sight", school="Divination",
-      desc="An Oracite-clear triple Divination that pierces illusion.",
-      req=["D","D","D"]),
- dict(id="silence", name="Veil of Silence", school="Enchantment",
-      desc="The Silentix bell, hushed and rung once in Necromantic stillness.",
-      req=["Silentix","N"]),
- dict(id="dragonhide", name="Balm of Dragonhide", school="Transmutation",
-      desc="Scales of Draconil tempered by a Transmutation sheen.",
-      req=["Draconil","T","Ev"]),
- dict(id="spectral", name="Spectral Lantern Perfume", school="Conjuration",
-      desc="A Laternical glow that summons guiding spirits.",
-      req=["Laternical"]),
- dict(id="mindward", name="Mindward Mist", school="Abjuration",
-      desc="A caged Myddenic ward against intrusion, sealed with Conjuration.",
-      req=["Myddenic","C","A"]),
- dict(id="stormcall", name="Stormcaller's Cologne", school="Evocation",
-      desc="Thurmistic thunder over a low Necromantic hum.",
-      req=["Thurmistic","N","N"]),
- dict(id="moonlit", name="Moonlit Reverie", school="Divination",
-      desc="Yonescope twilight folded into pure Conjuration.",
-      req=["Yonescope","Yonescope","C"]),
- dict(id="bloomheart", name="Bloomheart Attar", school="Restoration",
-      desc="A Persimmious lotus opening over warm Enchantment.",
-      req=["Persimmious","En","En"]),
- dict(id="mirrorself", name="Mirror-Self Essence", school="Illusion",
-      desc="The Malvesian mirror, doubled by a flicker of Illusion.",
-      req=["Malvesian","I"]),
- dict(id="cosmic", name="Cosmic Saspacian No. 5", school="Universal",
-      desc="The masterwork. A single Saspacian chord -- every Guide woven into one planet.",
-      req=["Saspacian"]),
- dict(id="emberward", name="Emberward Eau", school="Evocation",
-      desc="Korastic meteor-fire balanced on a knife of Evocation and Conjuration.",
-      req=["Korastic","Ev","C"]),
- dict(id="gravebind", name="Gravebind Anointment", school="Necromancy",
-      desc="Four Necromantic tolls to bind what should stay buried.",
-      req=["N","N","N","N"]),
- dict(id="prism", name="Prismatic Chrysipil Spritz", school="Transmutation",
-      desc="Two Chrysipil crystals refracted through a Transmutation prism.",
-      req=["Chrysipil","Chrysipil","T"]),
- dict(id="echo", name="Echo of the Deep", school="Conjuration",
-      desc="An Ontoligin scroll read aloud beneath an Evocation tide.",
-      req=["Ontoligin","Ev"]),
- dict(id="verdigris", name="Verdigris Veil", school="Evocation",
-      desc="A rare E-tone caged in Chrysipil crystal and Conjuration -- the Mara Nur signature.",
-      req=["Chrysipil","E","C"]),
+ dict(roll=1,  id="corpse-gas", name="Corpse Gas",
+      desc="A miasma of the freshly turned grave. Crowds part; carrion birds follow.",
+      slots=[["Thistle Goblin Tooth"],["Blistermoss"]]),
+ dict(roll=2,  id="swanas-serum", name="Swana's Serum",
+      desc="Swana's gentle restorative -- enchantment folded into a sparkling Crallax heart.",
+      slots=[["Aphasia Flower"],["Noble Roses"]]),
+ dict(roll=3,  id="mourningweep-oil", name="Mourningweep Oil",
+      desc="Anoint the brow and grieve beautifully. Sorrow, doubled and bound in Necromancy.",
+      slots=[["Wailing Thrush Egg"],["Mourningweep"]]),
+ dict(roll=4,  id="black-gas", name="Black Gas",
+      desc="The liver's hollows strip every stray tone away, leaving one pure necrotic note.",
+      slots=[["Shadow Demon Liver"],["Ichorberries","Bitterhearts"]],
+      reqOverride=["N"]),
+ dict(roll=5,  id="pepperpop-mixture", name="Pepperpop Mixture",
+      desc="Crackles on the skin like chewed embers. Sneeze fire, politely.",
+      slots=[["Fjeldling Scale","Northman's Beard"],["Pepperpops"]]),
+ dict(roll=6,  id="saltpearl-spray", name="Saltpearl Spray",
+      desc="Brine, hush, and mother-of-pearl -- the quiet of the tide going out.",
+      slots=[["Banshee's Hair"],["Razorclam Pearl"]]),
+ dict(roll=7,  id="auroniels-aroma", name="Auroniel's Aroma",
+      desc="Auroniel's own moonlit glamour; chalk-light over a warm bright bloom.",
+      slots=[["Moonchalk"],["Brightflower"]]),
+ dict(roll=8,  id="mindlock-mixture", name="Mindlock Mixture",
+      desc="Twin enchantments bolted to cold iron thought. The mind stays shut.",
+      slots=[["Ferrenocht Crystals"],["Redcaps"]]),
+ dict(roll=9,  id="owlbear-pheromones", name="Owlbear Pheromones",
+      desc="Irresistible to owlbears. Wear at your own considerable risk.",
+      slots=[["Owlbear Saliva"],["Elves Ear"]]),
+ dict(roll=10, id="hags-tincture", name="Hag's Tincture",
+      desc="A crone's disguise in a bottle -- horn-musk sweetened with bubble blossom.",
+      slots=[["?Were-Elk Antler","Bulezau Horn"],["Bubble Blossoms"]]),
+ dict(roll=11, id="calming-cologne", name="Calming Cologne",
+      desc="Glitterwing dust over aphasia bloom. The pulse slows; the words come easy.",
+      slots=[["Aphasia Flower"],["Glitterflies"]]),
+ dict(roll=12, id="pensive-perfume", name="Pensive Perfume",
+      desc="Cold-shard clarity with a dewdrop melt. For long thoughts by short candles.",
+      slots=[["Great Cold Shard"],["Melting Dewdrops"]]),
+ dict(roll=13, id="slippery-serum", name="Slippery Serum",
+      desc="Nothing grips the wearer -- not hands, not ropes, not consequences.",
+      slots=[["Icecap Crabs","Jotuun Heart"],["Quickfish","Moonchalk"]]),
+ dict(roll=14, id="solemn-stink", name="Solemn Stink",
+      desc="Peat and old horn. Commands a funeral's gravity in any room.",
+      slots=[["Bulezau Horn","Undead Heart"],["Pemneath Peat"]]),
+ dict(roll=15, id="ghostwalk-grog", name="Ghostwalk Grog",
+      desc="Lavender over cold stillness; the dead mistake you for weather.",
+      slots=[["Icecap Crabs","Ionillic Eggs"],["Cloud Lavender"]]),
+ dict(roll=16, id="bright", name="Bright",
+      desc="A single brightflower, distilled. Radiance you can wear.",
+      slots=[["Brightflower"]]),
+ dict(roll=16, id="frenzy", name="Frenzy",
+      desc="Brightflower stoked with a northman's fire-beard -- brilliance tipped into mania.",
+      slots=[["Northman's Beard"],["Brightflower"]]),
+ dict(roll=17, id="second-spark", name="Second Spark",
+      desc="For engines, hearts, and arguments that have gone out. Reignition guaranteed.",
+      slots=[["Blood Demon Eye"],["Lady's Gold"]]),
+ dict(roll=18, id="potion-of-peril", name="Potion of Peril",
+      desc="Dragon venom on a moss fuse. Handle with tongs and good insurance.",
+      slots=[["Green Dragon Venom"],["Blistermoss"]]),
+ dict(roll=19, id="magnis-mixture", name="Magnis Mixture",
+      desc="Platinum-bound moon-pull. Small metal objects (and admirers) drift closer.",
+      slots=[["Ionillic Eggs"],["Platinum"]]),
+ dict(roll=20, id="ox-odor", name="Ox Odor",
+      desc="Tuber starch and ogre grip. Smell like you can carry the cart yourself.",
+      slots=[["Dwarf Tubers"],["Ogre Hand"]]),
+ dict(roll=21, id="frenetic-fragrance", name="Frenetic Fragrance",
+      desc="Redcap fury lashed to burning larch -- the nose's equivalent of a war drum.",
+      slots=[["Redcaps"],["Lornlarch"]]),
+ dict(roll=22, id="dribbleblight-draught", name="Dribbleblight Draught",
+      desc="It drips. It blights. The scent arrives three seconds after the dread.",
+      slots=[["Rindergrapes"],["Undead Heart","Mandrake"]]),
+ dict(roll=23, id="griminal-gas", name="Griminal Gas",
+      desc="Mandrake scream settled over banshee hair. Strictly graveside wear.",
+      slots=[["Mandrake"],["Banshee's Hair"]]),
+ dict(roll=24, id="regenerative-reek", name="Regenerative Reek",
+      desc="Foul going on, marvelous coming off -- flesh knits under the stench.",
+      slots=[["Mara Nur Cap"],["Blistermoss"]]),
+ dict(roll=25, id="bombastic-brew", name="Bombastic Brew",
+      desc="Twinned conjured winks with a glitter fuse. Loud in every language.",
+      slots=[["Lemiwinkles"],["Glitterflies"]]),
+ dict(roll=26, id="redroot-derivative", name="Redroot Derivative",
+      desc="The sanguivore's table wine, rooted red and faintly pulsing.",
+      slots=[["Creeping Coriand","Katowician Honeyhive"],["Sanguivore Organ","Sanguipoles"]]),
+ dict(roll=27, id="shimmerskin-succulence", name="Shimmerskin Succulence",
+      desc="Scales of light across the skin. Best applied under a full moon.",
+      slots=[["Trihorn"],["Oracite","Klyst"]]),
+ dict(roll=28, id="parasitic-perfume", name="Parasitic Perfume",
+      desc="Symbiotes find you charming. Everything else finds you occupied.",
+      slots=[["Rotgulp Eggs"],["Treakbug","Symbiotic Barnacles"]]),
+ dict(roll=29, id="awakening-auroma", name="Awakening Auroma",
+      desc="Smelling salts of the inlet -- divination doubled through a cold snap.",
+      slots=[["Weird Dog Foot"],["Scourge of the Inlet"]]),
+ dict(roll=30, id="liquidation-liquer", name="Liquidation Liquer",
+      desc="Everything solid remembers it was once soup. Assets included.",
+      slots=[["Ooze Cube"],["Stasis Muck"]]),
+ dict(roll=31, id="antimagic-auroma", name="Antimagic Auroma",
+      desc="A null-scent that eats spellwork; the arcanavore's hunger, bottled.",
+      slots=[["Arcanavore Organ",("Chrythsmeum",4)],["Seacursed Scale","Arcanavore Organ"]]),
+ dict(roll=32, id="energestic-emulsion", name="Energestic Emulsion",
+      desc="Golden dragon-oil charged with fulmile spark. Vigor with a metallic bite.",
+      slots=[["Fulmiles"],["Aurum"]]),
+ dict(roll=33, id="puppetry-perfumette", name="Puppetry Perfumette",
+      desc="A dab behind the ears -- theirs, not yours. Strings sold separately.",
+      slots=[["Bramblechoke"],["Brain Lemming"]]),
+ dict(roll=34, id="invulnerability-ichor", name="Invulnerability Ichor",
+      desc="Trilobite patience in jellied meteor-fire. Blades change the subject.",
+      slots=[["Penchant Jellies"],["Golden Trilobite"]]),
+ dict(roll=35, id="nocturnal-nectar", name="Nocturnal Nectar",
+      desc="The night in three vintages -- choose your darkness, wear till dawn.",
+      slots=[["Deadly Moonbloom"],["Great Cold Shard","Evengeist Ear","Cloud Lavender"]]),
+ dict(roll=36, id="histological-hairoil", name="Histological Hairoil",
+      desc="Sphynx-blessed follicle scripture. Regrows what the wraiths whisked away.",
+      slots=[["Sphynx Paw"],["Wraith Whisps"]]),
+ dict(roll=37, id="redroot-deconcoctual", name="Redroot Deconcoctual Derivative",
+      desc="The antidote's antidote -- lotus logic unwinding the redroot knot.",
+      slots=[["Sevan Lotus"],["Tekachapi Berries"]]),
+ dict(roll=38, id="valuers-vapor", name="Valuers Vapor",
+      desc="One sniff prices anything: amber honesty against a golden hunch.",
+      slots=[["Spearfisher Horns"],["Amber","Gold"]]),
+ dict(roll=39, id="greenery-gas", name="Greenery Gas",
+      desc="Glass-cut chlorophyll. Rooms sprout; ledgers turn over new leaves.",
+      slots=[["Verdaux"],["Glass"]]),
+ dict(roll=40, id="swimmers-serum", name="Swimmer's Serum",
+      desc="Gar-eyed and rock-calm below the surface. Breathe easy; swim rude.",
+      slots=[["Lake Gar Eye"],["Baleful Rockfish"]]),
 ]
 
-# ---------------------------------------------------------- solver / solvability
-items=[]  # (name, Counter(emits), minus, plus)
-for n,v in ING.items():
-    if isinstance(v,dict):
-        items.append((n,Counter(),v.get("minus",0),v.get("plus",0)))
-    else:
-        items.append((n,Counter(v),0,0))
+# --------------------------------------------- compile slots -> reqs + combos
+def norm_entry(e):
+    if isinstance(e, tuple): return dict(name=e[0], qty=e[1], known=True)
+    if e.startswith("?"):    return dict(name=e[1:], qty=1, known=False)
+    return dict(name=e, qty=1, known=True)
+
+def ing_stats(name, qty):
+    v = ING[name]
+    if isinstance(v, dict):
+        return Counter(), v.get("minus",0)*qty, v.get("plus",0)*qty
+    c = Counter()
+    for _ in range(qty): c += Counter(v)
+    return c, 0, 0
 
 def satisfies(brew, minus, plus, req):
     """can brew (+/- wildcards) be made EXACTLY equal to req?"""
-    excess = brew - req           # tokens we have too many of -> must remove
-    deficit = req - brew          # tokens we are missing -> must add
+    excess  = brew - req
+    deficit = req - brew
     return sum(excess.values())<=minus and sum(deficit.values())<=plus
 
-REMOVERS=[it for it in items if it[2]>0 or it[3]>0]
-def best_solution(req, max_items=4):
-    """Find the craft using the fewest wildcard-additions, then fewest ingredients,
-    then least trimming. Prefilters candidates for speed."""
-    req=Counter(req); rset=set(req)
-    cand=[it for it in items if (set(it[1])&rset) or it[2] or it[3]]
-    best=None
-    for k in range(1,max_items+1):
-        fk=None
-        for combo in itertools.combinations(range(len(cand)),k):
-            brew=Counter(); minus=0; plus=0
-            for idx in combo:
-                brew+=cand[idx][1]; minus+=cand[idx][2]; plus+=cand[idx][3]
-            ex=sum((brew-req).values()); df=sum((req-brew).values())
-            if ex<=minus and df<=plus:
-                sc=(df,k,ex)
-                if fk is None or sc<fk[0]:
-                    fk=(sc,[cand[idx][0] for idx in combo])
-        if fk and (best is None or fk[0]<best[0]): best=fk
-        if best and best[0][0]==0: break   # honest solution found
-    return best
+print("\nCompiling %d common recipes:" % len(RECIPES))
+for r in RECIPES:
+    slots = [[norm_entry(e) for e in slot] for slot in r["slots"]]
+    for slot in slots:
+        for e in slot:
+            if e["known"]:
+                assert e["name"] in ING, f"{r['name']}: unknown ingredient {e['name']}"
+        assert any(e["known"] for e in slot), f"{r['name']}: slot has no known ingredient"
+
+    reqs = []           # distinct requirement multisets (as sorted token lists)
+    req_keys = []       # frozenset-of-items keys for dedupe
+    combos = []
+    for pick in itertools.product(*[[e for e in slot if e["known"]] for slot in slots]):
+        ings = []
+        brew = Counter(); minus = 0; plus = 0
+        for e in pick:
+            ings += [e["name"]] * e["qty"]
+            c, m, p = ing_stats(e["name"], e["qty"])
+            brew += c; minus += m; plus += p
+        req = Counter(r["reqOverride"]) if "reqOverride" in r else brew
+        assert satisfies(brew, minus, plus, req), f"{r['name']}: combo {ings} cannot reach req"
+        assert sum((req - brew).values()) == 0, f"{r['name']}: combo {ings} would need +wildcards"
+        key = tuple(sorted(req.items()))
+        if key not in req_keys:
+            req_keys.append(key); reqs.append(sorted(req.elements()))
+        combos.append(dict(ings=ings, req=req_keys.index(key),
+                           trim=sum((brew - req).values()), wildAdd=0))
+
+    w = max(sum(sum(expand(t).values()) for t in q) for q in reqs)
+    r["tier"] = "simple" if w<=8 else ("advanced" if w<=20 else "legendary")
+    r["reqs"] = reqs; r["combos"] = combos
+    r["slotsOut"] = [[dict(name=e["name"], qty=e["qty"], known=e["known"]) for e in slot]
+                     for slot in slots]
+    print(f"  d40:{r['roll']:>2} {r['name']:32s} [{r['tier']:9s}] w{w:<3} "
+          f"{len(reqs)} tuning(s), {len(combos)} combo(s)")
+
+# sanity: the two Black Gas combos both land on the lone-N requirement
+bg = next(r for r in RECIPES if r["id"]=="black-gas")
+assert bg["reqs"] == [["N"]] and len(bg["combos"]) == 2
+# sanity: Swana's Serum is the old healing profile
+sw = next(r for r in RECIPES if r["id"]=="swanas-serum")
+assert Counter(sw["reqs"][0]) == Counter(["En","Crallax","A","A"])
+# sanity: Bright is a strict subset of Frenzy (adding Northman's Beard upgrades it)
+br = next(r for r in RECIPES if r["id"]=="bright")
+fz = next(r for r in RECIPES if r["id"]=="frenzy")
+assert not (Counter(br["reqs"][0]) - Counter(fz["reqs"][0]))
 
 # which named frequencies are emitted by NO ingredient? (the "legendary" tier)
 emitted=set()
-for _,c,_,_ in items: emitted|=set(c)
+for v in ING.values():
+    if isinstance(v,list): emitted|=set(v)
 LEGENDARY_FREQ=sorted(set(NAMED)-emitted)
 print("\nLegendary frequencies (emitted by no ingredient):",LEGENDARY_FREQ)
-
-print("\nRecipe solvability (HONEST = craftable with no +wildcard):")
-for r in RECIPES:
-    (df,k,ex),sol = best_solution(r["req"])
-    r["example"]=sol; r["trim"]=ex; r["wildAdd"]=df
-    r["tier"]= "legendary" if df>0 else ("simple" if (k<=2 and ex==0) else "advanced")
-    tag="HONEST" if df==0 else f"LEGENDARY(+{df})"
-    print(f"  {r['name']:30s} {tag:14s} k{k} trim{ex} [{r['tier']:9s}] | "+", ".join(sol))
-
-unsolved=[r['name'] for r in RECIPES if not r.get('example')]
-print("\nUnsolved:", unsolved or "none -- every recipe is craftable")
 
 # ------------------------------------------------------------------ export json
 out=dict(
@@ -278,7 +378,9 @@ out=dict(
   named=[dict(id=n, icon=d["icon"], components=d["comps"],
              expanded=d["expanded"], weight=d["weight"]) for n,d in NAMED.items()],
   ingredients=[],
-  recipes=RECIPES,
+  recipes=[dict(id=r["id"], roll=r["roll"], name=r["name"], desc=r["desc"],
+                tier=r["tier"], slots=r["slotsOut"], reqs=r["reqs"],
+                combos=r["combos"]) for r in RECIPES],
 )
 for n,v in ING.items():
     e=dict(name=n, page=PAGE_OF[n], color=COLORS.get(n,"#888888"))
@@ -288,7 +390,17 @@ for n,v in ING.items():
         e["emits"]=v; e["minus"]=0; e["plus"]=0
     out["ingredients"].append(e)
 
-open(os.path.join(HERE, "data.json"),"w").write(
+open(os.path.join(HERE, "data.json"),"w",encoding="utf-8").write(
     json.dumps(out,ensure_ascii=False,indent=1))
 print("\nWrote data.json:",len(out["ingredients"]),"ingredients,",
       len(out["named"]),"named freqs,",len(out["recipes"]),"recipes")
+
+# ------------------------------------------- embed DATA blob into index.html
+html_path = os.path.join(HERE, "index.html")
+if os.path.exists(html_path):
+    html = open(html_path, encoding="utf-8").read()
+    start = html.index("const DATA = ")
+    end = html.index("\n};\n", start) + len("\n};\n")
+    html = html[:start] + "const DATA = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n" + html[end:]
+    open(html_path, "w", encoding="utf-8").write(html)
+    print("Embedded DATA into index.html")
